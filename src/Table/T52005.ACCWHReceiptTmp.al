@@ -1,6 +1,6 @@
 table 52005 "ACC WH Receipt Tmp"
 {
-    Caption = 'ACC  WH Receipt Tmp';
+    Caption = 'APIS WH Receipt Tmp';
     TableType = Temporary;
 
     fields

@@ -1,6 +1,6 @@
 table 51998 "AIG Cost Value Entry"
 {
-    Caption = 'AIG Cost Value Entry';
+    Caption = 'APIS Cost Value Entry';
     DataClassification = ToBeClassified;
 
     fields

@@ -1,6 +1,6 @@
 table 52003 "ACC Debt Confirmation Tmp"
 {
-    Caption = 'ACC Debt Confirmation Tmp';
+    Caption = 'APIS Debt Confirmation Tmp';
     TableType = Temporary;
 
     fields

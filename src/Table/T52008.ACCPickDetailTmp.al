@@ -1,6 +1,6 @@
 table 52008 "ACC Pick Detail Tmp"
 {
-    Caption = 'ACC  Pick Detail Tmp';
+    Caption = 'APIS Pick Detail Tmp';
     TableType = Temporary;
 
     fields

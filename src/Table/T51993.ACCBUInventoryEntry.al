@@ -1,6 +1,6 @@
 table 51993 "ACC BU Inventory Entry"
 {
-    Caption = 'ACC BU Inventory Entry';
+    Caption = 'APIS BU Inventory Entry';
     DataClassification = ToBeClassified;
 
     fields

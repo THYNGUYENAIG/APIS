@@ -1,6 +1,6 @@
 table 51999 "AIG Value Entry Relation"
 {
-    Caption = 'AIG Value Entry Relation';
+    Caption = 'APIS Value Entry Relation';
     DataClassification = ToBeClassified;
 
     fields

@@ -1,6 +1,6 @@
 table 52009 "ACC Inventory By Month"
 {
-    Caption = 'ACC Inventory By Month';
+    Caption = 'APIS Inventory By Month';
     DataClassification = ToBeClassified;
 
     fields

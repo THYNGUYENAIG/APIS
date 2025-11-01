@@ -1,6 +1,6 @@
 table 51995 "AIG Transaction Entry"
 {
-    Caption = 'AIG Transaction Entry';
+    Caption = 'APIS Transaction Entry';
     DataClassification = ToBeClassified;
 
     fields

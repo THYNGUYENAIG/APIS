@@ -1,6 +1,6 @@
 table 51992 "ACC BU Planning Entry"
 {
-    Caption = 'ACC BU Planning Adjustment Entry';
+    Caption = 'APIS BU Planning Adjustment Entry';
     DataClassification = ToBeClassified;
 
     fields

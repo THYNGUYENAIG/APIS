@@ -1,6 +1,6 @@
 table 52002 "ACC PO Line Tmp"
 {
-    Caption = 'ACC Purchase Order Line Tmp';
+    Caption = 'APIS Purchase Order Line Tmp';
     TableType = Temporary;
 
     fields

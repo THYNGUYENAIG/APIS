@@ -1,6 +1,6 @@
 table 51996 "AIG Inventory Entry"
 {
-    Caption = 'AIG Inventory Entry';
+    Caption = 'APIS Inventory Entry';
     DataClassification = ToBeClassified;
 
     fields

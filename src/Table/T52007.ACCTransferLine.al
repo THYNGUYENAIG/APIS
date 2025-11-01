@@ -1,6 +1,6 @@
 table 52007 "ACC Transfer Line"
 {
-    Caption = 'ACC  Transfer Line';
+    Caption = 'APIS Transfer Line';
 
     fields
     {

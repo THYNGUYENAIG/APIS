@@ -1,6 +1,6 @@
 table 52004 "ACC Shelf Life As Date Tmp"
 {
-    Caption = 'ACC Shelf Life As Date Tmp';
+    Caption = 'APIS Shelf Life As Date Tmp';
     TableType = Temporary;
 
     fields
