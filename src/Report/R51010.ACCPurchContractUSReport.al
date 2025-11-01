@@ -1,7 +1,7 @@
 report 51010 "ACC Purch Contract US Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purchase Contract US Report - R51010';
+    Caption = 'APIS Purchase Contract US Report - R51010';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;
@@ -17,6 +17,7 @@ report 51010 "ACC Purch Contract US Report"
             column(BuyFromAddress; "Buy-from Address") { }
             column(BuyFromAddress02; "Buy-from Address 2") { }
             column(BuyFromCity; "Buy-from City") { }
+            column(VNAddress; VendTable."BLACC VN Address") { }
             column(BuyToVATRegistration; VendTable."VAT Registration No.") { }
             column(BuyToPhone; VendTable."Phone No.") { }
             column(BuyToFax; VendTable."Fax No.") { }

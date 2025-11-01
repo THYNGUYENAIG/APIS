@@ -2,7 +2,7 @@ page 52021 "ACC Transaction Inventory"
 {
     AdditionalSearchTerms = 'inventory transactions';
     ApplicationArea = Basic, Suite;
-    Caption = 'ACC Transaction Inventory';
+    Caption = 'APIS Transaction Inventory';
     DataCaptionExpression = GetCaption();
     DataCaptionFields = "Item No.";
     Editable = false;

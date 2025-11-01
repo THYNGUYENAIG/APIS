@@ -41,6 +41,19 @@ pageextension 51002 "ACC Purchase Orders" extends "Purchase Order List"
         {
             group(Report)
             {
+                action(ACCContractUSAsPDF)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Contract As PDF';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    Visible = Rec."VAT Bus. Posting Group" = 'OVERSEA';
+                    Enabled = Rec.Status = "Purchase Document Status"::Released;
+                    trigger OnAction();
+                    begin
+                        GetDataContractUSAsPDF();
+                    end;
+                }
                 action(ACCContractUS)
                 {
                     ApplicationArea = All;
@@ -99,6 +112,36 @@ pageextension 51002 "ACC Purchase Orders" extends "Purchase Order List"
             }
         }
     }
+
+    local procedure GetDataContractUSAsPDF()
+    var
+        TempBlob: Codeunit "Temp Blob";
+        FileManagement: Codeunit "File Management";
+        OStream: OutStream;
+
+        Field: Record "Purchase Header";
+        FieldRec: Record "Purchase Header";
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        RecRef: RecordRef;
+        FieldReport: Report "ACC Purch Contract US Report";
+        ACSFieldReport: Report "ACS Purch Contract US Report";
+        CompanyId: Text;
+    begin
+        CompanyId := CompanyName;
+
+        CurrPage.SetSelectionFilter(Field);
+        RecRef.GetTable(Field);
+        TempBlob.CreateOutStream(OStream);
+
+        if CompanyId = 'ACS' then begin
+            Report.SaveAs(Report::"ACS Purch Contract US Report", '', ReportFormat::Pdf, OStream, RecRef);
+            FileManagement.BLOBExport(TempBlob, 'Purchase Order_' + Rec."No." + '_' + Format(CurrentDateTime, 0, '<Year4><Day,2><Month,2><Hours24><Minutes,2><Seconds,2>') + '.pdf', true);
+        end else begin
+            Report.SaveAs(Report::"ACC Purch Contract US Report", '', ReportFormat::Pdf, OStream, RecRef);
+            FileManagement.BLOBExport(TempBlob, 'Purchase Order_' + Rec."No." + '_' + Format(CurrentDateTime, 0, '<Year4><Day,2><Month,2><Hours24><Minutes,2><Seconds,2>') + '.pdf', true);
+        end;
+    end;
+
     local procedure GetDataContractUS()
     var
         Field: Record "Purchase Header";

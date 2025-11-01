@@ -1,6 +1,6 @@
 page 52007 "ACC Inventory Dialog"
 {
-    Caption = 'ACC Inventory Dialog';
+    Caption = 'APIS Inventory Dialog';
     PageType = StandardDialog;
 
     layout

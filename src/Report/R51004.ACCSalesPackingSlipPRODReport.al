@@ -1,6 +1,6 @@
 report 51004 "ACC Packing Slip - PROD Report"
 {
-    Caption = 'ACC Sales Packing Slip - PRODEXP Report - R51004';
+    Caption = 'APIS Sales Packing Slip - PRODEXP Report - R51004';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

@@ -2,7 +2,7 @@ page 52020 "ACC Item Ledger Entries"
 {
     AdditionalSearchTerms = 'inventory transactions';
     ApplicationArea = Basic, Suite;
-    Caption = 'ACC Item Ledger Entries';
+    Caption = 'APIS Item Ledger Entries';
     DataCaptionExpression = GetCaption();
     DataCaptionFields = "Item No.";
     Editable = false;

@@ -1,6 +1,6 @@
 page 52031 "ACC Sales Quotation Statistic"
 {
-    Caption = 'ACC Sales Quotation Statistic - P52031';
+    Caption = 'APIS Sales Quotation Statistic - P52031';
     PageType = List;
     SourceTable = "ACC Sales Line Tmp";
     ApplicationArea = All;

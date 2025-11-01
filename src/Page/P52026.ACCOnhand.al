@@ -1,6 +1,6 @@
 page 52026 "ACC Onhand"
 {
-    Caption = 'ACC Onhand - P52026';
+    Caption = 'APIS Onhand - P52026';
     PageType = List;
     ApplicationArea = All;
     UsageCategory = History;

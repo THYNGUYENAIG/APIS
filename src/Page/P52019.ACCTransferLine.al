@@ -1,7 +1,7 @@
 page 52019 "ACC Transfer Line"
 {
     ApplicationArea = All;
-    Caption = 'ACC Transfer Line Page';
+    Caption = 'APIS Transfer Line Page';
     PageType = List;
     SourceTable = "ACC Transfer Line";
     // Editable = false;

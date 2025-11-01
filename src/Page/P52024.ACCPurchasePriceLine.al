@@ -1,7 +1,7 @@
 page 52024 "ACC Purchase Price Line"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purchase Price Line';
+    Caption = 'APIS Purchase Price Line';
     PageType = List;
     Editable = false;
     UsageCategory = Lists;

@@ -1,6 +1,6 @@
 page 52032 "ACC CustLedger Entry Modify"
 {
-    Caption = 'ACC Cust Ledger Entry Modify - P52032';
+    Caption = 'APIS Cust Ledger Entry Modify - P52032';
     PageType = List;
     SourceTable = "Cust. Ledger Entry";
     ApplicationArea = All;
