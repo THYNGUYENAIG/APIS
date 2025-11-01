@@ -1,6 +1,6 @@
 query 51069 "ACC Customs VAT Entry"
 {
-    Caption = 'ACC Customs VAT Entry';
+    Caption = 'APIS Customs VAT Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

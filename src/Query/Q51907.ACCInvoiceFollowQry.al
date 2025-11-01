@@ -1,6 +1,6 @@
 query 51907 "ACC Logistics Follow Qry"
 {
-    Caption = 'ACC Logistics Follow - Q51907';
+    Caption = 'APIS Logistics Follow - Q51907';
     DataAccessIntent = ReadOnly;
     OrderBy = Ascending(DocumentNo);
     

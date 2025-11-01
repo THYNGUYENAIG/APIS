@@ -1,6 +1,6 @@
 query 51902 "ACC Sales Invoice SPO Qry"
 {
-    Caption = 'ACC Sales Invoice SPO Qry';
+    Caption = 'APIS Sales Invoice SPO Qry';
     DataAccessIntent = ReadOnly;
     OrderBy = Ascending(DocumentNo);
     

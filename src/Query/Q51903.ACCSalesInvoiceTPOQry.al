@@ -1,6 +1,6 @@
 query 51903 "ACC Sales Invoice TPO Qry"
 {
-    Caption = 'ACC Sales Invoice TPO Qry';
+    Caption = 'APIS Sales Invoice TPO Qry';
     DataAccessIntent = ReadOnly;
     OrderBy = Ascending(TruckNumber);
     

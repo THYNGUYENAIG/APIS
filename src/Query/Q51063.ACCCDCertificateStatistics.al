@@ -1,6 +1,6 @@
 query 51063 "ACC CD Certificate Statistics"
 {
-    Caption = 'ACC CD Certificate Statistics - Q51063';
+    Caption = 'APIS CD Certificate Statistics - Q51063';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     UsageCategory = "ReportsAndAnalysis";

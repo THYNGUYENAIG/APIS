@@ -1,6 +1,6 @@
 query 51905 "ACC Inventory By Plate"
 {
-    Caption = 'ACC Inventory By Plate - Q51905';
+    Caption = 'APIS Inventory By Plate - Q51905';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;    
 

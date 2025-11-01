@@ -1,6 +1,6 @@
 query 51910 "ACC Forecast Entry Qry"
 {
-    Caption = 'ACC Forecast Entry Qry';
+    Caption = 'APIS Forecast Entry Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = ascending(BusinessUnitId, SalespersonCode, CustomerNo, ItemNo, LocationCode, SalesAgreementNo, ForecastDate);

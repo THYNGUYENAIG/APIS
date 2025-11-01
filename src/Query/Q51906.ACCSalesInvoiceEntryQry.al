@@ -1,6 +1,6 @@
 query 51906 "ACC Sales Invoice Entry Qry"
 {
-    Caption = 'ACC Sales Invoice Entry Qry';
+    Caption = 'APIS Sales Invoice Entry Qry';
     DataAccessIntent = ReadOnly;
     OrderBy = Ascending(DocumentNo);
 

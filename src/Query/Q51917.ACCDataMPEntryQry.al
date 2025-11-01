@@ -1,6 +1,6 @@
 query 51917 "ACC Data MP Entry Qry"
 {
-    Caption = 'ACC Data MP Entry Qry';
+    Caption = 'APIS Data MP Entry Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;    
 

@@ -1,6 +1,6 @@
 query 51901 "ACC Sales Shipment SPO Qry"
 {
-    Caption = 'ACC Sales Shipment SPO Qry';
+    Caption = 'APIS Sales Shipment SPO Qry';
     DataAccessIntent = ReadOnly;
     OrderBy = Ascending(ShipmentDate), Ascending(LocationCode);
 

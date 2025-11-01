@@ -1,6 +1,6 @@
 query 51068 "ACC Import VAT Ledger Entry"
 {
-    Caption = 'ACC Import VAT Ledger Entry';
+    Caption = 'APIS Import VAT Ledger Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

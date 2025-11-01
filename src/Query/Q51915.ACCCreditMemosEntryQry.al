@@ -1,6 +1,6 @@
 query 51915 "ACC Credit Memos Entry Qry"
 {
-    Caption = 'ACC Credit Memos Entry Qry';
+    Caption = 'APIS Credit Memos Entry Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

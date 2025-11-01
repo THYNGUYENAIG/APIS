@@ -1,9 +1,9 @@
 query 51909 "ACC Import Entry Qry"
 {
-    Caption = 'ACC Import Entry Qry';
+    Caption = 'APIS Import Entry Qry';
     DataAccessIntent = ReadOnly;
     OrderBy = Ascending(PurchaseOrderNo);
-    
+
     elements
     {
         dataitem(ImportEntry; "BLTEC Import Entry")

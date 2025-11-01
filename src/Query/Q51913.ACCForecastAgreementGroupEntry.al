@@ -1,6 +1,6 @@
 query 51913 "ACC Forecast SA Group Entry"
 {
-    Caption = 'ACC Forecast Agreement Group Entry';
+    Caption = 'APIS Forecast Agreement Group Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

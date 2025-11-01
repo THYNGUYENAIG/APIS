@@ -1,6 +1,6 @@
 query 51064 "ACC Purch. Invoice & Cr. Memos"
 {
-    Caption = 'ACC Purch. Invoice & Cr. Memos - Q51064';
+    Caption = 'APIS Purch. Invoice & Cr. Memos - Q51064';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     UsageCategory = ReportsAndAnalysis;

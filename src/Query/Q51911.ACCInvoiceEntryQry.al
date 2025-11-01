@@ -1,6 +1,6 @@
 query 51911 "ACC Invoice Entry Qry"
 {
-    Caption = 'ACC Invoice Entry Qry';
+    Caption = 'APIS Invoice Entry Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

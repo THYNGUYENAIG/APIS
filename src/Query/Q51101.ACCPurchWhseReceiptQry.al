@@ -1,6 +1,6 @@
 query 51101 "ACC Purch. Whse. Receipt Qry"
 {
-    Caption = 'ACC Purch. Whse. Receipt Qry';
+    Caption = 'APIS Purch. Whse. Receipt Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     
