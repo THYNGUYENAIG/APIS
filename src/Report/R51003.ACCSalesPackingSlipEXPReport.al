@@ -1,6 +1,6 @@
 report 51003 "ACC Packing Slip - EXP Report"
 {
-    Caption = 'ACC Sales Packing Slip - EXP Report - R51003';
+    Caption = 'APIS Sales Packing Slip - EXP Report - R51003';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

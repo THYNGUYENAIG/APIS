@@ -24,6 +24,7 @@ query 51063 "ACC CD Certificate Statistics"
                     DataItemTableFilter = "BLACC Certificate No." = filter(<> '');
                     DataItemLink = "BLACC Customs Declaration No." = PurchaseLine."BLTEC Customs Declaration No.";
                     SqlJoinType = InnerJoin;
+                    column(CDCCDescription; "BLACC CD CC Description") { }
                     column(CertificateNo; "BLACC Certificate No.") { }
                     column(ValidFrom; "BLACC Valid From") { }
                     dataitem(CustomsDeclaration; "BLTEC Customs Declaration")

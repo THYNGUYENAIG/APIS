@@ -80,6 +80,28 @@ pageextension 51905 "ACC Item List Ext" extends "Item List"
     }
     actions
     {
+        addafter(CopyItem)
+        {
+            action(BulkDeleteSelectedItems)
+            {
+                Caption = 'Bulk Delete Selected Items';
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                Image = Delete;
+
+                trigger OnAction()
+                var
+                    Item: Record "Item";
+                begin
+                    Item.Reset();
+                    CurrPage.SetSelectionFilter(Item);
+                    if Item.FindSet() then
+                        Item.DeleteAll(true);
+                end;
+            }
+        }
         // Adding a new action group 'MyNewActionGroup' in the 'Creation' area
         addlast(processing)
         {

@@ -1,7 +1,7 @@
 report 51007 "ACC Purch Contract VN Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purchase Contract VN Report - R51007';
+    Caption = 'APIS Purchase Contract VN Report - R51007';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

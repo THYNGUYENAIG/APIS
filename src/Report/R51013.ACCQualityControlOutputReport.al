@@ -1,6 +1,6 @@
 report 51013 "ACC Quality Control Out Report"
 {
-    Caption = 'ACC Quality Control Output Report - R51013';
+    Caption = 'APIS Quality Control Output Report - R51013';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

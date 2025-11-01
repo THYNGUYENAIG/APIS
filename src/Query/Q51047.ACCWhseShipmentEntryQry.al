@@ -18,6 +18,7 @@ query 51047 "ACC Whse. Shipment Entry Qry"
             column(PaymentTermsCode; "Payment Terms Code") { }
             column(BUCode; "Responsibility Center") { }
             column(SalespersonCode; "Salesperson Code") { }
+            column(SOCreatedBy; SystemCreatedBy) { }
             dataitem(WarehouseShipmentLine; "Warehouse Shipment Line")
             {
                 DataItemLink = "Source No." = SalesHeader."No.",
@@ -32,6 +33,7 @@ query 51047 "ACC Whse. Shipment Entry Qry"
                 column(Description; Description) { }
                 column(Quantity; Quantity) { }
                 column(LocationCode; "Location Code") { }
+                column(WSCreatedBy; SystemCreatedBy) { }
                 dataitem(Item; Item)
                 {
                     DataItemLink = "No." = WarehouseShipmentLine."Item No.";

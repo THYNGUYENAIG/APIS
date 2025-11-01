@@ -3,7 +3,7 @@ query 51006 "ACC Warehouse Transport"
     Caption = 'ACC Warehouse Transport';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
-    
+    QueryCategory = 'Item List';
     elements
     {
         dataitem(TransportInformation; "BLACC Transport Information")
