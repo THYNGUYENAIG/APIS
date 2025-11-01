@@ -1,6 +1,6 @@
 table 51991 "ACC BU Inentory Onhand"
 {
-    Caption = 'ACC BU Inentory Onhand';
+    Caption = 'APIS BU Inentory Onhand';
     DataClassification = ToBeClassified;
 
     fields

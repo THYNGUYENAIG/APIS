@@ -1,6 +1,6 @@
 table 51916 "AIG Transfer Document"
 {
-    Caption = 'AIG Transfer Document';
+    Caption = 'APIS Transfer Document';
     DataClassification = ToBeClassified;
 
     fields

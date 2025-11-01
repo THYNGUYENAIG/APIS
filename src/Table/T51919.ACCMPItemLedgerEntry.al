@@ -1,6 +1,6 @@
 table 51919 "ACC MP Item Ledger Entry"
 {
-    Caption = 'ACC MP Item Ledger Entry';
+    Caption = 'APIS MP Item Ledger Entry';
     TableType = Temporary;
 
     fields

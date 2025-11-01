@@ -1,6 +1,6 @@
 table 51913 "ACC DMS Report Type"
 {
-    Caption = 'ACC DMS Report Type';
+    Caption = 'APIS DMS Report Type';
     DataClassification = ToBeClassified;
 
     fields

@@ -1,6 +1,6 @@
 table 51989 "AIG eInvoice Setup"
 {
-    Caption = 'AIG eInvoice Setup';
+    Caption = 'APIS eInvoice Setup';
     DataClassification = ToBeClassified;
 
     fields

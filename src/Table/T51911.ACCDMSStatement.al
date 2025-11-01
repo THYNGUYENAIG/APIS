@@ -1,6 +1,6 @@
 table 51911 "ACC DMS Statement"
 {
-    Caption = 'ACC DMS Statement';
+    Caption = 'APIS DMS Statement';
     DataClassification = ToBeClassified;
     
     fields

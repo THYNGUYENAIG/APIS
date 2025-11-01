@@ -1,6 +1,6 @@
 table 51912 "ACC DMS ISO Type"
 {
-    Caption = 'ACC DMS ISO Type';
+    Caption = 'APIS DMS ISO Type';
     DataClassification = ToBeClassified;
 
     fields

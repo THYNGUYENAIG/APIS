@@ -1,6 +1,6 @@
 table 51910 "ACC Business Unit Setup"
 {
-    Caption = 'ACC Business Unit Setup';
+    Caption = 'APIS Business Unit Setup';
     DataClassification = ToBeClassified;
 
     fields

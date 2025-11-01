@@ -1,6 +1,6 @@
 table 51921 "ACC MP Sales Line Available"
 {
-    Caption = 'ACC MP Sales Line Available';
+    Caption = 'APIS MP Sales Line Available';
     DataClassification = ToBeClassified;
 
     fields

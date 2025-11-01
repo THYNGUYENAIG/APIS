@@ -1,6 +1,6 @@
 table 51917 "AIG Sales Statistics"
 {
-    Caption = 'AIG Sales Statistics';
+    Caption = 'APIS Sales Statistics';
     DataClassification = ToBeClassified;
 
     fields

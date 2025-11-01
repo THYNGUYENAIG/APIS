@@ -1,6 +1,6 @@
 table 51915 "ACC Cust. Ledger Settlement"
 {
-    Caption = 'ACC Customer Ledger Settlement';
+    Caption = 'APIS Customer Ledger Settlement';
     DataClassification = ToBeClassified;
 
     fields
