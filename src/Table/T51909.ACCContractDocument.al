@@ -1,6 +1,6 @@
 table 51909 "ACC Contract Document"
 {
-    Caption = 'ACC Contract Document';
+    Caption = 'APIS Contract Document';
     DataClassification = ToBeClassified;
 
     fields

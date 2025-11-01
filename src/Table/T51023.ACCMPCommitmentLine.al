@@ -1,6 +1,6 @@
 table 51023 "ACC MP Commitment Line"
 {
-    Caption = 'ACC MP Commitment Line';
+    Caption = 'APIS MP Commitment Line';
     DataClassification = ToBeClassified;
 
     fields

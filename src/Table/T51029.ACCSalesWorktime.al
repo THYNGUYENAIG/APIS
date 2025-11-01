@@ -1,6 +1,6 @@
 table 51029 "ACC Sales Worktime"
 {
-    Caption = 'AIG Sales Worktime';
+    Caption = 'APIS Sales Worktime';
     DataClassification = ToBeClassified;
 
     fields

@@ -1,6 +1,6 @@
 table 51027 "ACC Sales Customs Information"
 {
-    Caption = 'ACC Sales Customs Information';
+    Caption = 'APIS Sales Customs Information';
     DataClassification = ToBeClassified;
 
     fields

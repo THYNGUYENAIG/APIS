@@ -1,6 +1,6 @@
 table 51025 "ACC MP Master Planning"
 {
-    Caption = 'ACC MP Master Planning';
+    Caption = 'APIS MP Master Planning';
     DataClassification = ToBeClassified;
 
     fields

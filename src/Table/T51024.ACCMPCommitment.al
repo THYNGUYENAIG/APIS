@@ -1,6 +1,6 @@
 table 51024 "ACC MP Commitment"
 {
-    Caption = 'ACC MP Commitment - P51024';
+    Caption = 'APIS MP Commitment - P51024';
     DataClassification = ToBeClassified;
 
     fields

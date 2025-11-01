@@ -1,6 +1,6 @@
 table 51906 "ACC Inventory By Bin"
 {
-    Caption = 'ACC Inventory By Bin';
+    Caption = 'APIS Inventory By Bin';
     TableType = Temporary;
     DataClassification = ToBeClassified;
 

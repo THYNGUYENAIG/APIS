@@ -1,6 +1,6 @@
 table 51030 "ACC Sales Review"
 {
-    Caption = 'ACC Sales Review';
+    Caption = 'APIS Sales Review';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

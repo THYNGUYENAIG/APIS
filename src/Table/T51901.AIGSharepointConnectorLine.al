@@ -37,6 +37,10 @@ table 51901 "AIG Sharepoint Connector Line"
         {
             Caption = 'Create File URL';
         }
+        field(81; "Synchronize URL"; Text[2048])
+        {
+            Caption = 'Synchronize URL';
+        }
         field(90; "Sharepoint Type"; Enum "AIG Sharepoint Type")
         {
             Caption = 'Sharepoint Type';

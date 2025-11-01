@@ -1,6 +1,6 @@
 table 51026 "ACC MP Demand Forecast"
 {
-    Caption = 'ACC MP Demand Forecast';
+    Caption = 'APIS MP Demand Forecast';
     DataClassification = ToBeClassified;
 
     fields

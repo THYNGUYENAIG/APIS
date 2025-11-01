@@ -1,6 +1,6 @@
 table 51028 "ACC Sales Reason"
 {
-    Caption = 'AIG Sales Reason';
+    Caption = 'APIS Sales Reason';
     DataClassification = ToBeClassified;
 
     fields

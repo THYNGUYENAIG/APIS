@@ -1,6 +1,6 @@
 table 51022 "ACC MP Invoice & Credit Memos"
 {
-    Caption = 'ACC MP Invoice & Credit Memos';
+    Caption = 'APIS MP Invoice & Credit Memos';
     DataClassification = ToBeClassified;
 
     fields

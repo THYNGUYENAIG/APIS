@@ -1,6 +1,6 @@
 table 51908 "ACC Inventory By Plate"
 {
-    Caption = 'ACC Inventory By Plate';
+    Caption = 'APIS Inventory By Plate';
     TableType = Temporary;
     DataClassification = ToBeClassified;
 

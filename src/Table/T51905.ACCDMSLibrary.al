@@ -1,6 +1,6 @@
 table 51905 "ACC DMS Library"
 {
-    Caption = 'ACC DMS Library';
+    Caption = 'APIS DMS Library';
     DataClassification = ToBeClassified;
 
     fields

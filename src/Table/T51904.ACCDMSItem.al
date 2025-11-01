@@ -1,6 +1,6 @@
 table 51904 "ACC DMS Item"
 {
-    Caption = 'ACC DMS Item';
+    Caption = 'APIS DMS Item';
     DataClassification = ToBeClassified;
 
     fields
