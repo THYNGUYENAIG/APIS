@@ -1,6 +1,6 @@
 table 51015 "ACC MP Combine Line"
 {
-    Caption = 'ACC MP Combine Line';
+    Caption = 'APIS MP Combine Line';
     DataClassification = ToBeClassified;
     DataPerCompany = true;
 

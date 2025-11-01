@@ -1,6 +1,6 @@
 table 51006 "ACC Whse. Shipment Order Table"
 {
-    Caption = 'ACC Whse. Shipment Order Table';
+    Caption = 'APIS Whse. Shipment Order Table';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

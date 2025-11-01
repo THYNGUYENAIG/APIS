@@ -1,6 +1,6 @@
 table 51016 "ACC Forecast Accuracy"
 {
-    Caption = 'ACC Forecast Accuracy';
+    Caption = 'APIS Forecast Accuracy';
     DataClassification = ToBeClassified;
 
     fields

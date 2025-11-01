@@ -1,6 +1,6 @@
 table 51010 "ACC Whse. Staff Shipment"
 {
-    Caption = 'ACC Warehouse Staff';
+    Caption = 'APIS Warehouse Staff';
     DataClassification = ToBeClassified;
 
     fields

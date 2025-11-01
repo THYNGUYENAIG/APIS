@@ -1,6 +1,6 @@
 table 51012 "ACC Quality Control Header"
 {
-    Caption = 'ACC Quality Control Header';
+    Caption = 'APIS Quality Control Header';
     DataCaptionFields = "Truck Number", "Delivery Date";
     LookupPageID = "ACC Quality Control Header";
     DataClassification = ToBeClassified;

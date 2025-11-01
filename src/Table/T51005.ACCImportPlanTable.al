@@ -1,6 +1,6 @@
 table 51005 "ACC Import Plan Table"
 {
-    Caption = 'ACC Import Plan Table';
+    Caption = 'APIS Import Plan Table';
     DataClassification = ToBeClassified;
 
     fields
@@ -669,6 +669,41 @@ table 51005 "ACC Import Plan Table"
             Caption = 'Contract No.';
             FieldClass = FlowField;
             CalcFormula = lookup("Purchase Header"."BLTEC Contract No." where("No." = field("Source Document No.")));
+        }
+        field(810; "Medical Checkup"; Boolean)
+        {
+            Caption = 'Medical Checkup';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item."BLACC Medical Checkup Rq" where("No." = field("Item Number")));
+        }
+        field(820; "Plant Quarantine"; Boolean)
+        {
+            Caption = 'Plant Quarantine';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item."BLACC Plant Quarantine Rq" where("No." = field("Item Number")));
+        }
+        field(830; "Plant Quarantine (BNNPTNT)"; Boolean)
+        {
+            Caption = 'Plant Quarantine (BNNPTNT)';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item."BLACC Plant Quar. (BNNPTNT) Rq" where("No." = field("Item Number")));
+        }
+        field(840; "Animal Quarantine"; Boolean)
+        {
+            Caption = 'Animal Quarantine';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item."BLACC Animal Quarantine Rq" where("No." = field("Item Number")));
+        }
+        field(850; "Animal Quarantine (BNNPTNT)"; Boolean)
+        {
+            Caption = 'Animal Quarantine';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup(Item."BLACC Ani. Quar. (BNNPTNT) Rq" where("No." = field("Item Number")));
         }
     }
     keys

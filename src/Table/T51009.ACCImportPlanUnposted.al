@@ -1,6 +1,6 @@
 table 51009 "ACC Import Plan Unposted"
 {
-    Caption = 'ACC Import Plan Unposted';
+    Caption = 'APIS Import Plan Unposted';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

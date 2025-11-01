@@ -1,6 +1,6 @@
 table 51008 "ACC Whse. Shipment Unposted"
 {
-    Caption = 'ACC Whse. Shipment Unposted';
+    Caption = 'APIS Whse. Shipment Unposted';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

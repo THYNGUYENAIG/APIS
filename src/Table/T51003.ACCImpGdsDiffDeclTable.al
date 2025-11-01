@@ -1,6 +1,6 @@
 table 51003 "ACC Imp. Gds Diff. Decl. Table"
 {
-    Caption = 'ACC Imp. Gds With Diff. Decl. Table';
+    Caption = 'APIS Imp. Gds With Diff. Decl. Table';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

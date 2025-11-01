@@ -1,6 +1,6 @@
 table 51013 "ACC Quality Control Line"
 {
-    Caption = 'ACC Quality Control Line';
+    Caption = 'APIS Quality Control Line';
     DataClassification = ToBeClassified;
     DrillDownPageID = "ACC Quality Control Line";
     LookupPageID = "ACC Quality Control Line";

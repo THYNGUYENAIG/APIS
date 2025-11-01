@@ -1,6 +1,6 @@
 table 51018 "ACC Whse Shipment Details"
 {
-    Caption = 'ACC Whse Shipment Details';
+    Caption = 'APIS Whse Shipment Details';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 
@@ -148,6 +148,14 @@ table 51018 "ACC Whse Shipment Details"
             Caption = 'Ecus - Item Name';
             FieldClass = FlowField;
             CalcFormula = lookup("Item"."BLTEC Item Name" where("No." = field("Item No.")));
+        }
+        field(36; "SO Created By"; Code[50])
+        {
+            Caption = 'SO Created By';
+        }
+        field(37; "WS Created By"; Code[50])
+        {
+            Caption = 'WS Created By';
         }
     }
     keys

@@ -1,6 +1,6 @@
 table 51007 "ACC Whse. Receipt Unposted"
 {
-    Caption = 'ACC Whse. Receipt Unposted';
+    Caption = 'APIS Whse. Receipt Unposted';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

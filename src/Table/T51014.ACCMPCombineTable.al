@@ -1,6 +1,6 @@
 table 51014 "ACC MP Combine Table"
 {
-    Caption = 'ACC MP Combine Table';
+    Caption = 'APIS MP Combine Table';
     DataClassification = ToBeClassified;
     DataPerCompany = true;
 

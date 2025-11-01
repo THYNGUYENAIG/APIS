@@ -1,6 +1,6 @@
 table 51004 "ACC Payment Declaration Table"
 {
-    Caption = 'ACC Payment Declaration Table';
+    Caption = 'APIS Payment Declaration Table';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 
