@@ -1,6 +1,6 @@
 query 51002 "ACC Imp. Gds by DoE WH Query"
 {
-    Caption = 'ACC Imp. Gds by DoE WH Query';
+    Caption = 'APIS Imp. Gds by DoE WH Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

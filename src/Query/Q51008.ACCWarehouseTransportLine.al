@@ -1,6 +1,6 @@
 query 51008 "ACC Warehouse Transport Line"
 {
-    Caption = 'ACC Warehouse Transport Line';
+    Caption = 'APIS Warehouse Transport Line';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     QueryCategory = 'Item List';

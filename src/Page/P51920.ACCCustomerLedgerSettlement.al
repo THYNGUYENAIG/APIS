@@ -1,7 +1,7 @@
 page 51920 "ACC Cust. Ledger Settlement"
 {
     ApplicationArea = All;
-    Caption = 'ACC Customer Settlement';
+    Caption = 'APIS Customer Settlement';
     PageType = List;
     SourceTable = "ACC Cust. Ledger Settlement";
     UsageCategory = ReportsAndAnalysis;

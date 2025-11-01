@@ -1,6 +1,6 @@
 query 51000 "ACC Item Ledger Entry Query"
 {
-    Caption = 'ACC Item Ledger Entry Query - Q51000';
+    Caption = 'APIS Item Ledger Entry Query - Q51000';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

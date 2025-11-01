@@ -1,7 +1,7 @@
 page 51995 "ACC Transaction Entry"
 {
     ApplicationArea = All;
-    Caption = 'ACC Transaction Entry';
+    Caption = 'APIS Transaction Entry';
     PageType = List;
     SourceTable = "AIG Transaction Entry";
     UsageCategory = Administration;

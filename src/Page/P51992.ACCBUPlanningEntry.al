@@ -1,7 +1,7 @@
 page 51992 "ACC BU Planning Entry"
 {
     ApplicationArea = All;
-    Caption = 'ACC BU Planning Entry';
+    Caption = 'APIS BU Planning Entry';
     PageType = List;
     SourceTable = "ACC BU Planning Entry";
     UsageCategory = Lists;

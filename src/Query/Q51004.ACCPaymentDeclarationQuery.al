@@ -1,6 +1,6 @@
 query 51004 "ACC Payment Declaration Query"
 {
-    Caption = 'ACC Payment Declaration Query';
+    Caption = 'APIS Payment Declaration Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

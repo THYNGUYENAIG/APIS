@@ -1,7 +1,7 @@
 page 51933 "ACC MP Sales Line Available"
 {
     ApplicationArea = All;
-    Caption = 'ACC MP Sales Line (Available)';
+    Caption = 'APIS MP Sales Line (Available)';
     PageType = List;
     SourceTable = "ACC MP Sales Line Available";
     UsageCategory = Lists;

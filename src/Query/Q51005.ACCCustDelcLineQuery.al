@@ -1,6 +1,6 @@
 query 51005 "ACC Cust. Delc. Line Query"
 {
-    Caption = 'ACC Cust. Delc. Line Query';
+    Caption = 'APIS Cust. Delc. Line Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

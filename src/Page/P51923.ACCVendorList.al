@@ -1,7 +1,7 @@
 page 51923 "ACC Vendor List"
 {
     ApplicationArea = All;
-    Caption = 'ACC Vendor List - P51923';
+    Caption = 'APIS Vendor List - P51923';
     PageType = List;
     SourceTable = Vendor;
     //CardPageID = "Vendor Card";

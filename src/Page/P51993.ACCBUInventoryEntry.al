@@ -1,7 +1,7 @@
 page 51993 "ACC BU Inventory Entry"
 {
     ApplicationArea = All;
-    Caption = 'ACC BU Inventory Entry - P51993';
+    Caption = 'APIS BU Inventory Entry - P51993';
     PageType = List;
     SourceTable = "ACC BU Inventory Entry";
     UsageCategory = Lists;

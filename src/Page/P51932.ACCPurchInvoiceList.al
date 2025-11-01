@@ -1,7 +1,7 @@
 page 51932 "ACC Purchase Invoice List"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purch. Invoice List';
+    Caption = 'APIS Purch. Invoice List';
     PageType = List;
     SourceTable = "AIG Value Entry Relation";
     UsageCategory = ReportsAndAnalysis;

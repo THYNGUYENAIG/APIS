@@ -1,7 +1,7 @@
 page 51922 "ACC Customer List"
 {
     ApplicationArea = All;
-    Caption = 'ACC Customer List - P51922';
+    Caption = 'APIS Customer List - P51922';
     PageType = List;
     SourceTable = Customer;
     //CardPageId = "Customer Card";

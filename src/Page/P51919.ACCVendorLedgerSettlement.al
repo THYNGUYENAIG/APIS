@@ -1,7 +1,7 @@
 page 51919 "ACC Vendor Ledger Settlement"
 {
     ApplicationArea = All;
-    Caption = 'ACC Vendor Settlement';
+    Caption = 'APIS Vendor Settlement';
     PageType = List;
     SourceTable = "ACC Vendor Ledger Settlement";
     UsageCategory = ReportsAndAnalysis;

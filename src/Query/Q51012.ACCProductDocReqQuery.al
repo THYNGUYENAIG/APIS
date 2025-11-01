@@ -1,6 +1,6 @@
 query 51012 "ACC Product Doc. Req. Query"
 {
-    Caption = 'ACC Product Doc. Req. Query - Q51012';
+    Caption = 'APIS Product Doc. Req. Query - Q51012';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

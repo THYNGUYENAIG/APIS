@@ -1,7 +1,7 @@
 page 51931 "ACC CSR Customer List"
 {
     ApplicationArea = All;
-    Caption = 'ACC CSR Customer List';
+    Caption = 'APIS CSR Customer List';
     PageType = List;
     SourceTable = Customer;
     UsageCategory = Lists;

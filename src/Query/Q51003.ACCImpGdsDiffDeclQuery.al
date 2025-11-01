@@ -1,6 +1,6 @@
 query 51003 "ACC Imp. Gds Diff. Decl. Query"
 {
-    Caption = 'ACC Imp. Gds Diff. Decl. Query';
+    Caption = 'APIS Imp. Gds Diff. Decl. Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

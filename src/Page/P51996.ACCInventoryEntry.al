@@ -1,7 +1,7 @@
 page 51996 "ACC Inventory Entry"
 {
     ApplicationArea = All;
-    Caption = 'ACC Inventory Entry';
+    Caption = 'APIS Inventory Entry';
     PageType = List;
     SourceTable = "AIG Inventory Entry";
     UsageCategory = Administration;

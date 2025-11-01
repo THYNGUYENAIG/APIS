@@ -1,7 +1,7 @@
 page 51991 "ACC BU Inventory Onhand"
 {
     ApplicationArea = All;
-    Caption = 'ACC BU Inventory Onhand';
+    Caption = 'APIS BU Inventory Onhand';
     PageType = List;
     SourceTable = "ACC BU Inentory Onhand";
     UsageCategory = Lists;
