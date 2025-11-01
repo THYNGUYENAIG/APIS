@@ -1,6 +1,6 @@
 report 52017 "ACC Pick Detail Report"
 {
-    Caption = 'ACC Pick Detail Report - R52017';
+    Caption = 'APIS Pick Detail Report - R52017';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

@@ -1,6 +1,6 @@
 report 52008 "ACC Account Rcv Detail Report"
 {
-    Caption = 'ACC Account Receivable Detail Report - R52008';
+    Caption = 'APIS Account Receivable Detail Report - R52008';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

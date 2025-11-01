@@ -1,6 +1,6 @@
 report 52013 "ACC WH Billing Report"
 {
-    Caption = 'ACC Warehouse Billing Report - R52013';
+    Caption = 'APIS Warehouse Billing Report - R52013';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

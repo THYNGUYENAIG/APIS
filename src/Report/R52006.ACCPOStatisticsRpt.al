@@ -1,6 +1,6 @@
 report 52006 "ACC PO Statistics Report"
 {
-    Caption = 'ACC Purchase Order Statistics Report - R52006';
+    Caption = 'APIS Purchase Order Statistics Report - R52006';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

@@ -1,6 +1,6 @@
 report 52009 "ACC SQ Statistics Report"
 {
-    Caption = 'ACC Sales Quotation Statistics Report - R52009';
+    Caption = 'APIS Sales Quotation Statistics Report - R52009';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

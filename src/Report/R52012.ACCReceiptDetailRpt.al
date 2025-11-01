@@ -1,6 +1,6 @@
 report 52012 "ACC Receipt Detail Report"
 {
-    Caption = 'ACC Receipt Detail Report - R52012';
+    Caption = 'APIS Receipt Detail Report - R52012';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

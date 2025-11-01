@@ -1,6 +1,6 @@
 report 52004 "ACC SA Statistic Report"
 {
-    Caption = 'ACC Sales Agreement Statistic Report - R52004';
+    Caption = 'APIS Sales Agreement Statistic Report - R52004';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

@@ -1,6 +1,6 @@
 report 52011 "ACC Expected Arrival Report"
 {
-    Caption = 'ACC Expected Arrival Report - R52011';
+    Caption = 'APIS Expected Arrival Report - R52011';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

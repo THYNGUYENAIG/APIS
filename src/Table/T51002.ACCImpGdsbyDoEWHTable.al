@@ -1,6 +1,6 @@
 table 51002 "ACC Imp. Gds by DoE WH Table"
 {
-    Caption = 'ACC Imp. Gds by DoE WH Table';
+    Caption = 'APIS Imp. Gds by DoE WH Table';
     DataClassification = ToBeClassified;
     TableType = Temporary;
 

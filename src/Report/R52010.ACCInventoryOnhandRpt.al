@@ -1,6 +1,6 @@
 report 52010 "ACC Inventory Onhand Report"
 {
-    Caption = 'ACC Inventory Onhand Report - R52010';
+    Caption = 'APIS Inventory Onhand Report - R52010';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

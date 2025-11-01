@@ -1,6 +1,6 @@
 report 52014 "ACC WH Debit Note Report"
 {
-    Caption = 'ACC Warehouse Debit Note Report - R52014';
+    Caption = 'APIS Warehouse Debit Note Report - R52014';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

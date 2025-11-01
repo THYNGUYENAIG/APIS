@@ -1,6 +1,6 @@
 report 52005 "ACC Shelf Life As Date Report"
 {
-    Caption = 'ACC Shelf Life As Date Report - R52005';
+    Caption = 'APIS Shelf Life As Date Report - R52005';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

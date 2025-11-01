@@ -1,6 +1,6 @@
 report 52015 "ACC WH NXT Item Report"
 {
-    Caption = 'ACC Warehouse NXT Item Report - R52015';
+    Caption = 'APIS Warehouse NXT Item Report - R52015';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;
