@@ -24,106 +24,6 @@
       <rd:DataSourceID>2d85e932-048e-448b-ae76-7d43eed54276</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="CompanyName">
-          <DataField>CompanyName</DataField>
-        </Field>
-        <Field Name="CompanyAddress">
-          <DataField>CompanyAddress</DataField>
-        </Field>
-        <Field Name="CompanyPhone">
-          <DataField>CompanyPhone</DataField>
-        </Field>
-        <Field Name="CompanyTeleFax">
-          <DataField>CompanyTeleFax</DataField>
-        </Field>
-        <Field Name="VAT_Registration_No">
-          <DataField>VAT_Registration_No</DataField>
-        </Field>
-        <Field Name="CompanyPic">
-          <DataField>CompanyPic</DataField>
-        </Field>
-        <Field Name="BestDate">
-          <DataField>BestDate</DataField>
-        </Field>
-        <Field Name="BinCode">
-          <DataField>BinCode</DataField>
-        </Field>
-        <Field Name="ReceivedDate">
-          <DataField>ReceivedDate</DataField>
-        </Field>
-        <Field Name="EntryNo">
-          <DataField>EntryNo</DataField>
-        </Field>
-        <Field Name="ExpirationDate">
-          <DataField>ExpirationDate</DataField>
-        </Field>
-        <Field Name="ItemName">
-          <DataField>ItemName</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-        <Field Name="LotNo">
-          <DataField>LotNo</DataField>
-        </Field>
-        <Field Name="PalletFrom">
-          <DataField>PalletFrom</DataField>
-        </Field>
-        <Field Name="PalletTo">
-          <DataField>PalletTo</DataField>
-        </Field>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="ManufacturingDate">
-          <DataField>ManufacturingDate</DataField>
-        </Field>
-        <Field Name="Qty">
-          <DataField>Qty</DataField>
-        </Field>
-        <Field Name="QtyFormat">
-          <DataField>QtyFormat</DataField>
-        </Field>
-        <Field Name="QtyPackaging">
-          <DataField>QtyPackaging</DataField>
-        </Field>
-        <Field Name="QtyPackagingFormat">
-          <DataField>QtyPackagingFormat</DataField>
-        </Field>
-        <Field Name="Status">
-          <DataField>Status</DataField>
-        </Field>
-        <Field Name="UserRelease">
-          <DataField>UserRelease</DataField>
-        </Field>
-        <Field Name="UserShip">
-          <DataField>UserShip</DataField>
-        </Field>
-        <Field Name="SourceNo">
-          <DataField>SourceNo</DataField>
-        </Field>
-        <Field Name="PickNo">
-          <DataField>PickNo</DataField>
-        </Field>
-        <Field Name="DF_Parm">
-          <DataField>DF_Parm</DataField>
-        </Field>
-        <Field Name="DT_Parm">
-          <DataField>DT_Parm</DataField>
-        </Field>
-        <Field Name="Loc_Parm">
-          <DataField>Loc_Parm</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1538,12 +1438,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1581,4 +1475,104 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+        </Field>
+        <Field Name="CompanyAddress">
+          <DataField>CompanyAddress</DataField>
+        </Field>
+        <Field Name="CompanyPhone">
+          <DataField>CompanyPhone</DataField>
+        </Field>
+        <Field Name="CompanyTeleFax">
+          <DataField>CompanyTeleFax</DataField>
+        </Field>
+        <Field Name="VAT_Registration_No">
+          <DataField>VAT_Registration_No</DataField>
+        </Field>
+        <Field Name="CompanyPic">
+          <DataField>CompanyPic</DataField>
+        </Field>
+        <Field Name="BestDate">
+          <DataField>BestDate</DataField>
+        </Field>
+        <Field Name="BinCode">
+          <DataField>BinCode</DataField>
+        </Field>
+        <Field Name="ReceivedDate">
+          <DataField>ReceivedDate</DataField>
+        </Field>
+        <Field Name="EntryNo">
+          <DataField>EntryNo</DataField>
+        </Field>
+        <Field Name="ExpirationDate">
+          <DataField>ExpirationDate</DataField>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="LotNo">
+          <DataField>LotNo</DataField>
+        </Field>
+        <Field Name="PalletFrom">
+          <DataField>PalletFrom</DataField>
+        </Field>
+        <Field Name="PalletTo">
+          <DataField>PalletTo</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="ManufacturingDate">
+          <DataField>ManufacturingDate</DataField>
+        </Field>
+        <Field Name="Qty">
+          <DataField>Qty</DataField>
+        </Field>
+        <Field Name="QtyFormat">
+          <DataField>QtyFormat</DataField>
+        </Field>
+        <Field Name="QtyPackaging">
+          <DataField>QtyPackaging</DataField>
+        </Field>
+        <Field Name="QtyPackagingFormat">
+          <DataField>QtyPackagingFormat</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="UserRelease">
+          <DataField>UserRelease</DataField>
+        </Field>
+        <Field Name="UserShip">
+          <DataField>UserShip</DataField>
+        </Field>
+        <Field Name="SourceNo">
+          <DataField>SourceNo</DataField>
+        </Field>
+        <Field Name="PickNo">
+          <DataField>PickNo</DataField>
+        </Field>
+        <Field Name="DF_Parm">
+          <DataField>DF_Parm</DataField>
+        </Field>
+        <Field Name="DT_Parm">
+          <DataField>DT_Parm</DataField>
+        </Field>
+        <Field Name="Loc_Parm">
+          <DataField>Loc_Parm</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

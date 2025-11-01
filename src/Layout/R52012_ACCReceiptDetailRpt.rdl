@@ -24,91 +24,6 @@
       <rd:DataSourceID>2db6d2aa-f17f-4e9e-85ea-6ddd95855893</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="CreatedDate">
-          <DataField>CreatedDate</DataField>
-        </Field>
-        <Field Name="DeclarationNo">
-          <DataField>DeclarationNo</DataField>
-        </Field>
-        <Field Name="DocumentNo">
-          <DataField>DocumentNo</DataField>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-        </Field>
-        <Field Name="QuantityExpected">
-          <DataField>QuantityExpected</DataField>
-        </Field>
-        <Field Name="QuantityExpectedFormat">
-          <DataField>QuantityExpectedFormat</DataField>
-        </Field>
-        <Field Name="QuantityReceived">
-          <DataField>QuantityReceived</DataField>
-        </Field>
-        <Field Name="QuantityReceivedFormat">
-          <DataField>QuantityReceivedFormat</DataField>
-        </Field>
-        <Field Name="ReceivedDate">
-          <DataField>ReceivedDate</DataField>
-        </Field>
-        <Field Name="SourceDocument">
-          <DataField>SourceDocument</DataField>
-        </Field>
-        <Field Name="SourceNo">
-          <DataField>SourceNo</DataField>
-        </Field>
-        <Field Name="Status">
-          <DataField>Status</DataField>
-        </Field>
-        <Field Name="InvoiceDate">
-          <DataField>InvoiceDate</DataField>
-        </Field>
-        <Field Name="QuantityInvoiced">
-          <DataField>QuantityInvoiced</DataField>
-        </Field>
-        <Field Name="QuantityInvoicedFormat">
-          <DataField>QuantityInvoicedFormat</DataField>
-        </Field>
-        <Field Name="PostingDate">
-          <DataField>PostingDate</DataField>
-        </Field>
-        <Field Name="LocationCode">
-          <DataField>LocationCode</DataField>
-        </Field>
-        <Field Name="LocationName">
-          <DataField>LocationName</DataField>
-        </Field>
-        <Field Name="VendorInvoice">
-          <DataField>VendorInvoice</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-        <Field Name="ItemName">
-          <DataField>ItemName</DataField>
-        </Field>
-        <Field Name="LineNo">
-          <DataField>LineNo</DataField>
-        </Field>
-        <Field Name="DF_Parm">
-          <DataField>DF_Parm</DataField>
-        </Field>
-        <Field Name="DT_Parm">
-          <DataField>DT_Parm</DataField>
-        </Field>
-        <Field Name="Location_Parm">
-          <DataField>Location_Parm</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1923,12 +1838,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1966,4 +1875,89 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="CreatedDate">
+          <DataField>CreatedDate</DataField>
+        </Field>
+        <Field Name="DeclarationNo">
+          <DataField>DeclarationNo</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="QuantityExpected">
+          <DataField>QuantityExpected</DataField>
+        </Field>
+        <Field Name="QuantityExpectedFormat">
+          <DataField>QuantityExpectedFormat</DataField>
+        </Field>
+        <Field Name="QuantityReceived">
+          <DataField>QuantityReceived</DataField>
+        </Field>
+        <Field Name="QuantityReceivedFormat">
+          <DataField>QuantityReceivedFormat</DataField>
+        </Field>
+        <Field Name="ReceivedDate">
+          <DataField>ReceivedDate</DataField>
+        </Field>
+        <Field Name="SourceDocument">
+          <DataField>SourceDocument</DataField>
+        </Field>
+        <Field Name="SourceNo">
+          <DataField>SourceNo</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="InvoiceDate">
+          <DataField>InvoiceDate</DataField>
+        </Field>
+        <Field Name="QuantityInvoiced">
+          <DataField>QuantityInvoiced</DataField>
+        </Field>
+        <Field Name="QuantityInvoicedFormat">
+          <DataField>QuantityInvoicedFormat</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="LocationCode">
+          <DataField>LocationCode</DataField>
+        </Field>
+        <Field Name="LocationName">
+          <DataField>LocationName</DataField>
+        </Field>
+        <Field Name="VendorInvoice">
+          <DataField>VendorInvoice</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+        </Field>
+        <Field Name="LineNo">
+          <DataField>LineNo</DataField>
+        </Field>
+        <Field Name="DF_Parm">
+          <DataField>DF_Parm</DataField>
+        </Field>
+        <Field Name="DT_Parm">
+          <DataField>DT_Parm</DataField>
+        </Field>
+        <Field Name="Location_Parm">
+          <DataField>Location_Parm</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -3509,6 +3509,9 @@ End Function
         <Field Name="BuyFromCity">
           <DataField>BuyFromCity</DataField>
         </Field>
+        <Field Name="VNAddress">
+          <DataField>VNAddress</DataField>
+        </Field>
         <Field Name="BuyToVATRegistration">
           <DataField>BuyToVATRegistration</DataField>
         </Field>

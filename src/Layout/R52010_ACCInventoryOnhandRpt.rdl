@@ -24,79 +24,6 @@
       <rd:DataSourceID>9627d10e-7f64-4d40-a71a-929f38946d8e</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Location_Code">
-          <DataField>Location_Code</DataField>
-        </Field>
-        <Field Name="Item_No">
-          <DataField>Item_No</DataField>
-        </Field>
-        <Field Name="Lot_No">
-          <DataField>Lot_No</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="Expiration_Date">
-          <DataField>Expiration_Date</DataField>
-        </Field>
-        <Field Name="Manufaturing_Date">
-          <DataField>Manufaturing_Date</DataField>
-        </Field>
-        <Field Name="Received_Date">
-          <DataField>Received_Date</DataField>
-        </Field>
-        <Field Name="Physical_Inventory">
-          <DataField>Physical_Inventory</DataField>
-        </Field>
-        <Field Name="Physical_InventoryFormat">
-          <DataField>Physical_InventoryFormat</DataField>
-        </Field>
-        <Field Name="Physical_Reserved">
-          <DataField>Physical_Reserved</DataField>
-        </Field>
-        <Field Name="Physical_ReservedFormat">
-          <DataField>Physical_ReservedFormat</DataField>
-        </Field>
-        <Field Name="Available_Physical">
-          <DataField>Available_Physical</DataField>
-        </Field>
-        <Field Name="Available_PhysicalFormat">
-          <DataField>Available_PhysicalFormat</DataField>
-        </Field>
-        <Field Name="Location_Name">
-          <DataField>Location_Name</DataField>
-        </Field>
-        <Field Name="Storage_Condition">
-          <DataField>Storage_Condition</DataField>
-        </Field>
-        <Field Name="Quality_Quantity">
-          <DataField>Quality_Quantity</DataField>
-        </Field>
-        <Field Name="Quality_QuantityFormat">
-          <DataField>Quality_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Invoiced_Quantity">
-          <DataField>Invoiced_Quantity</DataField>
-        </Field>
-        <Field Name="Invoiced_QuantityFormat">
-          <DataField>Invoiced_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Total_Available">
-          <DataField>Total_Available</DataField>
-        </Field>
-        <Field Name="Total_AvailableFormat">
-          <DataField>Total_AvailableFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1715,12 +1642,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1758,4 +1679,77 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Location_Code">
+          <DataField>Location_Code</DataField>
+        </Field>
+        <Field Name="Item_No">
+          <DataField>Item_No</DataField>
+        </Field>
+        <Field Name="Lot_No">
+          <DataField>Lot_No</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="Expiration_Date">
+          <DataField>Expiration_Date</DataField>
+        </Field>
+        <Field Name="Manufaturing_Date">
+          <DataField>Manufaturing_Date</DataField>
+        </Field>
+        <Field Name="Received_Date">
+          <DataField>Received_Date</DataField>
+        </Field>
+        <Field Name="Physical_Inventory">
+          <DataField>Physical_Inventory</DataField>
+        </Field>
+        <Field Name="Physical_InventoryFormat">
+          <DataField>Physical_InventoryFormat</DataField>
+        </Field>
+        <Field Name="Physical_Reserved">
+          <DataField>Physical_Reserved</DataField>
+        </Field>
+        <Field Name="Physical_ReservedFormat">
+          <DataField>Physical_ReservedFormat</DataField>
+        </Field>
+        <Field Name="Available_Physical">
+          <DataField>Available_Physical</DataField>
+        </Field>
+        <Field Name="Available_PhysicalFormat">
+          <DataField>Available_PhysicalFormat</DataField>
+        </Field>
+        <Field Name="Location_Name">
+          <DataField>Location_Name</DataField>
+        </Field>
+        <Field Name="Storage_Condition">
+          <DataField>Storage_Condition</DataField>
+        </Field>
+        <Field Name="Quality_Quantity">
+          <DataField>Quality_Quantity</DataField>
+        </Field>
+        <Field Name="Quality_QuantityFormat">
+          <DataField>Quality_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Invoiced_Quantity">
+          <DataField>Invoiced_Quantity</DataField>
+        </Field>
+        <Field Name="Invoiced_QuantityFormat">
+          <DataField>Invoiced_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Total_Available">
+          <DataField>Total_Available</DataField>
+        </Field>
+        <Field Name="Total_AvailableFormat">
+          <DataField>Total_AvailableFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
