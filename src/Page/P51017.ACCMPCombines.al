@@ -1,7 +1,7 @@
 page 51017 "ACC MP Combines"
 {
     ApplicationArea = All;
-    Caption = 'ACC MP Combines - P51017';
+    Caption = 'APIS MP Combines - P51017';
     PageType = List;
     SourceTable = "ACC MP Combine Table";
     UsageCategory = ReportsAndAnalysis;

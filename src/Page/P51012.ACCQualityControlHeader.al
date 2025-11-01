@@ -1,7 +1,7 @@
 page 51012 "ACC Quality Control Header"
 {
     ApplicationArea = All;
-    Caption = 'ACC Quality Control Header - P51012';
+    Caption = 'APIS Quality Control Header - P51012';
     CardPageId = "ACC Quality Control Card";
     PageType = List;
     SourceTable = "ACC Quality Control Header";

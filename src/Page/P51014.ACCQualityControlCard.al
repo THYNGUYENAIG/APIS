@@ -1,7 +1,7 @@
 page 51014 "ACC Quality Control Card"
 {
     ApplicationArea = All;
-    Caption = 'ACC Quality Control Card - P51014';
+    Caption = 'APIS Quality Control Card - P51014';
     PageType = Card;
     SourceTable = "ACC Quality Control Header";
     InsertAllowed = false;

@@ -1,7 +1,7 @@
 page 51025 "ACC MP Invoice & Credit Memos"
 {
     ApplicationArea = All;
-    Caption = 'ACC MP Actual Sales - P51025';
+    Caption = 'APIS MP Actual Sales - P51025';
     PageType = List;
     SourceTable = "ACC MP Invoice & Credit Memos";
     UsageCategory = ReportsAndAnalysis;

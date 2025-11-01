@@ -1,7 +1,7 @@
 page 51013 "ACC Quality Control Line"
 {
     ApplicationArea = All;
-    Caption = 'ACC Quality Control Line - P51013';
+    Caption = 'APIS Quality Control Line - P51013';
     PageType = ListPart;
     SourceTable = "ACC Quality Control Line";
     UsageCategory = Lists;

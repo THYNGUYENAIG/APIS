@@ -1,7 +1,7 @@
 page 51019 "ACC Whse. Shipment Details"
 {
     ApplicationArea = All;
-    Caption = 'ACC Warehouse Shipment Details - P51019';
+    Caption = 'APIS Warehouse Shipment Details - P51019';
     PageType = List;
     SourceTable = "ACC Whse Shipment Details";
     UsageCategory = ReportsAndAnalysis;

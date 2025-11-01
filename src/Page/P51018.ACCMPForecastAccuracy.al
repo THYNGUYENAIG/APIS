@@ -1,7 +1,7 @@
 page 51018 "ACC MP Forecast Accuracy"
 {
     ApplicationArea = All;
-    Caption = 'ACC MP Forecast Accuracy - P51018';
+    Caption = 'APIS MP Forecast Accuracy - P51018';
     PageType = List;
     SourceTable = "ACC Forecast Accuracy";
     UsageCategory = ReportsAndAnalysis;

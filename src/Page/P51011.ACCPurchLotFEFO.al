@@ -1,7 +1,7 @@
 page 51011 "ACC Purch Lot FEFO"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purch Lot FEFO - P51011';
+    Caption = 'APIS Purch Lot FEFO - P51011';
     PageType = List;
     SourceTable = "Item Ledger Entry";
     DeleteAllowed = false;

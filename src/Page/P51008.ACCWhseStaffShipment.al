@@ -1,7 +1,7 @@
 page 51008 "ACC Whse. Staff Shipment"
 {
     ApplicationArea = All;
-    Caption = 'ACC Warehouse Staff - P51008';
+    Caption = 'APIS Warehouse Staff - P51008';
     PageType = List;
     SourceTable = "ACC Whse. Staff Shipment";
     UsageCategory = Administration;

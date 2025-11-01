@@ -1,7 +1,7 @@
 page 51016 "ACC Item Certificate"
 {
     ApplicationArea = All;
-    Caption = 'ACC Item Certificate';
+    Caption = 'APIS Item Certificate';
     PageType = List;
     SourceTable = "BLACC Item Certificate";
     UsageCategory = Lists;

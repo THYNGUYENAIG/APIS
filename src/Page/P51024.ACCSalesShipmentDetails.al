@@ -1,7 +1,7 @@
 page 51024 "ACC Sales Shipment Details"
 {
     ApplicationArea = All;
-    Caption = 'ACC Sales Shipment Details - P51024';
+    Caption = 'APIS Sales Shipment Details - P51024';
     PageType = List;
     SourceTable = "ACC Whse Shipment Details";
     UsageCategory = ReportsAndAnalysis;
