@@ -1,6 +1,6 @@
 query 51026 "ACC Whse. Registered Qry"
 {
-    Caption = 'ACC Whse. Registered Qry';
+    Caption = 'APIS Whse. Registered Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

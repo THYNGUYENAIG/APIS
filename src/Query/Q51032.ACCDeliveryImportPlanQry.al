@@ -1,6 +1,6 @@
 query 51032 "ACC Delivery Import Plan Qry"
 {
-    Caption = 'ACC Delivery Import Plan Qry';
+    Caption = 'APIS Delivery Import Plan Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = descending(DeliveryDate);

@@ -1,6 +1,6 @@
 query 51015 "ACC Settle Declaration Query"
 {
-    Caption = 'ACC Settlement Declaration Query';
+    Caption = 'APIS Settlement Declaration Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

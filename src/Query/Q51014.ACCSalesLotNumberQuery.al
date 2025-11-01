@@ -1,6 +1,6 @@
 query 51014 "ACC Sales Lot Number Query "
 {
-    Caption = 'ACC Sales Lot Number Query ';
+    Caption = 'APIS Sales Lot Number Query ';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = Ascending(PostingDate);

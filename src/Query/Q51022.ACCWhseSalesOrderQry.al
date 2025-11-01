@@ -1,6 +1,6 @@
 query 51022 "ACC Whse. Sales Order Qry"
 {
-    Caption = 'ACC Whse. Sales Order Qry';
+    Caption = 'APIS Whse. Sales Order Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

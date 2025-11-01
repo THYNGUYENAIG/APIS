@@ -1,6 +1,6 @@
 query 51039 "ACC Requisition Combine Qry"
 {
-    Caption = 'ACC Requisition Combine Qry';
+    Caption = 'APIS Requisition Combine Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

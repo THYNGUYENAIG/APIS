@@ -1,6 +1,6 @@
 query 51016 "ACC PaymTerm Declaration Query"
 {
-    Caption = 'ACC PaymTerm Declaration Query';
+    Caption = 'APIS PaymTerm Declaration Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

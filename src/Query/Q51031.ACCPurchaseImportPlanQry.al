@@ -1,6 +1,6 @@
 query 51031 "ACC Purchase Import Plan Qry"
 {
-    Caption = 'ACC Purchase Import Plan Qry';
+    Caption = 'APIS Purchase Import Plan Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

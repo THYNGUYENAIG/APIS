@@ -1,6 +1,6 @@
 query 51034 "ACC Import Plan Location Qry"
 {
-    Caption = 'ACC Import Plan Location Qry';
+    Caption = 'APIS Import Plan Location Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

@@ -1,6 +1,6 @@
 query 51036 "ACC Posted Whse. Receipt Line"
 {
-    Caption = 'ACC Posted Whse. Receipt Line';
+    Caption = 'APIS Posted Whse. Receipt Line';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

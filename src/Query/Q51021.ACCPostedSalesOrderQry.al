@@ -1,6 +1,6 @@
 query 51021 "ACC Posted Sales Order Qry"
 {
-    Caption = 'ACC Posted Sales Order Qry';
+    Caption = 'APIS Posted Sales Order Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = ascending(LocationCode, No);

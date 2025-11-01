@@ -1,6 +1,6 @@
 query 51024 "ACC INV - Bin Blocked Qry"
 {
-    Caption = 'ACC Inventory - Bin Blocked Qry';
+    Caption = 'APIS Inventory - Bin Blocked Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

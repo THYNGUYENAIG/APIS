@@ -1,6 +1,6 @@
 query 51035 "ACC Warehouse Request Query"
 {
-    Caption = 'ACC Warehouse Request Query';
+    Caption = 'APIS Warehouse Request Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

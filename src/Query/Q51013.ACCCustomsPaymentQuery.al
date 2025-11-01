@@ -1,6 +1,6 @@
 query 51013 "ACC Customs Payment Query"
 {
-    Caption = 'ACC Customs Payment Query';
+    Caption = 'APIS Customs Payment Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

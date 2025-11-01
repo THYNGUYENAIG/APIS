@@ -1,6 +1,6 @@
 query 51019 "ACC Purch. Quarantine Query"
 {
-    Caption = 'ACC Purch. Quarantine Query';
+    Caption = 'APIS Purch. Quarantine Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = Ascending(CreatedAt);

@@ -1,6 +1,6 @@
 query 51020 "ACC Posted Whse. Shipment Qry"
 {
-    Caption = 'ACC Posted Whse. Shipment Qry';
+    Caption = 'APIS Posted Whse. Shipment Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

@@ -1,6 +1,6 @@
 query 51018 "ACC Paym. VAT Tax Decl. Query"
 {
-    Caption = 'ACC Paym. VAT Tax Decl. Query';
+    Caption = 'APIS Paym. VAT Tax Decl. Query';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     
