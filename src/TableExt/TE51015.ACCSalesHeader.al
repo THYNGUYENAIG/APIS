@@ -2,6 +2,27 @@ tableextension 51015 "ACC Sales Header" extends "Sales Header"
 {
     fields
     {
+        modify("Payment Method Code")
+        {
+            trigger OnAfterValidate()
+            var
+                SalesSetup: Record "Manufacturing Setup";
+                Sample: Text;
+                PostingDescription: Text;
+            begin
+                SalesSetup.Get();
+                Sample := ' ' + SalesSetup."Posting Description";
+                PostingDescription := "Posting Description";
+                if ("Document Type" = "Sales Document Type"::Order) OR
+                   ("Document Type" = "Sales Document Type"::Invoice) then begin
+                    if "Payment Method Code" = SalesSetup."Payment Method Code" then begin
+                        "Posting Description" := PostingDescription.Replace(Sample, '');
+                        "Posting Description" += Sample;
+                    end else
+                        "Posting Description" := PostingDescription.Replace(Sample, '');
+                end;
+            end;
+        }
         /*
         modify("Requested Delivery Date")
         {

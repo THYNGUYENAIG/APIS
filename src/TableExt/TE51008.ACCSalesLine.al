@@ -59,7 +59,7 @@ tableextension 51008 "ACC Sales Line" extends "Sales Line"
     }
     keys
     {
-        key(Key23; "Document Type", "Document No.", Type)
+        key(Key25; "Document Type", "Document No.", Type)
         {
             SumIndexFields = "Outstanding Quantity", Quantity, "Quantity Shipped", "Quantity Invoiced";
         }

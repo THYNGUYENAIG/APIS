@@ -23,29 +23,30 @@ codeunit 51005 "ACC Sales Shipment Event"
             SalesInvoice.SetFilter(DocumentNo, SalesShipment."No.");
             if SalesInvoice.Open() then begin
                 while SalesInvoice.Read() do begin
-
-                    if TmpPSIN <> SalesInvoice.InvoiceNo then begin
-                        if TmpPSIN = '' then begin
-                            PSInvoiceTxt := SalesInvoice.InvoiceNo;
-                        end else begin
-                            PSInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.InvoiceNo;
+                    if (SalesInvoice.ShipmentDate <> 0D) AND (SalesInvoice.PostingDate <> 0D) AND (SalesInvoice.ShipmentDate <= SalesInvoice.InvoiceDate) then begin
+                        if TmpPSIN <> SalesInvoice.InvoiceNo then begin
+                            if TmpPSIN = '' then begin
+                                PSInvoiceTxt := SalesInvoice.InvoiceNo;
+                            end else begin
+                                PSInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.InvoiceNo;
+                            end;
+                            ;
                         end;
-                        ;
-                    end;
-                    if TmpEINV <> SalesInvoice.eInvoiceNo then begin
-                        if TmpEINV = '' then begin
-                            eInvoiceTxt := SalesInvoice.eInvoiceNo;
-                            TaxAuthorityNumber := SalesInvoice.eInvoiceCode;
-                            ExternalDocument := SalesInvoice.ExternalDocumentNo;
-                        end else begin
-                            eInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.eInvoiceNo;
-                            TaxAuthorityNumber := TaxAuthorityNumber + '|' + SalesInvoice.eInvoiceCode;
-                            ExternalDocument := ExternalDocument + '|' + SalesInvoice.ExternalDocumentNo;
+                        if TmpEINV <> SalesInvoice.eInvoiceNo then begin
+                            if TmpEINV = '' then begin
+                                eInvoiceTxt := SalesInvoice.eInvoiceNo;
+                                TaxAuthorityNumber := SalesInvoice.eInvoiceCode;
+                                ExternalDocument := SalesInvoice.ExternalDocumentNo;
+                            end else begin
+                                eInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.eInvoiceNo;
+                                TaxAuthorityNumber := TaxAuthorityNumber + '|' + SalesInvoice.eInvoiceCode;
+                                ExternalDocument := ExternalDocument + '|' + SalesInvoice.ExternalDocumentNo;
+                            end;
+                            ;
                         end;
-                        ;
+                        TmpPSIN := SalesInvoice.InvoiceNo;
+                        TmpEINV := SalesInvoice.eInvoiceNo;
                     end;
-                    TmpPSIN := SalesInvoice.InvoiceNo;
-                    TmpEINV := SalesInvoice.eInvoiceNo;
                 end;
                 SalesInvoice.Close();
             end;

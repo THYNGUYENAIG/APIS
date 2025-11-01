@@ -554,7 +554,7 @@ codeunit 51004 "ACC Event Subscriber"
                             if CopyStr(PurchLine."Location Code", 1, 1) <> CopyStr(PurchLocation.ActualLocationCode, 1, 1) then begin
                                 if PurchLine."BLACC Status" = "Purchase Document Status"::Released then begin
                                     PurchLine."Location Code" := PurchLocation.ActualLocationCode;
-                                    PurchLine.Validate("Location Code");
+                                    //PurchLine.Validate("Location Code", PurchLocation.ActualLocationCode);
                                     PurchLine.Modify();
                                 end else begin
                                     Error(StrSubstNo('Anh chị muốn cập nhật khác Site thì qua lại chỉnh PO Line.'));
@@ -745,14 +745,17 @@ codeunit 51004 "ACC Event Subscriber"
         SharepointConnectorLine: Record "AIG Sharepoint Connector Line";
         OauthenToken: SecretText;
     begin
+        if Rec."File No." = '' then
+            exit;
+        if Rec."Is Synchronize" then
+            exit;
         if SharepointConnector.Get('ITEMDOC') then begin
             OauthenToken := BCHelper.GetOAuthTokenSharepointOnline(SharepointConnector);
         end;
         if not SharepointConnectorLine.Get('ITEMDOC', 1) then begin
             exit;
         end;
-        if Rec."File No." <> '' then
-            BCHelper.SPODeleteFile(OauthenToken, SharepointConnectorLine."Site ID", SharepointConnectorLine."Drive ID", Rec."File No.");
+        BCHelper.SPODeleteFile(OauthenToken, SharepointConnectorLine."Site ID", SharepointConnectorLine."Drive ID", Rec."File No.");
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"ACC DMS Library", 'OnAfterDeleteEvent', '', true, true)]

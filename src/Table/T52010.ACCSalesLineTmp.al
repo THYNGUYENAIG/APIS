@@ -1,6 +1,6 @@
 table 52010 "ACC Sales Line Tmp"
 {
-    Caption = 'ACC Sales Line Tmp';
+    Caption = 'APIS Sales Line Tmp';
     TableType = Temporary;
 
     fields

@@ -70,6 +70,11 @@ tableextension 51902 "ACC Certificate Decla. Ext" extends "BLACC Item Certificat
             FieldClass = FlowField;
             CalcFormula = lookup(Item."BLACC Storage Condition" where("No." = field("Item No.")));
         }
+        field(50009; "Is Synchronize"; Boolean)
+        {
+            Caption = 'Is Synchronize';
+            Editable = false;
+        }
     }
 
     procedure GetLastLineNo(ItemNo: Code[20]): Integer
