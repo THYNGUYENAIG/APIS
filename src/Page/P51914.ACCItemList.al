@@ -1,7 +1,7 @@
 page 51914 "ACC Item List"
 {
     ApplicationArea = All;
-    Caption = 'ACC Item List - P51914';
+    Caption = 'APIS Item List - P51914';
     PageType = List;
     SourceTable = Item;
     //CardPageId = "Item Card";

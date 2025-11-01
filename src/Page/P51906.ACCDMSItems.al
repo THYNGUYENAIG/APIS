@@ -1,7 +1,7 @@
 page 51906 "ACC DMS Items"
 {
     ApplicationArea = All;
-    Caption = 'ACC DMS Items';
+    Caption = 'APIS DMS Items';
     PageType = List;
     SourceTable = "ACC DMS Item";
     UsageCategory = Administration;

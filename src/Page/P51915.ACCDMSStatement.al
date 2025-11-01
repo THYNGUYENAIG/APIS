@@ -1,7 +1,7 @@
 page 51915 "ACC DMS Statement"
 {
     ApplicationArea = All;
-    Caption = 'ACC DMS Statement';
+    Caption = 'APIS DMS Statement';
     PageType = List;
     SourceTable = "ACC DMS Statement";
     UsageCategory = Administration;

@@ -1,7 +1,7 @@
 page 51904 "ACC Certificate Declaration"
 {
     ApplicationArea = All;
-    Caption = 'ACC Certificate Declaration';
+    Caption = 'APIS Certificate Declaration';
     PageType = List;
     SourceTable = "ACC Certificate Declaration";
     UsageCategory = Tasks;

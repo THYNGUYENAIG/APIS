@@ -1,7 +1,7 @@
 page 51036 "ACC Sales Reason Card"
 {
     ApplicationArea = All;
-    Caption = 'ACC Sales Reason Card';
+    Caption = 'APIS Sales Reason Card';
     PageType = StandardDialog;
     SourceTable = "Sales Header";
     //DelayedInsert = false;

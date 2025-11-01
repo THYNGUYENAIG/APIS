@@ -1,7 +1,7 @@
 page 51030 "ACC Sales Review"
 {
     ApplicationArea = All;
-    Caption = 'ACC Sales Review';
+    Caption = 'APIS Sales Review';
     PageType = List;
     SourceTable = "ACC Sales Review";
     UsageCategory = ReportsAndAnalysis;

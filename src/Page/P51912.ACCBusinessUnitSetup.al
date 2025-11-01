@@ -1,7 +1,7 @@
 page 51912 "ACC Business Unit Setup"
 {
     ApplicationArea = All;
-    Caption = 'ACC Business Unit Setup - P51912';
+    Caption = 'APIS Business Unit Setup - P51912';
     PageType = List;
     SourceTable = "ACC Business Unit Setup";
     UsageCategory = Administration;

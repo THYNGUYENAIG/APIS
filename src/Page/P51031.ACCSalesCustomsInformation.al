@@ -1,7 +1,7 @@
 page 51031 "ACC Sales Customs Information"
 {
     ApplicationArea = All;
-    Caption = 'ACC Sales Customs Information - P51031';
+    Caption = 'APIS Sales Customs Information - P51031';
     PageType = List;
     SourceTable = "ACC Sales Customs Information";
     UsageCategory = Lists;

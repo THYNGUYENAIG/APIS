@@ -1,7 +1,7 @@
 page 51917 "ACC DMS Report Type"
 {
     ApplicationArea = All;
-    Caption = 'ACC DMS Report Type';
+    Caption = 'APIS DMS Report Type';
     PageType = List;
     SourceTable = "ACC DMS Report Type";
     UsageCategory = Administration;

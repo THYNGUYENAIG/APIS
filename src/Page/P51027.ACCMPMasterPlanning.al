@@ -1,7 +1,7 @@
 page 51027 "ACC MP Master Planning"
 {
     ApplicationArea = All;
-    Caption = 'ACC MP Master Planning - P51027';
+    Caption = 'APIS MP Master Planning - P51027';
     PageType = List;
     SourceTable = "ACC MP Master Planning";
     UsageCategory = ReportsAndAnalysis;

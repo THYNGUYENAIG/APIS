@@ -1,7 +1,7 @@
 page 51026 "ACC MP Commitment"
 {
     ApplicationArea = All;
-    Caption = 'ACC MP Commitment - P51026';
+    Caption = 'APIS MP Commitment - P51026';
     PageType = List;
     SourceTable = "ACC MP Commitment";
     UsageCategory = ReportsAndAnalysis;

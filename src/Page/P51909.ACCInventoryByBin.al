@@ -1,7 +1,7 @@
 page 51909 "ACC Inventory By Bin"
 {
     ApplicationArea = All;
-    Caption = 'ACC Inventory By Bin - P51909';
+    Caption = 'APIS Inventory By Bin - P51909';
     PageType = List;
     SourceTable = "ACC Inventory By Bin";
     UsageCategory = ReportsAndAnalysis;

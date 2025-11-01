@@ -1,7 +1,7 @@
 page 51033 "ACC Approval Entries"
 {
     ApplicationArea = All;
-    Caption = 'ACC Approval Entries';
+    Caption = 'APIS Approval Entries';
     PageType = List;
     SourceTable = "Approval Entry";
     SourceTableView = sorting("Table ID", "Document Type", "Document No.", "Date-Time Sent for Approval")

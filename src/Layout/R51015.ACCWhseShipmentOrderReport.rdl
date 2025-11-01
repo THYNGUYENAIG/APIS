@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.20318.47</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-07-04T08:11:10.5948940Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-01T04:36:51.7400963Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -24,6 +24,67 @@
       <rd:DataSourceID>8441c611-3bcf-4f5b-abaf-add409e26629</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="SalesOrder">
+          <DataField>SalesOrder</DataField>
+        </Field>
+        <Field Name="SalesName">
+          <DataField>SalesName</DataField>
+        </Field>
+        <Field Name="OrderDate">
+          <DataField>OrderDate</DataField>
+        </Field>
+        <Field Name="RequestedShipDate">
+          <DataField>RequestedShipDate</DataField>
+        </Field>
+        <Field Name="ShipmentDate">
+          <DataField>ShipmentDate</DataField>
+        </Field>
+        <Field Name="ActualShipmentDate">
+          <DataField>ActualShipmentDate</DataField>
+        </Field>
+        <Field Name="Open">
+          <DataField>Open</DataField>
+        </Field>
+        <Field Name="OpenFormat">
+          <DataField>OpenFormat</DataField>
+        </Field>
+        <Field Name="Picked">
+          <DataField>Picked</DataField>
+        </Field>
+        <Field Name="PickedFormat">
+          <DataField>PickedFormat</DataField>
+        </Field>
+        <Field Name="Shipped">
+          <DataField>Shipped</DataField>
+        </Field>
+        <Field Name="ShippedFormat">
+          <DataField>ShippedFormat</DataField>
+        </Field>
+        <Field Name="Status">
+          <DataField>Status</DataField>
+        </Field>
+        <Field Name="Note">
+          <DataField>Note</DataField>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+        </Field>
+        <Field Name="ToDate">
+          <DataField>ToDate</DataField>
+        </Field>
+        <Field Name="LocationCode">
+          <DataField>LocationCode</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -71,6 +132,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
+                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="Textbox31">
                           <rd:DefaultName>Textbox31</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -79,7 +141,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=UCASE("ACC Shipment Detail Report")</Value>
+                                  <Value>=UCASE("APIS Shipment Detail Report")</Value>
                                   <Style>
                                     <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -1232,6 +1294,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1269,65 +1337,4 @@ End Function
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="SalesOrder">
-          <DataField>SalesOrder</DataField>
-        </Field>
-        <Field Name="SalesName">
-          <DataField>SalesName</DataField>
-        </Field>
-        <Field Name="OrderDate">
-          <DataField>OrderDate</DataField>
-        </Field>
-        <Field Name="RequestedShipDate">
-          <DataField>RequestedShipDate</DataField>
-        </Field>
-        <Field Name="ShipmentDate">
-          <DataField>ShipmentDate</DataField>
-        </Field>
-        <Field Name="ActualShipmentDate">
-          <DataField>ActualShipmentDate</DataField>
-        </Field>
-        <Field Name="Open">
-          <DataField>Open</DataField>
-        </Field>
-        <Field Name="OpenFormat">
-          <DataField>OpenFormat</DataField>
-        </Field>
-        <Field Name="Picked">
-          <DataField>Picked</DataField>
-        </Field>
-        <Field Name="PickedFormat">
-          <DataField>PickedFormat</DataField>
-        </Field>
-        <Field Name="Shipped">
-          <DataField>Shipped</DataField>
-        </Field>
-        <Field Name="ShippedFormat">
-          <DataField>ShippedFormat</DataField>
-        </Field>
-        <Field Name="Status">
-          <DataField>Status</DataField>
-        </Field>
-        <Field Name="Note">
-          <DataField>Note</DataField>
-        </Field>
-        <Field Name="FromDate">
-          <DataField>FromDate</DataField>
-        </Field>
-        <Field Name="ToDate">
-          <DataField>ToDate</DataField>
-        </Field>
-        <Field Name="LocationCode">
-          <DataField>LocationCode</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

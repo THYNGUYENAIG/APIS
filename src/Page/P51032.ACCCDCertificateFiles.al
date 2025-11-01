@@ -1,7 +1,7 @@
 page 51032 "ACC CD Certificate Files"
 {
     ApplicationArea = All;
-    Caption = 'ACC CD Certificate Files - P51032';
+    Caption = 'APIS CD Certificate Files - P51032';
     PageType = List;
     SourceTable = "BLACC CD Certificate Files";
     UsageCategory = ReportsAndAnalysis;

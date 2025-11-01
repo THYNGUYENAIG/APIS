@@ -1,7 +1,7 @@
 page 51910 "ACC Inventory By Plate"
 {
     ApplicationArea = All;
-    Caption = 'ACC Inventory By Plate - P51910';
+    Caption = 'APIS Inventory By Plate - P51910';
     PageType = List;
     SourceTable = "ACC Inventory By Plate";
     UsageCategory = ReportsAndAnalysis;

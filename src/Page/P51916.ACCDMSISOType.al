@@ -1,7 +1,7 @@
 page 51916 "ACC DMS ISO Type"
 {
     ApplicationArea = All;
-    Caption = 'ACC DMS ISO Type';
+    Caption = 'APIS DMS ISO Type';
     PageType = List;
     SourceTable = "ACC DMS ISO Type";
     UsageCategory = Administration;

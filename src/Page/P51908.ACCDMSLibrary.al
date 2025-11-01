@@ -1,7 +1,7 @@
 page 51908 "ACC DMS Library"
 {
     ApplicationArea = All;
-    Caption = 'ACC DMS Library';
+    Caption = 'APIS DMS Library';
     PageType = List;
     SourceTable = "ACC DMS Library";
     UsageCategory = Lists;

@@ -1,7 +1,7 @@
 page 51911 "ACC Contract Document"
 {
     ApplicationArea = All;
-    Caption = 'ACC Contract Document';
+    Caption = 'APIS Contract Document';
     PageType = List;
     SourceTable = "ACC Contract Document";
     UsageCategory = Administration;

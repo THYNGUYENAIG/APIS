@@ -129,66 +129,68 @@ codeunit 51012 "ACC MP Forecast Entry"
                     FromDate := CalcDate('-CM', Today());
                     ToDate := CalcDate('CM', FromDate);
                     if ParentEntry <> 0 then begin
-                        RecordType := 'Modify';
-                        // 0  
-                        if Consolidate.Month = FromDate.Month then
-                            ModifyProductEntry(ParentEntry, FromDate, Month01, SalesAgreement);
-                        // 1
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month02, SalesAgreement);
-                        // 2
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month03, SalesAgreement);
-                        // 3
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month04, SalesAgreement);
-                        // 4
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month05, SalesAgreement);
-                        // 5
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month06, SalesAgreement);
-                        // 6
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month07, SalesAgreement);
-                        // 7
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month08, SalesAgreement);
-                        // 8
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month09, SalesAgreement);
-                        // 9
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month10, SalesAgreement);
-                        // 10
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month11, SalesAgreement);
-                        // 11
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month12, SalesAgreement);
-                        // 12
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month13, SalesAgreement);
-                        // 13
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month14, SalesAgreement);
-                        // 14
-                        FromDate := CalcDate('+1D', ToDate);
-                        ToDate := CalcDate('CM', FromDate);
-                        ModifyProductEntry(ParentEntry, FromDate, Month15, SalesAgreement);
+                        if ForecastEntry.Get(ParentEntry) then begin
+                            RecordType := 'Modify';
+                            // 0  
+                            if Consolidate.Month = FromDate.Month then
+                                ModifyProductEntry(ParentEntry, FromDate, Month01, ForecastEntry);
+                            // 1
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month02, ForecastEntry);
+                            // 2
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month03, ForecastEntry);
+                            // 3
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month04, ForecastEntry);
+                            // 4
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month05, ForecastEntry);
+                            // 5
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month06, ForecastEntry);
+                            // 6
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month07, ForecastEntry);
+                            // 7
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month08, ForecastEntry);
+                            // 8
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month09, ForecastEntry);
+                            // 9
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month10, ForecastEntry);
+                            // 10
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month11, ForecastEntry);
+                            // 11
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month12, ForecastEntry);
+                            // 12
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month13, ForecastEntry);
+                            // 13
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month14, ForecastEntry);
+                            // 14
+                            FromDate := CalcDate('+1D', ToDate);
+                            ToDate := CalcDate('CM', FromDate);
+                            ModifyProductEntry(ParentEntry, FromDate, Month15, ForecastEntry);
+                        end;
                     end else begin
                         if (not ItemTable.Get(ItemNo)) OR (not CustTable.Get(CustomerNo)) OR (not SalesTable.Get(SalespersonCode)) OR (not ((BranchCode = '10') OR (BranchCode = '20'))) OR (not BusinessUnit.Get(BUCode)) OR (not LocationTable.Get(LocationCode)) then begin
                             // Notify
@@ -295,70 +297,70 @@ codeunit 51012 "ACC MP Forecast Entry"
                                     SalesAgreement := '';
 
                                 if Consolidate.Month = FromDate.Month then
-                                    ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month01, SalesAgreement);
+                                    ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month01, ForecastEntry);
                                 // 1
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month02, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month02, ForecastEntry);
                                 // 2
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month03, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month03, ForecastEntry);
                                 // 3
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month04, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month04, ForecastEntry);
                                 // 4
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month05, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month05, ForecastEntry);
                                 // 5
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month06, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month06, ForecastEntry);
                                 // 6
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month07, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month07, ForecastEntry);
                                 // 7
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month08, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month08, ForecastEntry);
                                 // 8
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month09, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month09, ForecastEntry);
                                 // 9
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month10, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month10, ForecastEntry);
                                 // 10
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month11, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month11, ForecastEntry);
                                 // 11
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month12, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month12, ForecastEntry);
                                 // 12
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month13, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month13, ForecastEntry);
                                 // 13
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month14, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month14, ForecastEntry);
                                 // 14
                                 FromDate := CalcDate('+1D', ToDate);
                                 ToDate := CalcDate('CM', FromDate);
-                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month15, SalesAgreement);
+                                ModifyProductEntry(ForecastEntry."Entry No.", FromDate, Month15, ForecastEntry);
                             end;
                         end;
                     end;
                     EntryCounter += 1;
                     Window.Update(1, StrSubstNo(Progress, EntryCounter, ParentEntry, RecordType));
                     Sleep(50);
-                until TmpExcelBuffer.Next() = 0;            
+                until TmpExcelBuffer.Next() = 0;
         end;
     end;
 
@@ -430,7 +432,7 @@ codeunit 51012 "ACC MP Forecast Entry"
         end;
     end;
 
-    local procedure ModifyProductEntry(ParentEntry: Integer; FromDate: Date; Quantity: Decimal; SalesAgreement: Text)
+    local procedure ModifyProductEntry(ParentEntry: Integer; FromDate: Date; Quantity: Decimal; ForecastEntry: Record "BLACC Forecast Entry")
     var
 
         SalesForecast: Record "BLACC Forecast Entry";
@@ -438,11 +440,9 @@ codeunit 51012 "ACC MP Forecast Entry"
         CopyProEntry: Record "Production Forecast Entry";
         ItemTable: Record Item;
         ItemUnitofMeasure: Record "Item Unit of Measure";
-
+        ForecastQty: Decimal;
     begin
-
-        //if SalesAgreement <> '' then
-        //    exit;
+        ForecastQty := 0;
         ProductEntry.Reset();
         ProductEntry.SetRange("BLACC Parent Entry", ParentEntry);
         ProductEntry.SetRange("Forecast Date", FromDate);
@@ -461,7 +461,18 @@ codeunit 51012 "ACC MP Forecast Entry"
                         ItemUnitofMeasure.Get(ProductEntry."Item No.", ItemTable."Base Unit of Measure");
                         ProductEntry."Qty. per Unit of Measure" := ItemUnitofMeasure."Qty. per Unit of Measure";
                         ProductEntry."BLACC Violdate Stock Policy" := true;
-                        ProductEntry.Modify();
+                        if ProductEntry."BLACC No SA" = false then begin
+                            ForecastQty := SetSAMaxQty(ParentEntry);
+                            if (ForecastQty + Quantity) > ForecastEntry."BLACC Max Quantity" then begin
+                                if ForecastEntry."BLACC Max Quantity" > ForecastQty then begin
+                                    ProductEntry."Forecast Quantity" := ForecastEntry."BLACC Max Quantity" - ForecastQty;
+                                    ProductEntry."Forecast Quantity (Base)" := ForecastEntry."BLACC Max Quantity" - ForecastQty;
+                                    ProductEntry.Modify();
+                                end;
+                            end else
+                                ProductEntry.Modify();
+                        end else
+                            ProductEntry.Modify();
                     end;
                 end;
             end else begin
@@ -496,7 +507,20 @@ codeunit 51012 "ACC MP Forecast Entry"
                     ItemUnitofMeasure.Get(ProductEntry."Item No.", ItemTable."Base Unit of Measure");
                     ProductEntry."Qty. per Unit of Measure" := ItemUnitofMeasure."Qty. per Unit of Measure";
                     ProductEntry."BLACC Violdate Stock Policy" := true;
-                    ProductEntry.Insert();
+                    if ProductEntry."BLACC No SA" = false then begin
+                        if (ForecastEntry."BLACC Agreement StartDate" <= FromDate) AND (ForecastEntry."BLACC Agreement EndDate" >= FromDate) then begin
+                            ForecastQty := SetSAMaxQty(ParentEntry);
+                            if (ForecastQty + Quantity) > ForecastEntry."BLACC Max Quantity" then begin
+                                if ForecastEntry."BLACC Max Quantity" > ForecastQty then begin
+                                    ProductEntry."Forecast Quantity" := ForecastEntry."BLACC Max Quantity" - ForecastQty;
+                                    ProductEntry."Forecast Quantity (Base)" := ForecastEntry."BLACC Max Quantity" - ForecastQty;
+                                    ProductEntry.Insert();
+                                end;
+                            end else
+                                ProductEntry.Insert();
+                        end;
+                    end else
+                        ProductEntry.Insert();
                 end else begin
                     SalesForecast.Reset();
                     SalesForecast.SetRange("Entry No.", ParentEntry);
@@ -527,11 +551,37 @@ codeunit 51012 "ACC MP Forecast Entry"
                         ProductEntry."BLACC Last Forcecast Qty." := 0;
                         ProductEntry."BLACC No SA" := SalesForecast."No SA";
                         ProductEntry."BLACC Violdate Stock Policy" := true;
-                        ProductEntry.Insert();
+                        if SalesForecast."No SA" = false then begin
+                            if (SalesForecast."BLACC Agreement StartDate" <= FromDate) AND (SalesForecast."BLACC Agreement EndDate" >= FromDate) then begin
+                                ForecastQty := SetSAMaxQty(ParentEntry);
+                                if (ForecastQty + Quantity) > SalesForecast."BLACC Max Quantity" then begin
+                                    if SalesForecast."BLACC Max Quantity" > ForecastQty then begin
+                                        ProductEntry."Forecast Quantity" := SalesForecast."BLACC Max Quantity" - ForecastQty;
+                                        ProductEntry."Forecast Quantity (Base)" := SalesForecast."BLACC Max Quantity" - ForecastQty;
+                                        ProductEntry.Insert();
+                                    end;
+                                end else
+                                    ProductEntry.Insert();
+                            end;
+                        end else
+                            ProductEntry.Insert();
                     end;
                 end;
             end;
         end;
+    end;
+
+    local procedure SetSAMaxQty(ParentEntry: Integer): Decimal
+    var
+        ProductEntry: Record "Production Forecast Entry";
+    begin
+        ProductEntry.Reset();
+        ProductEntry.SetRange("BLACC Parent Entry", ParentEntry);
+        ProductEntry.SetRange("BLACC Active", true);
+        ProductEntry.SetRange("BLACC No SA", false);
+        ProductEntry.SetLoadFields("Forecast Quantity (Base)");
+        ProductEntry.CalcSums("Forecast Quantity (Base)");
+        exit(ProductEntry."Forecast Quantity (Base)");
     end;
 
     local procedure GetCellValue(var TempExcelBuffer: Record "Excel Buffer"; Row: Integer; Col: Integer; var Value: Text): Boolean
