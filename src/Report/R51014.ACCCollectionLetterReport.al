@@ -1,7 +1,7 @@
 report 51014 "ACC Collection Letter Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Collection Letter Report - R51014';
+    Caption = 'APIS Collection Letter Report - R51014';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

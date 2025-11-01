@@ -1,6 +1,6 @@
 report 51028 "AIG Average AR Report"
 {
-    Caption = 'AIG Average AR Report';
+    Caption = 'APIS Average AR Report';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

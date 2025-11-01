@@ -1,6 +1,6 @@
 report 52003 "ACC Sales And Paym Report"
 {
-    Caption = 'ACC Sales And Payment Report - R52003';
+    Caption = 'APIS Sales And Payment Report - R52003';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

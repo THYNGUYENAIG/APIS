@@ -1,6 +1,6 @@
 report 51023 "ACC Import Plan Unpost Report"
 {
-    Caption = 'ACC Phiếu nhập kho nháp - R51023';
+    Caption = 'APIS Phiếu nhập kho nháp - R51023';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

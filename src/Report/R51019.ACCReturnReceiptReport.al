@@ -1,6 +1,6 @@
 report 51019 "ACC Return Receipt Report"
 {
-    Caption = 'ACC Return Receipt Report - R51019';
+    Caption = 'APIS Return Receipt Report - R51019';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

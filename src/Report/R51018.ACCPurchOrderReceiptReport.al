@@ -1,6 +1,6 @@
 report 51018 "ACC Order Receipt Report"
 {
-    Caption = 'ACC Order Receipt Report - R51018';
+    Caption = 'APIS Order Receipt Report - R51018';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

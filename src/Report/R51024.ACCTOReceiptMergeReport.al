@@ -1,7 +1,7 @@
 report 51024 "ACC TO Receipt Merge Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC TO Receipt Merge Report - R51024';
+    Caption = 'APIS TO Receipt Merge Report - R51024';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

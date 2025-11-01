@@ -19,17 +19,19 @@ query 51906 "ACC Sales Invoice Entry Qry"
             column(ShipmentDate; "Shipment Date") { }
             dataitem(ItemLedgerEntry; "Item Ledger Entry")
             {
-                //DataItemTableFilter = Quantity = filter('>0');
                 DataItemLink = "Document No." = SalesShipmentHeader."No.";
+                SqlJoinType = InnerJoin;
                 column(PostingDate; "Posting Date") { }
                 column(LocationCode; "Location Code") { }
                 dataitem(ValueEntry; "Value Entry")
                 {
                     DataItemTableFilter = "Document Type" = filter('Sales Invoice');
                     DataItemLink = "Item Ledger Entry No." = ItemLedgerEntry."Entry No.";
+                    SqlJoinType = InnerJoin;
                     dataitem(SalesInvoiceHeader; "Sales Invoice Header")
                     {
                         DataItemLink = "No." = ValueEntry."Document No.";
+                        SqlJoinType = InnerJoin;
                         column(InvoiceNo; "No.")
                         {
                             Caption = 'PSI No.';
@@ -44,6 +46,7 @@ query 51906 "ACC Sales Invoice Entry Qry"
                         {
                             DataItemLink = "No." = SalesInvoiceHeader."BLTI Draft eInvoice No.",
                                        "eInvoice No." = SalesInvoiceHeader."BLTI eInvoice No.";
+                            SqlJoinType = InnerJoin;
                             column(ReservationCode; "eInvoice ReservationCode") { }
                             column(eInvoiceCode; "eInvoice Code") { }
                             column(eInvNo; "No.") { }

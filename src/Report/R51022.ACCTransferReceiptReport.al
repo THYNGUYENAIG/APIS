@@ -1,7 +1,7 @@
 report 51022 "ACC Transfer Receipt Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Transfer Receipt Report - R51022';
+    Caption = 'APIS Transfer Receipt Report - R51022';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

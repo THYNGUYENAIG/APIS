@@ -1,7 +1,7 @@
 report 51020 "ACC Purch. Lead. Decl. Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purch. Lead. Decl. Report - R51020';
+    Caption = 'APIS Purch. Lead. Decl. Report - R51020';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

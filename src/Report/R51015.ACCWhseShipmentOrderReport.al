@@ -1,7 +1,7 @@
 report 51015 "ACC Whse. Ship. Order Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Shipment Detail Report - R51015';
+    Caption = 'APIS Shipment Detail Report - R51015';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

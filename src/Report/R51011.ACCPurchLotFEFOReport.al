@@ -1,6 +1,6 @@
 report 51011 "ACC Purch Lot FEFO Report"
 {
-    Caption = 'ACC Purchase Lot FEFO Report - R51011';
+    Caption = 'APIS Purchase Lot FEFO Report - R51011';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

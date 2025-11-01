@@ -1,6 +1,6 @@
 report 51001 "ACC Product Receipt Report"
 {
-    Caption = 'ACC Purchase Product Receipt Report - R51001';
+    Caption = 'APIS Purchase Product Receipt Report - R51001';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

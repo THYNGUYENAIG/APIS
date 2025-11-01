@@ -1,7 +1,7 @@
 report 51005 "ACC Sales Quotation VN Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Sales Quotation VN Report - R51005';
+    Caption = 'APIS Sales Quotation VN Report - R51005';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

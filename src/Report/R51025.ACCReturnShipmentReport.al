@@ -1,6 +1,6 @@
 report 51025 "ACC Return Shipment Report"
 {
-    Caption = 'ACC Return Shipment Report - R51025';
+    Caption = 'APIS Return Shipment Report - R51025';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

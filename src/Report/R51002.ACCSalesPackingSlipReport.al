@@ -1,6 +1,6 @@
 report 51002 "ACC Packing Slip Report"
 {
-    Caption = 'ACC Sales Packing Slip Report - R51002';
+    Caption = 'APIS Sales Packing Slip Report - R51002';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

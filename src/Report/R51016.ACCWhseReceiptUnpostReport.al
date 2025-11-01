@@ -1,6 +1,6 @@
 report 51016 "ACC WH Receipt Unpost Report"
 {
-    Caption = 'ACC Phiếu nhập kho nháp - R51016';
+    Caption = 'APIS Phiếu nhập kho nháp - R51016';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;

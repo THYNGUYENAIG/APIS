@@ -1,7 +1,7 @@
 report 51008 "ACC PO No Contract VN Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purchase No Contract VN Report - R51008';
+    Caption = 'APIS Purchase No Contract VN Report - R51008';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

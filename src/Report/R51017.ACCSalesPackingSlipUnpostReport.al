@@ -1,6 +1,6 @@
 report 51017 "ACC Packing Slip Unpost Report"
 {
-    Caption = 'ACC Phiếu xuất kho nháp - R51017';
+    Caption = 'APIS Phiếu xuất kho nháp - R51017';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     ApplicationArea = All;
