@@ -1,6 +1,6 @@
 query 51061 "ACC Purchase Customs Lot Qry"
 {
-    Caption = 'ACC Purchase Customs Lot Qry';
+    Caption = 'APIS Purchase Customs Lot Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

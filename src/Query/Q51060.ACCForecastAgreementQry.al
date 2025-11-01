@@ -1,6 +1,6 @@
 query 51060 "ACC Forecast Agreement Qry"
 {
-    Caption = 'ACC Forecast Agreement Qry';
+    Caption = 'APIS Forecast Agreement Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

@@ -1,6 +1,6 @@
 query 51043 "ACC MP Combine Line Qry"
 {
-    Caption = 'ACC MP Combine Line Qry';
+    Caption = 'APIS MP Combine Line Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     elements

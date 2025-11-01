@@ -1,6 +1,6 @@
 query 51052 "ACC Inventory Unlocked"
 {
-    Caption = 'ACC Inventory Unlocked';
+    Caption = 'APIS Inventory Unlocked';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

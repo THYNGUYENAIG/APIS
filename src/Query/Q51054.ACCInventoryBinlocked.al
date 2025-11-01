@@ -1,6 +1,6 @@
 query 51054 "ACC Inventory Binlocked"
 {
-    Caption = 'ACC Inventory Binlocked';
+    Caption = 'APIS Inventory Binlocked';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

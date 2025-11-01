@@ -1,6 +1,6 @@
 query 51046 "ACC MP Forecast Accuracy Line"
 {
-    Caption = 'ACC MP Forecast Accuracy Line';
+    Caption = 'APIS MP Forecast Accuracy Line';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

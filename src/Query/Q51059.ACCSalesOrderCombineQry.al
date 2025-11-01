@@ -1,6 +1,6 @@
 query 51059 "ACC MP Sales Line Qry"
 {
-    Caption = 'ACC MP Sales Line Qry';
+    Caption = 'APIS MP Sales Line Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

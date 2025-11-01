@@ -1,6 +1,6 @@
 query 51057 "ACC MP Inventory Lotlocked"
 {
-    Caption = 'ACC MP Inventory Lotlocked';
+    Caption = 'APIS MP Inventory Lotlocked';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

@@ -1,6 +1,6 @@
 query 51045 "ACC Agreement Entry Qry"
 {
-    Caption = 'ACC Agreement Entry Qry';
+    Caption = 'APIS Agreement Entry Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

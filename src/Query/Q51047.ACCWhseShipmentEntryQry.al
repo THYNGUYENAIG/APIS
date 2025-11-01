@@ -1,6 +1,6 @@
 query 51047 "ACC Whse. Shipment Entry Qry"
 {
-    Caption = 'ACC Whse. Shipment Entry Qry';
+    Caption = 'APIS Whse. Shipment Entry Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

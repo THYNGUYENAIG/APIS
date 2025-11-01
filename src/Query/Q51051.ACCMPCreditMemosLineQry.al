@@ -1,6 +1,6 @@
 query 51051 "ACC MP Credit Memos Line Qry"
 {
-    Caption = 'ACC MP Credit Memos Line - Q51051';
+    Caption = 'APIS MP Credit Memos Line - Q51051';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

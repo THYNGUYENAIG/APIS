@@ -1,6 +1,6 @@
 query 51050 "ACC MP Invoice Line Qry"
 {
-    Caption = 'ACC MP Invoice Line - Q51050';
+    Caption = 'APIS MP Invoice Line - Q51050';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

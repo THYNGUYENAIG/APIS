@@ -1,6 +1,6 @@
 query 51055 "ACC MP Commitment Line Qry"
 {
-    Caption = 'ACC MP Commitment Line Qry';
+    Caption = 'APIS MP Commitment Line Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

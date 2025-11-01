@@ -1,6 +1,6 @@
 query 51041 "ACC Stock Combine Qry"
 {
-    Caption = 'ACC Stock Combine Qry';
+    Caption = 'APIS Stock Combine Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

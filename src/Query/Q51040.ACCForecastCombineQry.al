@@ -1,6 +1,6 @@
 query 51040 "ACC Forecast Combine Qry"
 {
-    Caption = 'ACC Forecast Combine Qry';
+    Caption = 'APIS Forecast Combine Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

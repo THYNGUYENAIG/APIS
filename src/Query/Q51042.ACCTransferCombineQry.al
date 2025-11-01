@@ -1,6 +1,6 @@
 query 51042 "ACC Transfer Combine Qry"
 {
-    Caption = 'ACC Transfer Combine Qry';
+    Caption = 'APIS Transfer Combine Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 
