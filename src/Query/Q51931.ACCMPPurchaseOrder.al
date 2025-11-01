@@ -1,6 +1,6 @@
 query 51931 "ACC MP Purchase Order"
 {
-    Caption = 'ACC MP Purchase Order';
+    Caption = 'APIS MP Purchase Order';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

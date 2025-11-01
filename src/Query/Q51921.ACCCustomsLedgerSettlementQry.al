@@ -1,6 +1,6 @@
 query 51921 "ACC Customs Ledger Settle. Qry"
 {
-    Caption = 'ACC Customs Ledger Settlement Qry ';
+    Caption = 'APIS Customs Ledger Settlement Qry ';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

@@ -1,6 +1,6 @@
 query 51929 "ACC MP Forecast Entry"
 {
-    Caption = 'ACC MP Forecast Entry';
+    Caption = 'APIS MP Forecast Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = ascending(ParentEntry, ForecastDate);

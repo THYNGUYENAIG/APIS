@@ -1,6 +1,6 @@
 query 51919 "ACC Forecast Unactive Qry"
 {
-    Caption = 'ACC Forecast Unactive Qry';
+    Caption = 'APIS Forecast Unactive Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = ascending(BusinessUnitId, SalespersonCode, CustomerNo, ItemNo, LocationCode, SalesAgreementNo, ForecastDate);

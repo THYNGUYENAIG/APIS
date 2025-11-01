@@ -1,6 +1,6 @@
 query 51923 "ACC Vendor Settle Delete Qry"
 {
-    Caption = 'ACC Vendor Settle Delete Qry';
+    Caption = 'APIS Vendor Settle Delete Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

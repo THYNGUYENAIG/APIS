@@ -2,7 +2,7 @@ query 52001 "ACC Value Entry Query"
 {
     QueryType = Normal;
     DataAccessIntent = ReadOnly;
-    QueryCategory = 'Item List';
+    
     elements
     {
         dataitem(VLE; "Value Entry")

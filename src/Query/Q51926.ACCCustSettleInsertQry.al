@@ -1,6 +1,6 @@
 query 51926 "ACC Cust Settle Insert Qry"
 {
-    Caption = 'ACC Cust Settle Insert Qry';
+    Caption = 'APIS Cust Settle Insert Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

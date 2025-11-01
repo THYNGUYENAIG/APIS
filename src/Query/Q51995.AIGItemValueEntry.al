@@ -4,6 +4,7 @@ query 51995 "AIG Item Value Entry"
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     UsageCategory = Administration;
+    
     elements
     {
         dataitem(AIGValueEntryRelation; "AIG Value Entry Relation")

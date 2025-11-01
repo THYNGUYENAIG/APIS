@@ -1,7 +1,7 @@
 report 51009 "ACC PO Contract GIV VN Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Purchase Contract GIV VN Report - R51009';
+    Caption = 'APIS Purchase Contract GIV VN Report - R51009';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

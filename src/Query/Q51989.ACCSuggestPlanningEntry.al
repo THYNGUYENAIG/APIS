@@ -1,6 +1,6 @@
 query 51989 "ACC Suggest Planning Entry"
 {
-    Caption = 'ACC Suggest Planning Entry';
+    Caption = 'APIS Suggest Planning Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

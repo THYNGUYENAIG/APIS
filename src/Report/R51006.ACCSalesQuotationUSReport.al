@@ -1,7 +1,7 @@
 report 51006 "ACC Sales Quotation US Report"
 {
     ApplicationArea = All;
-    Caption = 'ACC Sales Quotation US Report - R51006';
+    Caption = 'APIS Sales Quotation US Report - R51006';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;

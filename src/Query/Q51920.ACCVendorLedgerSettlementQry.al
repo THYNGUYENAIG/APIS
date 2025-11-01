@@ -1,6 +1,6 @@
 query 51920 "ACC Vend Ledger Settlement Qry"
 {
-    Caption = 'ACC Vendor Ledger Settlement Qry';
+    Caption = 'APIS Vendor Ledger Settlement Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
 

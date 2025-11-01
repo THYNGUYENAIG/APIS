@@ -1,6 +1,6 @@
 query 51990 "ACC BU Transaction Entry"
 {
-    Caption = 'ACC BU Transaction Entry';
+    Caption = 'APIS BU Transaction Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = ascending(ItemNo, Quantity);

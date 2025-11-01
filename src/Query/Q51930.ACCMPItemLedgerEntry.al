@@ -1,6 +1,6 @@
 query 51930 "ACC MP Item Ledger Entry"
 {
-    Caption = 'ACC MP Item Ledger Entry';
+    Caption = 'APIS MP Item Ledger Entry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

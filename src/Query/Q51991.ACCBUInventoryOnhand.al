@@ -1,6 +1,6 @@
 query 51991 "ACC BU Inventory Onhand"
 {
-    Caption = 'ACC BU Inventory Onhand';
+    Caption = 'APIS BU Inventory Onhand';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     

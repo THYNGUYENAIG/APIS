@@ -1,6 +1,6 @@
 query 51924 "ACC Vendor Settle Insert Qry"
 {
-    Caption = 'ACC Vendor Settle Insert Qry';
+    Caption = 'APIS Vendor Settle Insert Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     OrderBy = ascending(PurchInvNo, VendorEntryNo);

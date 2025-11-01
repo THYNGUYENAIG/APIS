@@ -1,6 +1,6 @@
 query 52011 "ACC Sales Agreement"
 {
-    Caption = 'ACC Sales Agreement Statistic - Q52011';
+    Caption = 'APIS Sales Agreement Statistic - Q52011';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     UsageCategory = Lists;

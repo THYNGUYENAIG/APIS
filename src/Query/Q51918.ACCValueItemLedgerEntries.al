@@ -1,6 +1,6 @@
 query 51918 "ACC Value Item Ledger Entries"
 {
-    Caption = 'ACC Value Item Ledger Entries';
+    Caption = 'APIS Value Item Ledger Entries';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
     
