@@ -53,24 +53,26 @@ report 51004 "ACC Packing Slip - PROD Report"
                 column(LocationContactName; Location.Contact) { }
                 column(WhseOrderPinterName; WhseOrderPinterName) { }
                 column(WhseKeeperName; WhseKeeperName) { }
-                dataitem(ItemEntryRelation; "Item Entry Relation")
+                //dataitem(ItemEntryRelation; "Item Entry Relation")
+                //{
+                //    DataItemLink = "Source ID" = field("Document No."), "Source Ref. No." = field("Line No.");
+                //    DataItemTableView = where("Source Type" = const(111));
+                dataitem(ItemLedgerEntry; "Item Ledger Entry")
                 {
-                    DataItemLink = "Source ID" = field("Document No."), "Source Ref. No." = field("Line No.");
-                    DataItemTableView = where("Source Type" = const(111));
-                    dataitem(ItemLedgerEntry; "Item Ledger Entry")
-                    {
-                        DataItemLink = "Entry No." = field("Item Entry No.");
-                        column(LotNo; LotInfo) { }
-                        column(Quantity; Quantity) { }
-                        column(ExpirationDate; "Expiration Date") { }
-                        column(ManufactureDate; LotTable."BLACC Manufacturing Date") { }
-                        trigger OnAfterGetRecord()
-                        begin
-                            GenerateInterBarCode();
-                            GetDataTable();
-                        end;
-                    }
+                    //DataItemLink = "Entry No." = field("Item Entry No.");
+                    DataItemLink = "Document No." = field("Document No."),
+                                       "Document Line No." = field("Line No.");
+                    column(LotNo; LotInfo) { }
+                    column(Quantity; Quantity) { }
+                    column(ExpirationDate; "Expiration Date") { }
+                    column(ManufactureDate; LotTable."BLACC Manufacturing Date") { }
+                    trigger OnAfterGetRecord()
+                    begin
+                        GenerateInterBarCode();
+                        GetDataTable();
+                    end;
                 }
+                //}
             }
         }
     }

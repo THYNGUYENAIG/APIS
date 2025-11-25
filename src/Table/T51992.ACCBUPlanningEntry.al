@@ -98,7 +98,8 @@ table 51992 "ACC BU Planning Entry"
         if "Planned No." = '' then begin
             ManufacturingSetup.Get();
             ManufacturingSetup.TestField("Planned Adjust. Nos.");
-            NoSeriesMgt.InitSeries(ManufacturingSetup."Planned Adjust. Nos.", xRec."Planned No.", 0D, "Planned No.", "No. Series");
+            //NoSeriesMgt.InitSeries(ManufacturingSetup."Planned Adjust. Nos.", xRec."Planned No.", 0D, "Planned No.", "No. Series");
+            "Planned No." := NoSeriesMgt.GetNextNo(ManufacturingSetup."Planned Adjust. Nos.");
         end;
     end;
 
@@ -161,5 +162,6 @@ table 51992 "ACC BU Planning Entry"
 
     var
         ManufacturingSetup: Record "Manufacturing Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        //NoSeriesMgt: Codeunit NoSeriesManagement;
+        NoSeriesMgt: Codeunit "No. Series";
 }

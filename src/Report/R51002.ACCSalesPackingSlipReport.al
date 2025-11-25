@@ -53,25 +53,27 @@ report 51002 "ACC Packing Slip Report"
                 column(LocationCode; "Location Code") { }
                 column(LocationName; Location.Name) { }
                 column(LocationContactName; Location.Contact) { }
-                dataitem(ItemEntryRelation; "Item Entry Relation")
+                //dataitem(ItemEntryRelation; "Item Entry Relation")
+                //{
+                //    DataItemLink = "Source ID" = field("Document No."), "Source Ref. No." = field("Line No.");
+                //    DataItemTableView = where("Source Type" = const(111));
+                dataitem(ItemLedgerEntry; "Item Ledger Entry")
                 {
-                    DataItemLink = "Source ID" = field("Document No."), "Source Ref. No." = field("Line No.");
-                    DataItemTableView = where("Source Type" = const(111));
-                    dataitem(ItemLedgerEntry; "Item Ledger Entry")
-                    {
-                        DataItemLink = "Entry No." = field("Item Entry No.");
-                        column(LotNo; LotInfo) { }
-                        column(Quantity; Quantity) { }
-                        column(ExpirationDate; "Expiration Date") { }
-                        column(ManufactureDate; LotTable."BLACC Manufacturing Date") { }
+                    //DataItemLink = "Entry No." = field("Item Entry No.");
+                    DataItemLink = "Document No." = field("Document No."),
+                                    "Document Line No." = field("Line No.");
+                    column(LotNo; LotInfo) { }
+                    column(Quantity; Quantity) { }
+                    column(ExpirationDate; "Expiration Date") { }
+                    column(ManufactureDate; LotTable."BLACC Manufacturing Date") { }
 
-                        trigger OnAfterGetRecord()
-                        begin
-                            GenerateInterBarCode();
-                            GetDataTable();
-                        end;
-                    }
+                    trigger OnAfterGetRecord()
+                    begin
+                        GenerateInterBarCode();
+                        GetDataTable();
+                    end;
                 }
+                //}
             }
         }
     }

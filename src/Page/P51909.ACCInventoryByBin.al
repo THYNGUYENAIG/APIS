@@ -94,8 +94,19 @@ page 51909 "ACC Inventory By Bin"
                 Rec."Bin Code" := InvBin.BinCode;
                 Rec."Bin Type Code" := InvBin.BinTypeCode;
                 Rec."Block Movement" := InvBin.BlockMovement;
-                Rec."Item Conditions" := InvBin.ItemConditions;
-                Rec."Location Conditions" := InvBin.LocationConditions;
+                if InvBin.Blocked then begin
+                    if InvBin.ItemConditions <> '' then
+                        Rec."Item Conditions" := InvBin.ItemConditions
+                    else
+                        Rec."Item Conditions" := InvBin.LotItemConditions;
+                    if InvBin.LocationConditions <> '' then
+                        Rec."Location Conditions" := InvBin.LocationConditions
+                    else
+                        Rec."Location Conditions" := InvBin.LotLocationConditions;
+                end else begin
+                    Rec."Item Conditions" := InvBin.ItemConditions;
+                    Rec."Location Conditions" := InvBin.LocationConditions;
+                end;
                 Rec.Remark := InvBin.Remark;
                 Rec.Unit := InvBin.Unit;
                 Rec.Quantity := InvBin.Quantity;

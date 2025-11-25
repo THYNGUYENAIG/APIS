@@ -3,12 +3,13 @@ query 51039 "ACC Requisition Combine Qry"
     Caption = 'APIS Requisition Combine Qry';
     DataAccessIntent = ReadOnly;
     QueryType = Normal;
-    
+
     elements
     {
         dataitem(RequisitionLine; "Requisition Line")
         {
             DataItemTableFilter = Type = filter("Requisition Line Type"::Item),
+                                  "Worksheet Template Name" = filter('REQ'),
                                   "BLACC Requested Date" = filter(<> 0D);
             column(LocationCode; "Location Code") { }
             //column(SiteId; "Shortcut Dimension 1 Code") { }

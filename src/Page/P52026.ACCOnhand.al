@@ -351,8 +351,8 @@ page 52026 "ACC Onhand"
                     recWE.SetRange("Unit of Measure Code", recBC."Unit of Measure Code");
                     recWE.SetRange("Lot No.", ivtLot);
                     if recWE.FindFirst() then begin
-                        recWE.CalcSums(Quantity);
-                        ovdec += recWE.Quantity;
+                        recWE.CalcSums("Qty. (Base)");
+                        ovdec += recWE."Qty. (Base)";
                     end;
                 until recBC.Next() < 1;
         end;

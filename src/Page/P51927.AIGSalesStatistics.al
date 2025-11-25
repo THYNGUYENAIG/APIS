@@ -81,45 +81,6 @@ page 51927 "AIG Sales Statistics"
     {
         area(Processing)
         {
-            action(ACCRefeshToday)
-            {
-                ApplicationArea = All;
-                Image = Refresh;
-                Caption = 'Refesh Today';
-                trigger OnAction()
-                var
-                    FromDate: Date;
-                    ToDate: Date;
-                begin
-                    FromDate := Today;
-                    ToDate := Today;
-                    ValueRelation();
-                    CostValueEntry(FromDate, ToDate);
-                    SalesStatistics(FromDate, ToDate);
-                    ServiceRevenue(FromDate, ToDate);
-                    GiftRevenue(FromDate, ToDate);
-                end;
-            }
-
-            action(ACCRefeshThisWeek)
-            {
-                ApplicationArea = All;
-                Image = Refresh;
-                Caption = 'Refesh This Week';
-                trigger OnAction()
-                var
-                    FromDate: Date;
-                    ToDate: Date;
-                begin
-                    FromDate := CalcDate('-7D', Today);
-                    ToDate := Today;
-                    ValueRelation();
-                    CostValueEntry(FromDate, ToDate);
-                    SalesStatistics(FromDate, ToDate);
-                    ServiceRevenue(FromDate, ToDate);
-                    GiftRevenue(FromDate, ToDate);
-                end;
-            }
             action(ACCRefeshThisMonth)
             {
                 ApplicationArea = All;
@@ -131,48 +92,54 @@ page 51927 "AIG Sales Statistics"
                     ToDate: Date;
                 begin
                     FromDate := CalcDate('-CM', Today);
+                    FromDate := CalcDate('-1M', FromDate);
                     ToDate := Today;
                     ValueRelation();
                     CostValueEntry(FromDate, ToDate);
-                    SalesStatistics(FromDate, ToDate);
-                    ServiceRevenue(FromDate, ToDate);
-                    GiftRevenue(FromDate, ToDate);
+                    SalesStatistics('', FromDate, ToDate);
+                    ServiceRevenue('', FromDate, ToDate);
+                    GiftRevenue('', FromDate, ToDate);
                 end;
             }
-            action(ACCRefeshAll)
+            action(ACCReset)
             {
                 ApplicationArea = All;
-                Image = Refresh;
-                Caption = 'Refesh All';
+                Image = ResetStatus;
+                Caption = 'Select Reset';
                 trigger OnAction()
                 var
-                    FromDate: Date;
-                    ToDate: Date;
+                    SalesStatistics: Record "AIG Sales Statistics";
+                    TempStatistics: Record "AIG Sales Statistics" temporary;
+                    ValueEntry: Record "AIG Value Entry Relation";
                 begin
-                    FromDate := 20250601D;
-                    ToDate := Today;
+                    CurrPage.SetSelectionFilter(SalesStatistics);
+                    if SalesStatistics.FindSet() then
+                        repeat
+                            Clear(TempStatistics);
+                            TempStatistics := SalesStatistics;
+                            TempStatistics.Insert();
+                            ValueEntry.Reset();
+                            ValueEntry.SetRange("Invoice No.", SalesStatistics."Document No.");
+                            if ValueEntry.FindSet() then
+                                ValueEntry.Delete();
+                        until SalesStatistics.Next() = 0;
+
                     ValueRelation();
-                    CostValueEntry(FromDate, ToDate);
-                    SalesStatistics(FromDate, ToDate);
-                    ServiceRevenue(FromDate, ToDate);
-                    GiftRevenue(FromDate, ToDate);
-                end;
-            }
-            action(ACCResetAll)
-            {
-                ApplicationArea = All;
-                Image = Calculate;
-                Caption = 'Reset All';
-                trigger OnAction()
-                begin
-                    Rec.Reset();
-                    Rec.DeleteAll();
+                    Clear(TempStatistics);
+                    if TempStatistics.FindSet() then
+                        repeat
+                            SalesStatistics := TempStatistics;
+                            SalesStatistics.Delete();
+                            SalesStatistics(TempStatistics."Document No.", 0D, 0D);
+                            ServiceRevenue(TempStatistics."Document No.", 0D, 0D);
+                            GiftRevenue(TempStatistics."Document No.", 0D, 0D);
+                        until TempStatistics.Next() = 0;
                 end;
             }
         }
     }
 
-    local procedure SalesStatistics(FromDate: Date; ToDate: Date)
+    local procedure SalesStatistics(DocumentNo: Code[20]; FromDate: Date; ToDate: Date)
     var
         SalesInvoiceHeader: Record "Sales Invoice Header";
         SalesInvoiceLine: Record "Sales Invoice Line";
@@ -190,7 +157,10 @@ page 51927 "AIG Sales Statistics"
     begin
         CostValueEntry.Reset();
         CostValueEntry.SetCurrentKey("Document No.");
-        CostValueEntry.SetRange("Posting Date", FromDate, ToDate);
+        if DocumentNo <> '' then begin
+            CostValueEntry.SetRange("Document No.", DocumentNo);
+        end else
+            CostValueEntry.SetRange("Posting Date", FromDate, ToDate);
         CostValueEntry.SetFilter("Document Type", StrSubstNo('%1|%2', "Item Ledger Document Type"::"Sales Invoice", "Item Ledger Document Type"::"Sales Credit Memo"));
         if CostValueEntry.FindSet() then begin
             repeat
@@ -367,7 +337,7 @@ page 51927 "AIG Sales Statistics"
         AIGValueEntry.SetSalesValueEntry();
     end;
 
-    local procedure ServiceRevenue(FromDate: Date; ToDate: Date)
+    local procedure ServiceRevenue(DocumentNo: Code[20]; FromDate: Date; ToDate: Date)
     var
         SalesStatistics: Record "AIG Sales Statistics";
         SalesInvoiceHeader: Record "Sales Invoice Header";
@@ -384,8 +354,11 @@ page 51927 "AIG Sales Statistics"
     begin
         SalesInvoiceLine.Reset();
         SalesInvoiceLine.SetRange(Type, "Sales Line Type"::"G/L Account");
-        SalesInvoiceLine.SetRange("Posting Date", FromDate, ToDate);
-        SalesInvoiceLine.SetFilter("No.", '511*');
+        if DocumentNo <> '' then begin
+            SalesInvoiceLine.SetRange("Document No.", DocumentNo);
+        end else
+            SalesInvoiceLine.SetRange("Posting Date", FromDate, ToDate);
+        SalesInvoiceLine.SetFilter("No.", '511*|515*|6428*');
         if SalesInvoiceLine.FindSet() then
             repeat
                 if not SalesStatistics.Get(SalesInvoiceLine."Document No.", SalesInvoiceLine."Line No.", SalesInvoiceLine."Posting Date") then begin
@@ -468,8 +441,11 @@ page 51927 "AIG Sales Statistics"
 
         SalesCrMemosLine.Reset();
         SalesCrMemosLine.SetRange(Type, "Sales Line Type"::"G/L Account");
-        SalesCrMemosLine.SetRange("Posting Date", FromDate, ToDate);
-        SalesCrMemosLine.SetFilter("No.", '511*');
+        if DocumentNo <> '' then begin
+            SalesCrMemosLine.SetRange("Document No.", DocumentNo);
+        end else
+            SalesCrMemosLine.SetRange("Posting Date", FromDate, ToDate);
+        SalesCrMemosLine.SetFilter("No.", '511*|515*|6428*');
         if SalesCrMemosLine.FindSet() then
             repeat
                 if not SalesStatistics.Get(SalesCrMemosLine."Document No.", SalesCrMemosLine."Line No.", SalesCrMemosLine."Posting Date") then begin
@@ -551,7 +527,7 @@ page 51927 "AIG Sales Statistics"
             until SalesCrMemosLine.Next() = 0;
     end;
 
-    local procedure GiftRevenue(FromDate: Date; ToDate: Date)
+    local procedure GiftRevenue(DocumentNo: Code[20]; FromDate: Date; ToDate: Date)
     var
         SalesStatistics: Record "AIG Sales Statistics";
         SalesInvoiceHeader: Record "Sales Invoice Header";
@@ -568,7 +544,10 @@ page 51927 "AIG Sales Statistics"
     begin
         SalesInvoiceLine.Reset();
         SalesInvoiceLine.SetRange(Type, "Sales Line Type"::"G/L Account");
-        SalesInvoiceLine.SetRange("Posting Date", FromDate, ToDate);
+        if DocumentNo <> '' then begin
+            SalesInvoiceLine.SetRange("Document No.", DocumentNo);
+        end else
+            SalesInvoiceLine.SetRange("Posting Date", FromDate, ToDate);
         SalesInvoiceLine.SetRange("No.", '333110');
         SalesInvoiceLine.SetFilter("VAT Prod. Posting Group", 'F-*');
         if SalesInvoiceLine.FindSet() then
@@ -652,7 +631,10 @@ page 51927 "AIG Sales Statistics"
 
         SalesCrMemosLine.Reset();
         SalesCrMemosLine.SetRange(Type, "Sales Line Type"::"G/L Account");
-        SalesCrMemosLine.SetRange("Posting Date", FromDate, ToDate);
+        if DocumentNo <> '' then begin
+            SalesCrMemosLine.SetRange("Document No.", DocumentNo);
+        end else
+            SalesCrMemosLine.SetRange("Posting Date", FromDate, ToDate);
         SalesCrMemosLine.SetRange("No.", '333110');
         SalesInvoiceLine.SetFilter("VAT Prod. Posting Group", 'F-*');
         if SalesCrMemosLine.FindSet() then
@@ -782,6 +764,54 @@ page 51927 "AIG Sales Statistics"
         ovlstDimSet.Add(tCustomer);
 
         exit(ovlstDimSet);
+    end;
+
+    local procedure UpdateExternalDocument()
+    var
+        SalesInvoiceHeader: Record "Sales Invoice Header";
+        SalesCrMemosHeader: Record "Sales Cr.Memo Header";
+        SalesStatistics: Record "AIG Sales Statistics";
+        FormDate: Date;
+        ToDate: Date;
+    begin
+        FormDate := CalcDate('-CM', Today);
+        FormDate := CalcDate('-1M', FormDate);
+        ToDate := CalcDate('CM', Today);
+        SalesStatistics.Reset();
+        SalesStatistics.SetRange("Invoice Date", FormDate, ToDate);
+        if SalesStatistics.FindSet() then begin
+            repeat
+                if SalesStatistics."Document Type" = "Item Ledger Document Type"::"Sales Invoice" then begin
+                    if SalesInvoiceHeader.Get(SalesStatistics."Document No.") then begin
+                        if SalesInvoiceHeader."External Document No." <> SalesStatistics."Invoice No." then begin
+                            SalesStatistics."Invoice No." := SalesInvoiceHeader."External Document No.";
+                            SalesStatistics.Modify();
+                        end;
+                    end;
+                end;
+                if SalesStatistics."Document Type" = "Item Ledger Document Type"::"Sales Credit Memo" then begin
+                    if SalesInvoiceHeader.Get(SalesStatistics."Document No.") then begin
+                        if SalesCrMemosHeader."External Document No." <> SalesStatistics."Invoice No." then begin
+                            SalesStatistics."Invoice No." := SalesCrMemosHeader."External Document No.";
+                            SalesStatistics.Modify();
+                        end;
+                    end;
+                end;
+            until SalesStatistics.Next() = 0;
+        end;
+    end;
+
+    trigger OnOpenPage()
+    var
+        FromDate: Date;
+    begin
+        FromDate := Today - 3;
+        ValueRelation();
+        CostValueEntry(FromDate, Today);
+        SalesStatistics('', FromDate, Today);
+        ServiceRevenue('', FromDate, Today);
+        GiftRevenue('', FromDate, Today);
+        UpdateExternalDocument();
     end;
 
     trigger OnAfterGetRecord()

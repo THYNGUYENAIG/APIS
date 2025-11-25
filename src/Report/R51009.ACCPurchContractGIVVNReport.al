@@ -115,7 +115,7 @@ report 51009 "ACC PO Contract GIV VN Report"
             if CountryTable.Get(ItemTable."Country/Region of Origin Code") then begin
             end;
         end;
-        PurchaserName := 'Trần Thị Huyền Châu';
+        PurchaserName := 'Nguyễn Trần Đình Quí';
     end;
 
     var

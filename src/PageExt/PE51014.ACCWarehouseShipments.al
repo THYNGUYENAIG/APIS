@@ -41,6 +41,7 @@ pageextension 51014 "ACC Warehouse Shipments" extends "Warehouse Shipment List"
                 ApplicationArea = All;
                 Caption = 'Delivery Note';
             }
+            /*
             field(ACC_Total_Qty; arrCellValue[1])
             {
                 ApplicationArea = All;
@@ -55,12 +56,16 @@ pageextension 51014 "ACC Warehouse Shipments" extends "Warehouse Shipment List"
                 DecimalPlaces = 0 : 2;
                 // Editable = false;
             }
+            */
+            field("ACC Total Quantity"; Rec."ACC Total Quantity") { ApplicationArea = All; }
+            field("ACC Total OutStanding"; Rec."ACC Total OutStanding") { ApplicationArea = All; }
             field(ACC_Create_Pick; arrCellBoolean[1])
             {
                 ApplicationArea = All;
                 Caption = 'Create Pick';
                 // Editable = false;
             }
+            /*
             field(ACC_Qty_Picked; arrCellValue[3])
             {
                 ApplicationArea = All;
@@ -68,6 +73,8 @@ pageextension 51014 "ACC Warehouse Shipments" extends "Warehouse Shipment List"
                 DecimalPlaces = 0 : 2;
                 // Editable = false;
             }
+            */
+            field("ACC Quantity Picked"; Rec."ACC Quantity Picked") { ApplicationArea = All; }
             field("Printed No."; Rec."Printed No.")
             {
                 ApplicationArea = All;
@@ -208,15 +215,15 @@ pageextension 51014 "ACC Warehouse Shipments" extends "Warehouse Shipment List"
                 if StrPos(arrCellText[1], StrSubstNo('%1', recWSL."Source Document")) = 0 then begin
                     cuACCGP.AddString(arrCellText[1], StrSubstNo('%1', recWSL."Source Document"), ' | ');
                 end;
-                arrCellValue[1] += recWSL.Quantity;
-                arrCellValue[2] += recWSL."Qty. Outstanding";
+            //arrCellValue[1] += recWSL.Quantity;
+            //arrCellValue[2] += recWSL."Qty. Outstanding";
             until recWSL.Next() < 1;
 
         recWAL.Reset();
         recWAL.SetRange("Whse. Document No.", Rec."No.");
         if recWAL.FindFirst() then
             arrCellBoolean[1] := true;
-
+        /*
         recWE.Reset();
         recWE.SetRange("Whse. Document No.", Rec."No.");
         recWE.SetRange("Zone Code", 'PUTPICK');
@@ -224,7 +231,7 @@ pageextension 51014 "ACC Warehouse Shipments" extends "Warehouse Shipment List"
             recWE.CalcSums(Quantity);
             arrCellValue[3] := -recWE.Quantity;
         end;
-
+        */
     end;
 
     var

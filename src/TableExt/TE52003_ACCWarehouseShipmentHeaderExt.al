@@ -4,8 +4,11 @@ tableextension 52003 "ACC WH Shipment Header Ext" extends "Warehouse Shipment He
     {
         field(52005; "ACC Source No."; Text[1000])
         {
-            DataClassification = ToBeClassified;
             Caption = 'ACC Source No.';
+            DataClassification = ToBeClassified;
+            //Editable = false;
+            //FieldClass = FlowField;
+            //CalcFormula = lookup("Warehouse Shipment Line"."Source No." where("No." = field("No.")));
         }
         field(52006; "Printed No."; Integer)
         {
@@ -37,6 +40,31 @@ tableextension 52003 "ACC WH Shipment Header Ext" extends "Warehouse Shipment He
         {
             DataClassification = ToBeClassified;
             Caption = 'Delivery Note';
+        }
+        field(52012; "ACC Total Quantity"; Decimal)
+        {
+            Editable = false;
+            DecimalPlaces = 0 : 2;
+            Caption = 'Total Quantity';
+            FieldClass = FlowField;
+            CalcFormula = sum("Warehouse Shipment Line".Quantity where("No." = field("No.")));
+        }
+        field(52013; "ACC Total OutStanding"; Decimal)
+        {
+            Editable = false;
+            DecimalPlaces = 0 : 2;
+            Caption = 'Total OutStanding';
+            FieldClass = FlowField;
+            CalcFormula = sum("Warehouse Shipment Line"."Qty. Outstanding" where("No." = field("No.")));
+        }
+        field(52014; "ACC Quantity Picked"; Decimal)
+        {
+            Editable = false;
+            DecimalPlaces = 0 : 2;
+            Caption = 'Quantity Picked';
+            FieldClass = FlowField;
+            CalcFormula = - sum("Warehouse Entry"."Qty. (Base)" where("Whse. Document No." = field("No."),
+                                                                      "Zone Code" = filter('PUTPICK')));
         }
     }
 }

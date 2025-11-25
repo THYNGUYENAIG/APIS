@@ -36,6 +36,7 @@ page 51009 "ACC Oversea Import Plan"
                 field("Outstanding Quantity"; Rec."Outstanding Quantity") { }
                 field("Declaration No."; Rec."Declaration No.") { }
                 field("Declaration Date"; Rec."Declaration Date") { }
+                field("Release Of Goods"; Rec."Release Of Goods") { }
                 field("Bill No."; Rec."Bill No.") { }
                 field("Copy Docs Date"; Rec."Copy Docs Date") { }
                 field("Actual Arrival Date"; Rec."Actual Arrival Date") { }
@@ -364,7 +365,7 @@ page 51009 "ACC Oversea Import Plan"
         DELCServiceUnit: Record "BLTEC Service Unit";
         ForUpdated: Boolean;
     begin
-        Rec.SetFilter("Process Status", '<>%1', 10);
+        Rec.SetFilter("Process Status", '<>%1', 15);
         if Rec.FindSet() then begin
             repeat
                 if PurchLine.Get(Enum::"Purchase Document Type"::Order, Rec."Purchase Order No.", Rec."Line No.") then begin
@@ -385,7 +386,7 @@ page 51009 "ACC Oversea Import Plan"
                                     ImportPlan.Quantity := Rec.Quantity;
                                     ForUpdated := true;
                                 end;
-                                if ImportPlan.Quantity <> Rec.Quantity then begin                                    
+                                if ImportPlan.Quantity <> Rec.Quantity then begin
                                     ImportPlan.Quantity := Rec.Quantity;
                                     ForUpdated := true;
                                 end;

@@ -114,7 +114,7 @@ report 51007 "ACC Purch Contract VN Report"
             end;
         end;
 
-        PurchaserName := 'Trần Thị Huyền Châu';
+        PurchaserName := 'Nguyễn Trần Đình Quí';
     end;
 
     var

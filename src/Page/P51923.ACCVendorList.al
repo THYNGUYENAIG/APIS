@@ -23,6 +23,7 @@ page 51923 "ACC Vendor List"
                 field("Country/Region Code"; Rec."Country/Region Code") { }
                 field("Invoice Disc. Code"; Rec."Invoice Disc. Code") { }
                 field("Vendor Posting Group"; Rec."Vendor Posting Group") { }
+                field("BLACC Vendor Department"; Rec."BLACC Vendor Department") { }
                 field("Purchaser Code"; Rec."Purchaser Code") { }
                 field("BLACC Purchaser Name"; Rec."BLACC Purchaser Name") { }
                 field("BLACC Supplier Mgt. Code"; Rec."BLACC Supplier Mgt. Code") { }

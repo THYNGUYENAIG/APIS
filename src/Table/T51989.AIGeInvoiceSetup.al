@@ -21,6 +21,10 @@ table 51989 "AIG eInvoice Setup"
         {
             Caption = 'Description';
         }
+        field(50; Days; Integer)
+        {
+            Caption = 'Days';
+        }
     }
     keys
     {

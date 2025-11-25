@@ -52,6 +52,7 @@ report 51008 "ACC PO No Contract VN Report"
             column(CompanySupplierMgtName; SupplierMgt.Name) { }
             column(CompanySupplierMgtMobile; SupplierMgt."Phone No.") { }
             column(DeliveryAddress; DeliveryAddress) { }
+            column(PurchaserName; PurchaserName) { }
             dataitem(PurchaseLine; "Purchase Line")
             {
                 DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
@@ -134,6 +135,7 @@ report 51008 "ACC PO No Contract VN Report"
                 PaymentTerms := StrSubstNo('- Thanh toán: %1 ngày khi nhận đủ hàng và hóa đơn GTGT.', Format(PaymentTerm."Due Date Calculation").Replace('D', ''));
             end;
         end;
+        PurchaserName := 'Nguyễn Trần Đình Quí';
     end;
 
     var
@@ -148,4 +150,5 @@ report 51008 "ACC PO No Contract VN Report"
         DeliveryAddress: Text;
         CompanyGeneralDirector: Text;
         PaymentTerms: Text;
+        PurchaserName: Text;
 }

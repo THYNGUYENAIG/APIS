@@ -49,13 +49,15 @@ pageextension 51003 "ACC Posted Sales Shipments" extends "Posted Sales Shipments
 
                 trigger OnAction();
                 var
+                    eInvoiceSetup: Record "AIG eInvoice Setup";
                     CUInvoiceStatus: Codeunit "ACC MISA Invoice Status";
                     CUSalesShipment: Codeunit "ACC Sales Shipment Event";
                     ShipmentHeader: Record "Sales Shipment Header";
                     FromDate: Date;
                     ToDate: Date;
                 begin
-                    FromDate := CalcDate('-1D', TODAY);
+                    eInvoiceSetup.Get(CompanyName, "AIG eInvoice Type"::"VAT Domestic");
+                    FromDate := Today - eInvoiceSetup.Days;
                     ToDate := Today();
                     CUInvoiceStatus.eInvoiceRegisterModified(FromDate, ToDate);
                     Clear(ShipmentHeader);
@@ -136,6 +138,7 @@ pageextension 51003 "ACC Posted Sales Shipments" extends "Posted Sales Shipments
 
                 trigger OnAction();
                 var
+                    CUPrinted: Codeunit "ACC Shipment Print Event";
                     MergePage: Page "AIG Merge PDF Page";
                     Field: Record "Sales Shipment Header";
                     FieldRec: Record "Sales Shipment Header";
@@ -144,6 +147,7 @@ pageextension 51003 "ACC Posted Sales Shipments" extends "Posted Sales Shipments
                 begin
                     CurrPage.SetSelectionFilter(Field);
                     RecRef.GetTable(Field);
+                    CUPrinted.Run(Rec);
                     Clear(MergePage);
                     MergePage.TestMerge(SelectionFilterManagement.GetSelectionFilter(RecRef, Field.FieldNo("No.")), SelectionFilterManagement.GetSelectionFilter(RecRef, Field.FieldNo("Truck Number")));
                     MergePage.Run();

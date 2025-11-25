@@ -1,5 +1,6 @@
 codeunit 51991 "AIG Mult. Whse. Shipments Mgt"
 {
+    /*
     procedure CreateMultipleShipmentsBySalesOrder(SalesNo: Code[20])
     var
         SalesHeader: Record "Sales Header";
@@ -211,4 +212,5 @@ codeunit 51991 "AIG Mult. Whse. Shipments Mgt"
             exit(true);
         exit(false);
     end;
+    */
 }

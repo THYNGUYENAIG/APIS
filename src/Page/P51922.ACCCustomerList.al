@@ -17,7 +17,7 @@ page 51922 "ACC Customer List"
             {
                 field("No."; Rec."No.") { }
                 field(Name; Rec.Name) { }
-                field(Address; Rec.Address + '' + Rec."Address 2") { }
+                field(Address; Rec."BLACC VN Address") { }
                 field(City; Rec.City) { }
                 field("Post Code"; Rec."Post Code") { }
                 field("Country/Region Code"; Rec."Country/Region Code") { }
@@ -58,6 +58,23 @@ page 51922 "ACC Customer List"
                 field("Division Name"; DimCellText[8]) { }
                 field("Employee"; DimCellText[9]) { }
                 field("Employee Name"; DimCellText[10]) { }
+                field("Total Sales Amount"; Rec."Total Sales Amount")
+                {
+                    Caption = 'Sales Amount';
+                }
+                field("Total Cost Amount"; Rec."Total Cost Amount")
+                {
+                    Caption = 'Cost (LCY)';
+                }
+                field("Profit (LCY)"; ProfitAmount)
+                {
+                    Caption = 'Profit (LCY)';
+                }
+                field("Profit %"; ProfitPercent)
+                {
+                    Caption = 'Profit %';
+                    DecimalPlaces = 0 : 2;
+                }
             }
         }
     }
@@ -66,6 +83,13 @@ page 51922 "ACC Customer List"
         DefaultDim: Record "Default Dimension";
         Statistics: Record "BLACC Statistics group";
     begin
+        Rec.CalcFields("Total Sales Amount", "Total Cost Amount");
+        ProfitAmount := Rec."Total Sales Amount" - Rec."Total Cost Amount";
+        if Rec."Total Sales Amount" = 0 then
+            ProfitPercent := 0
+        else
+            ProfitPercent := (ProfitAmount / Rec."Total Sales Amount") * 100;
+
         if Statistics.Get(Rec."Statistics Group") then
             StatisticsName := Statistics."BLACC Description";
         DefaultDim.Reset();
@@ -118,4 +142,6 @@ page 51922 "ACC Customer List"
     var
         DimCellText: array[10] of Text;
         StatisticsName: Text;
+        ProfitAmount: Decimal;
+        ProfitPercent: Decimal;
 }

@@ -24,7 +24,7 @@ report 51001 "ACC Product Receipt Report"
             column(PostingDate; "Posting Date") { }
             column(ItemNo; "Item No.") { }
             column(Description; ItemTable."BLTEC Item Name") { }
-            column(UnitofMeasureCode; "Unit of Measure Code") { }
+            column(UnitofMeasureCode; ItemTable."Base Unit of Measure") { }
             column(Quantity; Quantity) { }
             column(LotNo; "Lot No.") { }
             column(ManufactureDate; ManufactureDate) { }

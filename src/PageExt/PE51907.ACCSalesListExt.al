@@ -13,6 +13,11 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
             {
                 ApplicationArea = All;
             }
+            field(ReasonDescription; ReasonDescription)
+            {
+                ApplicationArea = All;
+                Caption = 'Description';
+            }
             field("ACC Reason Comment"; Rec."ACC Reason Comment")
             {
                 ApplicationArea = All;
@@ -40,6 +45,7 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
         }
         addlast(Control1)
         {
+
             field(ACC_WS_No; arrCellText[1])
             {
                 ApplicationArea = All;
@@ -55,14 +61,20 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
                 ApplicationArea = All;
                 Caption = 'PSI No';
             }
+
+            //field("WS No."; Rec."WS No.") { ApplicationArea = All; }
+            //field("PSS No."; Rec."PSS No.") { ApplicationArea = All; }
+            //field("PSI No."; Rec."PSI No.") { ApplicationArea = All; }
         }
         addafter("Amount Including VAT")
         {
+
             field(ACC_Total_Qty; arrCellValue[1])
             {
                 ApplicationArea = All;
                 Caption = 'Total Quantity';
             }
+            //field("Total Quantity"; Rec."Total Quantity") { ApplicationArea = All; }
         }
         addafter("Attached Documents List")
         {
@@ -250,6 +262,7 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
 
     trigger OnAfterGetRecord()
     var
+        ReasonTable: Record "ACC Sales Reason";
         SalesLine: Record "Sales Line";
         SalesQtty: Record "Sales Line";
         ApprovalEntry: Record "Approval Entry";
@@ -257,6 +270,11 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
         StatisticsGroup: Record "BLACC Statistics group";
         OverDueBalance: Decimal;
     begin
+        ReasonDescription := '';
+        if Rec."ACC Reason Code" <> '' then begin
+            if ReasonTable.Get(Rec."ACC Reason Code") then
+                ReasonDescription := ReasonTable.Description;
+        end;
         WorkflowState := '';
         OverDueBalance := Rec.CalcOverdueBalance();
         if Rec."BLACC Not Pass Check MinPrice" then
@@ -353,6 +371,7 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
             recSL.CalcSums(recSL.Quantity);
             arrCellValue[1] := recSL.Quantity;
         end;
+
     end;
 
     var
@@ -368,4 +387,5 @@ pageextension 51907 "ACC Sales List Ext" extends "Sales Order List"
         recSIH: Record "Sales Invoice Header";
         cuACCGP: Codeunit "ACC General Process";
         recSL: Record "Sales Line";
+        ReasonDescription: Text;
 }

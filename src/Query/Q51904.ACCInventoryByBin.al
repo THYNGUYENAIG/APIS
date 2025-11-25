@@ -23,12 +23,8 @@ query 51904 "ACC Inventory By Bin"
                                "Item No." = BinContent."Item No.",
                                "Location Code" = BinContent."Location Code",
                                "Variant Code" = BinContent."Variant Code";
-                //column(ItemName; Description) { }
-                column(Unit; "Unit of Measure Code")
-                {
-                    Caption = 'Unit';
-                }
-                column(Quantity; Quantity)
+                //column(ItemName; Description) { }                
+                column(Quantity; "Qty. (Base)")
                 {
                     Method = Sum;
                 }
@@ -38,6 +34,8 @@ query 51904 "ACC Inventory By Bin"
                                    "Variant Code" = WarehouseEntry."Variant Code",
                                    "Lot No." = WarehouseEntry."Lot No.";
                     column(LotNo; "Lot No.") { }
+                    column(LotItemConditions; "BLACC Item Conditions") { }
+                    column(LotLocationConditions; "BLACC Location Conditions") { }
                     column(ExpirationDate; "BLACC Expiration Date") { }
                     column(ReceiptDate; "ACC Receipt Date") { }
                     column(ManufacturingDate; "BLACC Manufacturing Date") { }
@@ -49,6 +47,10 @@ query 51904 "ACC Inventory By Bin"
                         column(ItemName; Description)
                         {
                             Caption = 'Item Name';
+                        }
+                        column(Unit; "Base Unit of Measure")
+                        {
+                            Caption = 'Unit';
                         }
                         column(PackingGroup; "BLACC Packing Group") { }
                         column(NetWeight; "Net Weight") { }

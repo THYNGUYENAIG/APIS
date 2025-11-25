@@ -10,6 +10,8 @@ tableextension 51008 "ACC Sales Line" extends "Sales Line"
                 Number01: Decimal;
                 Number02: Decimal;
             begin
+                if SalesHeader."Document Type" <> "Sales Document Type"::Order then
+                    exit;
                 if SalesHeader.Get(Rec."Document Type", Rec."Document No.") then begin
                     if SalesHeader."Sales Type" <> "ACC Sales Type"::Sample then begin
                         if SalesHeader."Unset Packing" = false then begin

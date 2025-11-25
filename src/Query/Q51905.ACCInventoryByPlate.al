@@ -2,7 +2,7 @@ query 51905 "ACC Inventory By Plate"
 {
     Caption = 'APIS Inventory By Plate - Q51905';
     DataAccessIntent = ReadOnly;
-    QueryType = Normal;    
+    QueryType = Normal;
 
     elements
     {
@@ -28,14 +28,11 @@ query 51905 "ACC Inventory By Plate"
                 {
                     Caption = 'Item No.';
                 }
-                column(Quantity; Quantity)
+                column(Quantity; "Quantity (Base)")
                 {
                     Method = Sum;
                 }
-                column(UnitCode; "Unit Of Measure Code")
-                {
-                    Caption = 'Unit';
-                }
+
                 dataitem(LotNoInformation; "Lot No. Information")
                 {
                     DataItemLink = "Item No." = LicensePlateContent."No.",
@@ -51,6 +48,10 @@ query 51905 "ACC Inventory By Plate"
                         column(ItemName; Description)
                         {
                             Caption = 'Item Name';
+                        }
+                        column(UnitCode; "Base Unit of Measure")
+                        {
+                            Caption = 'Unit';
                         }
                     }
                 }

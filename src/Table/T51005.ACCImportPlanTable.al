@@ -705,6 +705,13 @@ table 51005 "ACC Import Plan Table"
             FieldClass = FlowField;
             CalcFormula = lookup(Item."BLACC Ani. Quar. (BNNPTNT) Rq" where("No." = field("Item Number")));
         }
+        field(860; "Release Of Goods"; Date)
+        {
+            Caption = 'Release Of Goods';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("BLTEC Customs Declaration"."Release of Goods" where("BLTEC Customs Declaration No." = field("Declaration No.")));
+        }
     }
     keys
     {

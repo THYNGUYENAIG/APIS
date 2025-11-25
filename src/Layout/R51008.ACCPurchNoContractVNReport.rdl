@@ -11,7 +11,7 @@
       <am:Name>MSRB</am:Name>
       <am:Version>15.1.20318.47</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-09-05T10:59:36.9174488Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2025-11-05T08:12:02.0459051Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -965,7 +965,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <rd:Selected>true</rd:Selected>
                         <Textbox Name="PaytoAddress">
                           <rd:DefaultName>PaytoAddress</rd:DefaultName>
                           <CanGrow>true</CanGrow>
@@ -3459,12 +3458,14 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
-                                  <Style />
+                                  <Value>=Fields!PurchaserName.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -3691,7 +3692,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.8cm</Height>
+          <Height>1.2cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -3743,67 +3744,11 @@
                   </TextRuns>
                   <Style />
                 </Paragraph>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Tel: (84.8) 5416 1616/ Fax: (84.8) 5415 7666</Value>
-                      <Style>
-                        <FontSize>7pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
               </Paragraphs>
               <Top>0cm</Top>
               <Left>0cm</Left>
-              <Height>1.5cm</Height>
+              <Height>1.2cm</Height>
               <Width>8cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox208">
-              <rd:DefaultName>Textbox208</rd:DefaultName>
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Lot K4B, Le Minh Xuan Industry Zone,
-Street No.4, Binh Loi Commune, </Value>
-                      <Style>
-                        <FontSize>7pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>Ho Chi Minh City, Vietnam
-Tel: (84.8) 3886 8174/ Fax: (84.8) 3766 3196</Value>
-                      <Style>
-                        <FontSize>7pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>0cm</Top>
-              <Left>8cm</Left>
-              <Height>1.5cm</Height>
-              <Width>6cm</Width>
-              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -3835,9 +3780,9 @@ Tel: (84.8) 3886 8174/ Fax: (84.8) 3766 3196</Value>
               </Paragraphs>
               <Top>0cm</Top>
               <Left>14cm</Left>
-              <Height>1.5cm</Height>
+              <Height>1.2cm</Height>
               <Width>6cm</Width>
-              <ZIndex>2</ZIndex>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4029,6 +3974,9 @@ End Function
         </Field>
         <Field Name="DeliveryAddress">
           <DataField>DeliveryAddress</DataField>
+        </Field>
+        <Field Name="PurchaserName">
+          <DataField>PurchaserName</DataField>
         </Field>
         <Field Name="ItemNo">
           <DataField>ItemNo</DataField>

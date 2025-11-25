@@ -36,6 +36,35 @@ tableextension 51015 "ACC Sales Header" extends "Sales Header"
                     Error(StrSubstNo('Hóa đơn phát sinh sau giờ quy định.'));
             end;
         }
+        
+        field(51001; "WS No."; Code[20])
+        {
+            Caption = 'WS No.';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Warehouse Shipment Line"."No." where("Source No." = field("No.")));
+        }
+        field(51002; "PSS No."; Code[20])
+        {
+            Caption = 'PSS No.';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Shipment Line"."Document No." where("Order No." = field("No.")));
+        }
+        field(51003; "PSI No."; Code[20])
+        {
+            Caption = 'PSI No.';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Invoice Header"."No." where("Order No." = field("No.")));
+        }
+        field(51004; "Total Quantity"; Decimal)
+        {
+            Caption = 'Total Quantity';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("Sales Line".Quantity where("Document No." = field("No.")));
+        }
         */
         field(50001; "Sales Type"; Enum "ACC Sales Type")
         {

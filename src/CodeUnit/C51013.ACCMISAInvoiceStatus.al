@@ -2,6 +2,7 @@ codeunit 51013 "ACC MISA Invoice Status"
 {
     procedure eInvoiceRegisterModified(FromDate: Date; ToDate: Date)
     var
+        BCHelper: Codeunit "BC Helper";
         TemplateHeader: Record "BLTI Template Header";
         eInvoiceToken: SecretText;
         eInvoiceRegister: Record "BLTI eInvoice Register";
@@ -13,7 +14,7 @@ codeunit 51013 "ACC MISA Invoice Status"
         eInvoiceCode: Text;
         eInvoiceList: Text;
     begin
-        if TemplateHeader.Get('MISA-1C25TSG') then begin
+        if TemplateHeader.Get(BCHelper.GeteInvoiceTemplate("AIG eInvoice Type"::"VAT Domestic")) then begin
             eInvoiceToken := GetOAuthTokeneInvoice(TemplateHeader);
         end;
         eInvoiceCount := 0;
@@ -108,12 +109,12 @@ codeunit 51013 "ACC MISA Invoice Status"
 
         // Send the request
         if not HttpClient.Send(HttpRequestMessage, HttpResponseMessage) then
-            Error('Failed to send HTTP request to MISA API');
+            Error('Failed to send HTTP request to MISA Token');
 
         // Check if the request was successful
         if not HttpResponseMessage.IsSuccessStatusCode then begin
             HttpResponseMessage.Content.ReadAs(ResponseText);
-            Error('MISA API returned error: Status %1, Response: %2',
+            Error('MISA Token returned error: Status %1, Response: %2',
                 HttpResponseMessage.HttpStatusCode, ResponseText);
         end;
 
@@ -122,17 +123,17 @@ codeunit 51013 "ACC MISA Invoice Status"
 
         // Process the JSON response
         if not JsonResponse.ReadFrom(ResponseText) then
-            Error('Invalid JSON response from MISA API');
+            Error('Invalid JSON response from MISA Token');
 
         // Check for Success field in the response
         if JsonResponse.Get('success', JsonToken) then begin
             if not JsonToken.AsValue().AsBoolean() then begin
                 if JsonResponse.Get('ErrorCode', JsonToken) and (not JsonToken.AsValue().IsNull) then
-                    Error('MISA API error: %1 - %2',
+                    Error('MISA Token error: %1 - %2',
                         GetJsonValueAsText(JsonResponse, 'ErrorCode'),
                         GetJsonValueAsText(JsonResponse, 'DescriptionErrorCode'));
 
-                Error('MISA API returned unsuccessful response');
+                Error('MISA Token returned unsuccessful response');
             end;
         end;
 

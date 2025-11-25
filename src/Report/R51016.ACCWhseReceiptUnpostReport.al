@@ -263,7 +263,7 @@ report 51016 "ACC WH Receipt Unpost Report"
                         WhseReceipt."Item No." := WhseReceiptLine."Item No.";
                         if InventTable.Get(WhseReceiptLine."Item No.") then
                             WhseReceipt."Item Name" := InventTable."BLTEC Item Name";
-                        WhseReceipt."Unit Code" := WhseReceiptLine."Unit of Measure Code";
+                        WhseReceipt."Unit Code" := InventTable."Base Unit of Measure";
 
                         if LocationTable.Get(WhseReceiptLine."Location Code") then begin
                             WhseReceipt."Location Name" := LocationTable.Name;
