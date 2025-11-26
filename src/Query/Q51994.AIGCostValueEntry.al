@@ -8,7 +8,7 @@ query 51994 "AIG Cost Value Entry"
     {
         dataitem(ValueEntry; "Value Entry")
         {
-            DataItemTableFilter = "Gen. Prod. Posting Group" = filter('GOODS|FG|SERVICE-511'),
+            DataItemTableFilter = "Gen. Prod. Posting Group" = filter('<>Freight'),
                                   "Document Type" = filter("Item Ledger Document Type"::"Sales Invoice" | "Item Ledger Document Type"::"Sales Credit Memo" | "Item Ledger Document Type"::"Purchase Invoice" | "Item Ledger Document Type"::"Purchase Credit Memo");
 
             column(DocumentNo; "Document No.") { }

@@ -357,7 +357,7 @@ report 51030 "AIG Sales Statistics Report"
         FromDate: Date;
         ToDate: Date;
     begin
-        FromDate := Today - 13;
+        FromDate := CalcDate('-CM', Today);
         ToDate := Today;
         CostValueEntry(FromDate, ToDate);
         GetData();
