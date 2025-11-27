@@ -90,79 +90,12 @@ codeunit 51004 "ACC Event Subscriber"
         ItemCertificate: Record "BLACC Item Certificate";
     begin
         if PurchLine.Get(Enum::"Purchase Document Type"::Order, Rec."Purchase Order No.", Rec."Line No.") then begin
-            if PurchLine."VAT Bus. Posting Group" = 'OVERSEA' then begin
-                if Rec."BLTEC Customs Declaration No." <> '' then begin
-                    ImportPlan.SetRange("Source Document No.", Rec."Purchase Order No.");
-                    ImportPlan.SetRange("Source Line No.", Rec."Line No.");
-                    if ImportPlan.FindSet() then begin
-                        repeat
-                            ImportPlan."Copy Docs Date" := Rec."BLACC Copy Docs Date";
-                            CustomsDelc.SetRange("BLTEC Customs Declaration No.", Rec."BLTEC Customs Declaration No.");
-                            if CustomsDelc.FindFirst() then begin
-                                ImportPlan."Document No." := CustomsDelc."Document No.";
-                                if ContainerType.Get(CustomsDelc."BLTEC Container Type") then begin
-                                    ImportPlan."Cont. Type" := ContainerType."BLTEC Code";
-                                    ImportPlan."Product Type" := ContainerType."BLTEC Product Type";
-                                    ImportPlan."Cont. 20" := ContainerType."BLTEC Cont. 20 Qty";
-                                    ImportPlan."Cont. 40" := ContainerType."BLTEC Cont. 40 Qty";
-                                    ImportPlan."Cont. 45" := ContainerType."BLTEC Cont. 45 Qty";
-                                    ImportPlan."Cont. Quantity" := ContainerType."BLTEC Quantity";
-                                end;
-                            end;
-
-                            if (Rec."Actual ETA Date" <> 0D) AND (ImportPlan."Actual Arrival Date" = 0D) then begin
-                                ImportPlan."Actual Arrival Date" := Rec."Actual ETA Date";
-                                if ImportPlan."Copy Docs Date" > ImportPlan."Actual Arrival Date" then begin
-                                    ImportPlan."Imported Available Date" := ImportPlan."Copy Docs Date" + 2;
-                                    ImportPlan."Import Reason" := Enum::"ACC Import Reason Type"::"Waiting for Documents";
-                                end else begin
-                                    ImportPlan."Imported Available Date" := ImportPlan."Actual Arrival Date" + 2;
-                                end;
-                                ImportPlan."Storage Date" := ImportPlan."Actual Arrival Date" + ImportPlan."Store lưu bãi" - 1;
-                                if ImportPlan.Combine <> 0 then begin
-                                    if ImportPlan."Delivery Date" = 0D then begin
-                                        ImportPlan."Full Container Date" := ImportPlan."Actual Arrival Date" + ImportPlan.Combine - 1;
-                                        ImportPlan."Empty Container Date" := ImportPlan."Full Container Date";
-                                    end else begin
-                                        ImportPlan."Empty Container Date" := ImportPlan."Actual Arrival Date" + ImportPlan.Combine - 1;
-                                    end;
-                                end else begin
-                                    if ImportPlan.DEM <> 0 then
-                                        ImportPlan."Full Container Date" := ImportPlan."Actual Arrival Date" + ImportPlan.DEM - 1;
-                                end;
-                                if ImportPlan."Storage Date" > ImportPlan."Full Container Date" then begin
-                                    ImportPlan."Port Date" := ImportPlan."Full Container Date";
-                                end else begin
-                                    ImportPlan."Port Date" := ImportPlan."Storage Date";
-                                end;
-                            end;
-                            ImportPlan.Modify();
-                        until ImportPlan.Next() = 0;
-                    end else begin
-                        Clear(ImportPlan);
-                        ImportPlan.Init();
-                        ImportPlan."Source Document No." := Rec."Purchase Order No.";
-                        ImportPlan."Source Line No." := Rec."Line No.";
-                        ImportPlan."Line No." := 1;
-                        ImportPlan."Vendor Account" := Rec."Vendor No.";
-                        ImportPlan."Vendor Name" := Rec."Vendor Name";
-                        ImportPlan."Item Number" := Rec."Item No.";
-                        ImportPlan."Item Name" := Rec."Item Description";
-                        ImportPlan.Quantity := Rec.Quantity;
-                        ImportPlan."Declaration No." := Rec."BLTEC Customs Declaration No.";
-                        ImportPlan."Declaration Date" := Rec."Customs Declaration Date";
-                        ImportPlan."Bill No." := Rec."BL No.";
-                        ImportPlan."Location Code" := Rec."Location Code";
+            if Rec."BLTEC Customs Declaration No." <> '' then begin
+                ImportPlan.SetRange("Source Document No.", Rec."Purchase Order No.");
+                ImportPlan.SetRange("Source Line No.", Rec."Line No.");
+                if ImportPlan.FindSet() then begin
+                    repeat
                         ImportPlan."Copy Docs Date" := Rec."BLACC Copy Docs Date";
-                        if Rec."Actual ETA Date" <> 0D then begin
-                            ImportPlan."Actual Arrival Date" := Rec."Actual ETA Date";
-                            if ImportPlan."Copy Docs Date" > ImportPlan."Actual Arrival Date" then begin
-                                ImportPlan."Imported Available Date" := ImportPlan."Copy Docs Date" + 2;
-                                ImportPlan."Import Reason" := Enum::"ACC Import Reason Type"::"Waiting for Documents";
-                            end else begin
-                                ImportPlan."Imported Available Date" := ImportPlan."Actual Arrival Date" + 2;
-                            end;
-                        end;
                         CustomsDelc.SetRange("BLTEC Customs Declaration No.", Rec."BLTEC Customs Declaration No.");
                         if CustomsDelc.FindFirst() then begin
                             ImportPlan."Document No." := CustomsDelc."Document No.";
@@ -176,8 +109,73 @@ codeunit 51004 "ACC Event Subscriber"
                             end;
                         end;
 
-                        ImportPlan.Insert();
+                        if (Rec."Actual ETA Date" <> 0D) AND (ImportPlan."Actual Arrival Date" = 0D) then begin
+                            ImportPlan."Actual Arrival Date" := Rec."Actual ETA Date";
+                            if ImportPlan."Copy Docs Date" > ImportPlan."Actual Arrival Date" then begin
+                                ImportPlan."Imported Available Date" := ImportPlan."Copy Docs Date" + 2;
+                                ImportPlan."Import Reason" := Enum::"ACC Import Reason Type"::"Waiting for Documents";
+                            end else begin
+                                ImportPlan."Imported Available Date" := ImportPlan."Actual Arrival Date" + 2;
+                            end;
+                            ImportPlan."Storage Date" := ImportPlan."Actual Arrival Date" + ImportPlan."Store lưu bãi" - 1;
+                            if ImportPlan.Combine <> 0 then begin
+                                if ImportPlan."Delivery Date" = 0D then begin
+                                    ImportPlan."Full Container Date" := ImportPlan."Actual Arrival Date" + ImportPlan.Combine - 1;
+                                    ImportPlan."Empty Container Date" := ImportPlan."Full Container Date";
+                                end else begin
+                                    ImportPlan."Empty Container Date" := ImportPlan."Actual Arrival Date" + ImportPlan.Combine - 1;
+                                end;
+                            end else begin
+                                if ImportPlan.DEM <> 0 then
+                                    ImportPlan."Full Container Date" := ImportPlan."Actual Arrival Date" + ImportPlan.DEM - 1;
+                            end;
+                            if ImportPlan."Storage Date" > ImportPlan."Full Container Date" then begin
+                                ImportPlan."Port Date" := ImportPlan."Full Container Date";
+                            end else begin
+                                ImportPlan."Port Date" := ImportPlan."Storage Date";
+                            end;
+                        end;
+                        ImportPlan.Modify();
+                    until ImportPlan.Next() = 0;
+                end else begin
+                    Clear(ImportPlan);
+                    ImportPlan.Init();
+                    ImportPlan."Source Document No." := Rec."Purchase Order No.";
+                    ImportPlan."Source Line No." := Rec."Line No.";
+                    ImportPlan."Line No." := 1;
+                    ImportPlan."Vendor Account" := Rec."Vendor No.";
+                    ImportPlan."Vendor Name" := Rec."Vendor Name";
+                    ImportPlan."Item Number" := Rec."Item No.";
+                    ImportPlan."Item Name" := Rec."Item Description";
+                    ImportPlan.Quantity := Rec.Quantity;
+                    ImportPlan."Declaration No." := Rec."BLTEC Customs Declaration No.";
+                    ImportPlan."Declaration Date" := Rec."Customs Declaration Date";
+                    ImportPlan."Bill No." := Rec."BL No.";
+                    ImportPlan."Location Code" := Rec."Location Code";
+                    ImportPlan."Copy Docs Date" := Rec."BLACC Copy Docs Date";
+                    if Rec."Actual ETA Date" <> 0D then begin
+                        ImportPlan."Actual Arrival Date" := Rec."Actual ETA Date";
+                        if ImportPlan."Copy Docs Date" > ImportPlan."Actual Arrival Date" then begin
+                            ImportPlan."Imported Available Date" := ImportPlan."Copy Docs Date" + 2;
+                            ImportPlan."Import Reason" := Enum::"ACC Import Reason Type"::"Waiting for Documents";
+                        end else begin
+                            ImportPlan."Imported Available Date" := ImportPlan."Actual Arrival Date" + 2;
+                        end;
                     end;
+                    CustomsDelc.SetRange("BLTEC Customs Declaration No.", Rec."BLTEC Customs Declaration No.");
+                    if CustomsDelc.FindFirst() then begin
+                        ImportPlan."Document No." := CustomsDelc."Document No.";
+                        if ContainerType.Get(CustomsDelc."BLTEC Container Type") then begin
+                            ImportPlan."Cont. Type" := ContainerType."BLTEC Code";
+                            ImportPlan."Product Type" := ContainerType."BLTEC Product Type";
+                            ImportPlan."Cont. 20" := ContainerType."BLTEC Cont. 20 Qty";
+                            ImportPlan."Cont. 40" := ContainerType."BLTEC Cont. 40 Qty";
+                            ImportPlan."Cont. 45" := ContainerType."BLTEC Cont. 45 Qty";
+                            ImportPlan."Cont. Quantity" := ContainerType."BLTEC Quantity";
+                        end;
+                    end;
+
+                    ImportPlan.Insert();
                 end;
             end else begin
                 ImportPlan.SetRange("Source Document No.", Rec."Purchase Order No.");
@@ -249,8 +247,8 @@ codeunit 51004 "ACC Event Subscriber"
         PurchHeader: Record "Purchase Header";
     begin
         if PurchLine.Get(Enum::"Purchase Document Type"::Order, Rec."Purchase Order No.", Rec."Line No.") then begin
-            if PurchLine."VAT Bus. Posting Group" = 'OVERSEA' then begin
-                if Rec."Process Status" = "BLTEC Import Process Status"::Finished then
+            if Rec."BLTEC Customs Declaration No." <> '' then begin
+                if (Rec."Process Status" = "BLTEC Import Process Status"::Finished) OR (Rec."Process Status" = "BLTEC Import Process Status"::Cancel) then
                     exit;
                 ImportPlan.SetRange("Source Document No.", Rec."Purchase Order No.");
                 ImportPlan.SetRange("Source Line No.", Rec."Line No.");
