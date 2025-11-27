@@ -6,7 +6,8 @@ page 51010 "ACC Domestic Import Plan"
     SourceTable = "ACC Import Plan Table";
     UsageCategory = Lists;
     InsertAllowed = false;
-    SourceTableView = where("BUS GROUP" = const('DOMESTIC'));
+    SourceTableView = where("Declaration No." = filter(''),
+                            "Process Status" = filter(<> 15));
     layout
     {
         area(Content)

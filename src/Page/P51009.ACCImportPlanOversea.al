@@ -6,8 +6,7 @@ page 51009 "ACC Oversea Import Plan"
     SourceTable = "ACC Import Plan Table";
     UsageCategory = Lists;
     InsertAllowed = false;
-    SourceTableView = where("BUS GROUP" = const('OVERSEA'),
-                            "Declaration No." = filter(<> ''),
+    SourceTableView = where("Declaration No." = filter(<> ''),
                             "Process Status" = filter(<> 15));
     layout
     {
