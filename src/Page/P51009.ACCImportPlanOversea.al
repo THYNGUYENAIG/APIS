@@ -368,7 +368,7 @@ page 51009 "ACC Oversea Import Plan"
         if Rec.FindSet() then begin
             repeat
                 if PurchLine.Get(Enum::"Purchase Document Type"::Order, Rec."Purchase Order No.", Rec."Line No.") then begin
-                    if PurchLine."VAT Bus. Posting Group" = 'OVERSEA' then begin
+                    if Rec."BLTEC Customs Declaration No." <> '' then begin
                         ImportPlan.SetRange("Source Document No.", Rec."Purchase Order No.");
                         ImportPlan.SetRange("Source Line No.", Rec."Line No.");
                         if ImportPlan.FindSet() then begin
