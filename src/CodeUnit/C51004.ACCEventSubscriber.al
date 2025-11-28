@@ -867,8 +867,24 @@ codeunit 51004 "ACC Event Subscriber"
     var
         recSalesHeader: Record "Sales Header";
     begin
-        Rec."ACC Created By" := UserId();
-        Rec."ACC Created At" := Rec.SystemCreatedAt;
+        case Rec."Document Type" of
+            Rec."Document Type"::Quote:
+                begin
+                    Rec."ACC SQ Created By" := UserId();
+                    Rec."ACC SQ Created At" := Rec.SystemCreatedAt;
+                end;
+            Rec."Document Type"::Order, Rec."Document Type"::Invoice, Rec."Document Type"::"Return Order", Rec."Document Type"::"Credit Memo":
+                begin
+                    Rec."ACC SO Created By" := UserId();
+                    Rec."ACC SO Created At" := Rec.SystemCreatedAt;
+                end;
+            Rec."Document Type"::"BLACC Agreement":
+                begin
+                    Rec."ACC SA Created By" := UserId();
+                    Rec."ACC SA Created At" := Rec.SystemCreatedAt;
+                end;
+        end;
+
         Rec.Modify();
     end;
 }
