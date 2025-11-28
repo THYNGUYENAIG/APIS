@@ -593,7 +593,7 @@ page 51900 "AIG Sharepoint Connector"
     begin
         if UploadIntoStream('Select Excel File', '', '', FileName, InStream) then begin
             SourceRoot := 'https://asiachemicalcom.sharepoint.com/sites/Home/Shared Documents/';
-            SourceFile := 'https://asiachemicalcom.sharepoint.com/sites/Home/Shared Documents/Department (ACC)/QMD/RA-QMD/CONGBO/CONG BO APIS/CONG BO/TPNK/';
+            //SourceFile := 'https://asiachemicalcom.sharepoint.com/sites/Home/Shared Documents/Department (ACC)/QMD/RA-QMD/CONGBO/CONG BO APIS/CONG BO/TPNK/';
             if SharepointConnector.Get('INVSHIPPDF') then begin
                 OauthenToken := BCHelper.GetOAuthTokenSharepointOnline(SharepointConnector);
             end;
@@ -604,7 +604,7 @@ page 51900 "AIG Sharepoint Connector"
                 exit;
             end;
             GetToken(OauthenTokenSync);
-
+            SourceFile := SourceLine."Folder Path";
             // Ask the user to select the Excel file
             TmpExcelBuffer.Reset();
             TmpExcelBuffer.DeleteAll();
