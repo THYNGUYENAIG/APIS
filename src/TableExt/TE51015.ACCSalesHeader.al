@@ -135,5 +135,15 @@ tableextension 51015 "ACC Sales Header" extends "Sales Header"
             Caption = 'Reason Comment';
             DataClassification = ToBeClassified;
         }
+        field(50007; "ACC Created By"; Code[50])
+        {
+            Caption = 'ACC Created By';
+            DataClassification = ToBeClassified;
+        }
+        field(50008; "ACC Created At"; DateTime)
+        {
+            Caption = 'ACC Created At';
+            DataClassification = ToBeClassified;
+        }
     }
 }

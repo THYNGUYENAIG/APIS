@@ -861,4 +861,14 @@ codeunit 51004 "ACC Event Subscriber"
             end;
         end;
     end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Sales Header", 'OnAfterInsertEvent', '', true, true)]
+    local procedure OnAfterInsertSalesHeader(var Rec: Record "Sales Header")
+    var
+        recSalesHeader: Record "Sales Header";
+    begin
+        Rec."ACC Created By" := UserId();
+        Rec."ACC Created At" := Rec.SystemCreatedAt;
+        Rec.Modify();
+    end;
 }
