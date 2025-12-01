@@ -592,6 +592,8 @@ page 51900 "AIG Sharepoint Connector"
         JsonObject: JsonObject;
         JsonText: Text;
         DocURL: Text;
+        RowNo: Integer;
+        MaxRowNo: Integer;
     begin
         if UploadIntoStream('Select Excel File', '', '', FileName, InStream) then begin
             SourceRoot := 'https://asiachemicalcom.sharepoint.com/sites/Home/Shared Documents/';
@@ -617,57 +619,67 @@ page 51900 "AIG Sharepoint Connector"
 
             // Now process the Excel rows
             //TmpExcelBuffer.Reset();
+            TmpExcelBuffer.Reset();
+            if TmpExcelBuffer.FindLast() then begin
+                MaxRowNo := TmpExcelBuffer."Row No.";
+            end;
+            // Now process the Excel rows      
+            for RowNo := 2 to MaxRowNo do begin
+                GetCellValue(TmpExcelBuffer, RowNo, 1, ItemNo);
+                if Item.Get(ItemNo) then begin
+                    if not SetItemCertificate(ItemNo, OauthenTokenSync) then begin
+                        Certificate.Type := "BLACC Item Certificate Type"::"Quality Declaration";
+                        Certificate."Item No." := ItemNo;
+                        Certificate."Line No." := Certificate.GetLastLineNo(ItemNo) + 10000;
+                        if ItemTmp <> ItemNo then begin
+                            //LineNo := 1;
+                            BCHelper.CreateSharePointFolder(DestinationLine, OauthenToken, '', ItemNo);
+                        end;
+                        //Certificate."Line No." := LineNo;
+                        if GetCellValue(TmpExcelBuffer, RowNo, 2, CertificateNo) then
+                            Certificate."No." := CertificateNo;
+                        if GetCellValue(TmpExcelBuffer, RowNo, 3, QualityGroup) then
+                            Evaluate(Certificate."Quality Group", QualityGroup);
+                        if GetCellValue(TmpExcelBuffer, RowNo, 4, PublishDate) then
+                            Evaluate(Certificate."Published Date", PublishDate);
+                        if GetCellValue(TmpExcelBuffer, RowNo, 5, ExpirationDate) then
+                            Evaluate(Certificate."Expiration Date", ExpirationDate);
+                        if GetCellValue(TmpExcelBuffer, RowNo, 6, SourceURL) then begin
+                            FolderRoot := SourceURL.Replace(SourceRoot, '');
+                            FileRoot := SourceURL.Replace(SourceFile, '');
+                        end;
+                        DocURL := StrSubstNo('%1/%2/%3', 'https://asiachemicalcom.sharepoint.com/sites/AIG-ERP/Items', ItemNo, FileRoot);
+                        if not GetExistItemFile(ItemNo, DocURL) then begin
+                            BCHelper.DownloadFromSharePoint(OauthenToken, SourceLine."Site ID", SourceLine."Drive ID", FolderRoot, FileRoot, FileContent);
+                            FileId := BCHelper.UploadFilesToSharePoint(DestinationLine, OauthenToken, ItemNo, FileContent, FileRoot, 'application/pdf');
+                            Certificate."Document URL" := DocURL;
+                            Certificate."File Name" := FileRoot;
+                            Certificate."File Extension" := 'pdf';
+                            Certificate."File No." := FileId;
+                            Certificate.Insert();
+                            Clear(JsonObject);
+                            JsonObject.Add('ItemNo', Format(ItemNo));
+                            JsonObject.Add('ItemName', Format(Item.Description));
+                            if Certificate."Published Date" <> 0D then
+                                JsonObject.Add('PublishDate', Format(Certificate."Published Date"));
+                            if Certificate."Expiration Date" <> 0D then
+                                JsonObject.Add('ExpirationDate', Format(Certificate."Expiration Date"));
+                            JsonObject.Add('_ExtendedDescription', Certificate."No.");
+                            JsonObject.Add('CertificateType', Format(Certificate.Type));
+                            JsonText := Format(JsonObject);
+                            BCHelper.UpdateMetadata(OauthenToken, JsonText, DestinationLine."Site ID", DestinationLine."Drive ID", FileId);
+                        end;
+                        ItemTmp := ItemNo;
+                    end;
+                end;
+            end;
+            /*
             TmpExcelBuffer.SetFilter("Row No.", '>1');
             if TmpExcelBuffer.FindSet() then
                 repeat
-                    GetCellValue(TmpExcelBuffer, TmpExcelBuffer."Row No.", 1, ItemNo);
-                    if Item.Get(ItemNo) then begin
-                        if not SetItemCertificate(ItemNo, OauthenTokenSync) then begin
-                            Certificate.Type := "BLACC Item Certificate Type"::"Quality Declaration";
-                            Certificate."Item No." := ItemNo;
-                            Certificate."Line No." := Certificate.GetLastLineNo(ItemNo) + 10000;
-                            if ItemTmp <> ItemNo then begin
-                                //LineNo := 1;
-                                BCHelper.CreateSharePointFolder(DestinationLine, OauthenToken, '', ItemNo);
-                            end;
-                            //Certificate."Line No." := LineNo;
-                            if GetCellValue(TmpExcelBuffer, TmpExcelBuffer."Row No.", 2, CertificateNo) then
-                                Certificate."No." := CertificateNo;
-                            if GetCellValue(TmpExcelBuffer, TmpExcelBuffer."Row No.", 3, QualityGroup) then
-                                Evaluate(Certificate."Quality Group", QualityGroup);
-                            if GetCellValue(TmpExcelBuffer, TmpExcelBuffer."Row No.", 4, PublishDate) then
-                                Evaluate(Certificate."Published Date", PublishDate);
-                            if GetCellValue(TmpExcelBuffer, TmpExcelBuffer."Row No.", 5, ExpirationDate) then
-                                Evaluate(Certificate."Expiration Date", ExpirationDate);
-                            if GetCellValue(TmpExcelBuffer, TmpExcelBuffer."Row No.", 6, SourceURL) then begin
-                                FolderRoot := SourceURL.Replace(SourceRoot, '');
-                                FileRoot := SourceURL.Replace(SourceFile, '');
-                            end;
-                            DocURL := StrSubstNo('%1/%2/%3', 'https://asiachemicalcom.sharepoint.com/sites/AIG-ERP/Items', ItemNo, FileRoot);
-                            if not GetExistItemFile(ItemNo, DocURL) then begin
-                                BCHelper.DownloadFromSharePoint(OauthenToken, SourceLine."Site ID", SourceLine."Drive ID", FolderRoot, FileRoot, FileContent);
-                                FileId := BCHelper.UploadFilesToSharePoint(DestinationLine, OauthenToken, ItemNo, FileContent, FileRoot, 'application/pdf');
-                                Certificate."Document URL" := DocURL;
-                                Certificate."File Name" := FileRoot;
-                                Certificate."File Extension" := 'pdf';
-                                Certificate."File No." := FileId;
-                                Certificate.Insert();
-                                Clear(JsonObject);
-                                JsonObject.Add('ItemNo', Format(ItemNo));
-                                JsonObject.Add('ItemName', Format(Item.Description));
-                                if Certificate."Published Date" <> 0D then
-                                    JsonObject.Add('PublishDate', Format(Certificate."Published Date"));
-                                if Certificate."Expiration Date" <> 0D then
-                                    JsonObject.Add('ExpirationDate', Format(Certificate."Expiration Date"));
-                                JsonObject.Add('_ExtendedDescription', Certificate."No.");
-                                JsonObject.Add('CertificateType', Format(Certificate.Type));
-                                JsonText := Format(JsonObject);
-                                BCHelper.UpdateMetadata(OauthenToken, JsonText, DestinationLine."Site ID", DestinationLine."Drive ID", FileId);
-                            end;
-                            ItemTmp := ItemNo;
-                        end;
-                    end;
+
                 until TmpExcelBuffer.Next() = 0;
+            */
         end;
     end;
 

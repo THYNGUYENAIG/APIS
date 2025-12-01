@@ -26,6 +26,7 @@ page 51901 "AIG Sharepoint Connector Line"
                 field("Site Url"; Rec."Site Url") { }
                 field("Create Folder Url"; Rec."Create Folder Url") { }
                 field("Create File URL"; Rec."Create File URL") { }
+                field("Synchronize URL"; Rec."Synchronize URL") { }
             }
         }
     }
