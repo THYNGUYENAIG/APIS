@@ -566,6 +566,7 @@ page 51900 "AIG Sharepoint Connector"
 
         Item: Record Item;
         Certificate: Record "BLACC Item Certificate";
+        CertificateFile: Record "BLACC Item Certificate";
         TmpExcelBuffer: Record "Excel Buffer" temporary;
         //ExcelBuffer: Record "Excel Buffer";
 
@@ -590,6 +591,7 @@ page 51900 "AIG Sharepoint Connector"
 
         JsonObject: JsonObject;
         JsonText: Text;
+        DocURL: Text;
     begin
         if UploadIntoStream('Select Excel File', '', '', FileName, InStream) then begin
             SourceRoot := 'https://asiachemicalcom.sharepoint.com/sites/Home/Shared Documents/';
@@ -641,25 +643,27 @@ page 51900 "AIG Sharepoint Connector"
                                 FolderRoot := SourceURL.Replace(SourceRoot, '');
                                 FileRoot := SourceURL.Replace(SourceFile, '');
                             end;
-                            BCHelper.DownloadFromSharePoint(OauthenToken, SourceLine."Site ID", SourceLine."Drive ID", FolderRoot, FileRoot, FileContent);
-                            FileId := BCHelper.UploadFilesToSharePoint(DestinationLine, OauthenToken, ItemNo, FileContent, FileRoot, 'application/pdf');
-                            Certificate."Document URL" := StrSubstNo('%1/%2/%3', 'https://asiachemicalcom.sharepoint.com/sites/AIG-ERP/Items', ItemNo, FileRoot);
-                            Certificate."File Name" := FileRoot;
-                            Certificate."File Extension" := 'pdf';
-                            Certificate."File No." := FileId;
-                            Certificate.Insert();
-                            Clear(JsonObject);
-                            JsonObject.Add('ItemNo', Format(ItemNo));
-                            JsonObject.Add('ItemName', Format(Item.Description));
-                            if Certificate."Published Date" <> 0D then
-                                JsonObject.Add('PublishDate', Format(Certificate."Published Date"));
-                            if Certificate."Expiration Date" <> 0D then
-                                JsonObject.Add('ExpirationDate', Format(Certificate."Expiration Date"));
-                            JsonObject.Add('_ExtendedDescription', Certificate."No.");
-                            JsonObject.Add('CertificateType', Format(Certificate.Type));
-                            JsonText := Format(JsonObject);
-
-                            BCHelper.UpdateMetadata(OauthenToken, JsonText, DestinationLine."Site ID", DestinationLine."Drive ID", FileId);
+                            DocURL := StrSubstNo('%1/%2/%3', 'https://asiachemicalcom.sharepoint.com/sites/AIG-ERP/Items', ItemNo, FileRoot);
+                            if not GetExistItemFile(ItemNo, DocURL) then begin
+                                BCHelper.DownloadFromSharePoint(OauthenToken, SourceLine."Site ID", SourceLine."Drive ID", FolderRoot, FileRoot, FileContent);
+                                FileId := BCHelper.UploadFilesToSharePoint(DestinationLine, OauthenToken, ItemNo, FileContent, FileRoot, 'application/pdf');
+                                Certificate."Document URL" := DocURL;
+                                Certificate."File Name" := FileRoot;
+                                Certificate."File Extension" := 'pdf';
+                                Certificate."File No." := FileId;
+                                Certificate.Insert();
+                                Clear(JsonObject);
+                                JsonObject.Add('ItemNo', Format(ItemNo));
+                                JsonObject.Add('ItemName', Format(Item.Description));
+                                if Certificate."Published Date" <> 0D then
+                                    JsonObject.Add('PublishDate', Format(Certificate."Published Date"));
+                                if Certificate."Expiration Date" <> 0D then
+                                    JsonObject.Add('ExpirationDate', Format(Certificate."Expiration Date"));
+                                JsonObject.Add('_ExtendedDescription', Certificate."No.");
+                                JsonObject.Add('CertificateType', Format(Certificate.Type));
+                                JsonText := Format(JsonObject);
+                                BCHelper.UpdateMetadata(OauthenToken, JsonText, DestinationLine."Site ID", DestinationLine."Drive ID", FileId);
+                            end;
                             ItemTmp := ItemNo;
                         end;
                     end;
@@ -1067,5 +1071,17 @@ page 51900 "AIG Sharepoint Connector"
         if not OAuth2.AcquireTokenWithClientCredentials(ClientID, ClientSecret, AccessTokenURL, '', Scopes, AuthToken) then
             Error('Failed to get access token from response\%1', GetLastErrorText());
         //end;
+    end;
+
+    local procedure GetExistItemFile(ItemNo: Code[20]; DocUrl: Text): Boolean
+    var
+        ItemCertificate: Record "BLACC Item Certificate";
+    begin
+        ItemCertificate.Reset();
+        ItemCertificate.SetRange("Item No.", ItemNo);
+        ItemCertificate.SetRange("Document URL", DocUrl);
+        if ItemCertificate.FindFirst() then
+            exit(true);
+        exit(false);
     end;
 }
