@@ -25,7 +25,8 @@ codeunit 51006 "ACC Purch Receipt Event"
                         if TmpPSIN = '' then begin
                             PSInvoiceTxt := PurchInvoice.InvoiceNo;
                         end else begin
-                            PSInvoiceTxt := PSInvoiceTxt + '|' + PurchInvoice.InvoiceNo;
+                            if StrLen(PSInvoiceTxt + '|' + PurchInvoice.InvoiceNo) < 500 then
+                                PSInvoiceTxt := PSInvoiceTxt + '|' + PurchInvoice.InvoiceNo;
                         end;
                         ;
                     end;
@@ -33,7 +34,8 @@ codeunit 51006 "ACC Purch Receipt Event"
                         if TmpEINV = '' then begin
                             eInvoiceTxt := PurchInvoice.VendorInvoiceNo;
                         end else begin
-                            eInvoiceTxt := PSInvoiceTxt + '|' + PurchInvoice.VendorInvoiceNo;
+                            if StrLen(eInvoiceTxt + '|' + PurchInvoice.VendorInvoiceNo) < 500 then
+                                eInvoiceTxt := eInvoiceTxt + '|' + PurchInvoice.VendorInvoiceNo;
                         end;
                         ;
                     end;
