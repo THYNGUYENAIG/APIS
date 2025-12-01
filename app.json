@@ -1,69 +1,71 @@
-{
-    "id": "28dc94e1-10d8-421a-9a36-8426c8b5affe",    
-    "name": "BC APIS",    
-    "publisher": "IT AIG Team",
-    "version": "2025.11.27.1342",
-    "brief": "",
-    "description": "",
-    "privacyStatement": "",
-    "EULA": "",
-    "help": "",
-    "url": "",
-    "logo": "",
-    "dependencies": [
-          {
-            "id": "ec8dbeab-7f0a-4eb9-9cb4-e1a4eed8893d",
-            "name": "E-Invoice Integration",
-            "publisher": "Balas Technologies Co., Ltd.",
-            "version": "2025.3.20.2241"
-        },
-        {
-            "id": "9273038e-93fb-4816-a399-2b5a6c56e90b",
-            "name": "Vietnam Accounting Localization Pack",
-            "publisher": "Balas Technologies Co., Ltd.",
-            "version": "2025.3.13.1515"
-        },
-        {
-            "id": "fa515811-0051-490c-9a20-c760ac16f796",
-            "name": "Base Application",
-            "publisher": "Balas Technologies Co., Ltd.",
-            "version": "2024.4.25.1025"
-        },
-        {
-            "id": "e9848295-b5a8-4e42-a3d0-39e5d342847c",
-            "name": "ECUS Integration",
-            "publisher": "Balas Technologies Co., Ltd.",
-            "version": "2024.5.10.1130"
-        },
-        {
-            "id": "9af31164-458c-4141-9c7c-cac314965d24",
-            "name": "ACC GAPs",
-            "publisher": "Balas Technologies Co., Ltd.",
-            "version": "2025.3.6.1330"
-        },
-        {
-            "id": "a5727ce6-368c-49e2-84cb-1a6052f0551c",
-            "name": "Tasklet Mobile WMS",
-            "publisher": "Tasklet Factory",
-            "version": "5.0.0.0"
-        }          
-    ],
-    "screenshots": [],
-    "platform": "1.0.0.0",
-    "application": "26.2.0.0",
-    "idRanges": [
-        {
-            "from": 50000,
-            "to": 59999
-        }
-    ],
-    "resourceExposurePolicy": {
-        "allowDebugging": false,
-        "allowDownloadingSource": false,
-        "includeSourceInSymbolFile": false
-    },
-    "runtime": "14.0",
-    "features": [
-        "NoImplicitWith"
-    ]
+﻿{
+    "id":  "28dc94e1-10d8-421a-9a36-8426c8b5affe",
+    "name":  "BC APIS",
+    "publisher":  "IT AIG Team",
+    "version":  "2025.12.01.1338",
+    "brief":  "",
+    "description":  "",
+    "privacyStatement":  "",
+    "EULA":  "",
+    "help":  "",
+    "url":  "",
+    "logo":  "",
+    "dependencies":  [
+                         {
+                             "id":  "ec8dbeab-7f0a-4eb9-9cb4-e1a4eed8893d",
+                             "name":  "E-Invoice Integration",
+                             "publisher":  "Balas Technologies Co., Ltd.",
+                             "version":  "2025.3.20.2241"
+                         },
+                         {
+                             "id":  "9273038e-93fb-4816-a399-2b5a6c56e90b",
+                             "name":  "Vietnam Accounting Localization Pack",
+                             "publisher":  "Balas Technologies Co., Ltd.",
+                             "version":  "2025.3.13.1515"
+                         },
+                         {
+                             "id":  "fa515811-0051-490c-9a20-c760ac16f796",
+                             "name":  "Base Application",
+                             "publisher":  "Balas Technologies Co., Ltd.",
+                             "version":  "2024.4.25.1025"
+                         },
+                         {
+                             "id":  "e9848295-b5a8-4e42-a3d0-39e5d342847c",
+                             "name":  "ECUS Integration",
+                             "publisher":  "Balas Technologies Co., Ltd.",
+                             "version":  "2024.5.10.1130"
+                         },
+                         {
+                             "id":  "9af31164-458c-4141-9c7c-cac314965d24",
+                             "name":  "ACC GAPs",
+                             "publisher":  "Balas Technologies Co., Ltd.",
+                             "version":  "2025.3.6.1330"
+                         },
+                         {
+                             "id":  "a5727ce6-368c-49e2-84cb-1a6052f0551c",
+                             "name":  "Tasklet Mobile WMS",
+                             "publisher":  "Tasklet Factory",
+                             "version":  "5.0.0.0"
+                         }
+                     ],
+    "screenshots":  [
+
+                    ],
+    "platform":  "1.0.0.0",
+    "application":  "26.2.0.0",
+    "idRanges":  [
+                     {
+                         "from":  50000,
+                         "to":  59999
+                     }
+                 ],
+    "resourceExposurePolicy":  {
+                                   "allowDebugging":  false,
+                                   "allowDownloadingSource":  false,
+                                   "includeSourceInSymbolFile":  false
+                               },
+    "runtime":  "14.0",
+    "features":  [
+                     "NoImplicitWith"
+                 ]
 }
