@@ -22,7 +22,8 @@ query 51904 "ACC Inventory By Bin"
                 DataItemLink = "Bin Code" = BinContent."Bin Code",
                                "Item No." = BinContent."Item No.",
                                "Location Code" = BinContent."Location Code",
-                               "Variant Code" = BinContent."Variant Code";
+                               "Variant Code" = BinContent."Variant Code",
+                               "Unit of Measure Code" = BinContent."Unit of Measure Code";
                 //column(ItemName; Description) { }                
                 column(Quantity; "Qty. (Base)")
                 {

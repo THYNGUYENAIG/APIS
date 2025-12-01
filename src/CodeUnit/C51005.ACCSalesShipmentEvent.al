@@ -28,7 +28,8 @@ codeunit 51005 "ACC Sales Shipment Event"
                             if TmpPSIN = '' then begin
                                 PSInvoiceTxt := SalesInvoice.InvoiceNo;
                             end else begin
-                                PSInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.InvoiceNo;
+                                if StrLen(PSInvoiceTxt + '|' + SalesInvoice.InvoiceNo) <= 100 then
+                                    PSInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.InvoiceNo;
                             end;
                             ;
                         end;
@@ -38,9 +39,12 @@ codeunit 51005 "ACC Sales Shipment Event"
                                 TaxAuthorityNumber := SalesInvoice.eInvoiceCode;
                                 ExternalDocument := SalesInvoice.ExternalDocumentNo;
                             end else begin
-                                eInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.eInvoiceNo;
-                                TaxAuthorityNumber := TaxAuthorityNumber + '|' + SalesInvoice.eInvoiceCode;
-                                ExternalDocument := ExternalDocument + '|' + SalesInvoice.ExternalDocumentNo;
+                                if StrLen(PSInvoiceTxt + '|' + SalesInvoice.eInvoiceNo) <= 100 then
+                                    eInvoiceTxt := PSInvoiceTxt + '|' + SalesInvoice.eInvoiceNo;
+                                if StrLen(TaxAuthorityNumber + '|' + SalesInvoice.eInvoiceCode) <= 255 then
+                                    TaxAuthorityNumber := TaxAuthorityNumber + '|' + SalesInvoice.eInvoiceCode;
+                                if StrLen(ExternalDocument + '|' + SalesInvoice.ExternalDocumentNo) < 50 then
+                                    ExternalDocument := ExternalDocument + '|' + SalesInvoice.ExternalDocumentNo;
                             end;
                             ;
                         end;
