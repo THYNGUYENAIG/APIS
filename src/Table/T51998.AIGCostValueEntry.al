@@ -33,7 +33,7 @@ table 51998 "AIG Cost Value Entry"
             FieldClass = FlowField;
             CalcFormula = sum("Value Entry"."Cost Amount (Actual)" where("Item Ledger Entry No." = field("Item Ledger Entry No."),
                                                                          "Posting Date" = field("Posting Date"),
-                                                                         "Gen. Prod. Posting Group" = filter('GOODS|FG|SERVICE-511'),
+                                                                         //"Gen. Prod. Posting Group" = filter('GOODS|FG|SERVICE-511'),
                                                                          Adjustment = filter(false)));
         }
         field(50; "Cost Amount Adjustment"; Decimal)
@@ -44,7 +44,7 @@ table 51998 "AIG Cost Value Entry"
             FieldClass = FlowField;
             CalcFormula = sum("Value Entry"."Cost Amount (Actual)" where("Item Ledger Entry No." = field("Item Ledger Entry No."),
                                                                          "Posting Date" = field("Posting Date"),
-                                                                         "Gen. Prod. Posting Group" = filter('GOODS|FG|SERVICE-511'),
+                                                                         //"Gen. Prod. Posting Group" = filter('GOODS|FG|SERVICE-511'),
                                                                          Adjustment = filter(true)));
         }
         field(60; "AIG Cost Amount"; Decimal)
