@@ -412,5 +412,9 @@ permissionset 50000 "APIS Permission"
         query "AIG Sales Invoice Qry" = X,
         query "AIG Sales Invoice Value Entry" = X,
         query "AIG Transaction Entry" = X,
-        query "AIG Vendor Ledger Entry" = X;
+        query "AIG Vendor Ledger Entry" = X,
+        report "ACC Purch Contract US Report 1" = X,
+        report "ACC Purch Contract US Report 3" = X,
+        codeunit "ACC Document Modify" = X,
+        page "ACC Change Document" = X;
 }
