@@ -34,6 +34,45 @@ pageextension 51008 "ACC Purchase Order Card" extends "Purchase Order"
         {
             group(Report)
             {
+                action(ACCContractUSAsPDF_Normal)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Contract As PDF (Normal)';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    Visible = Rec."VAT Bus. Posting Group" = 'OVERSEA';
+                    Enabled = Rec.Status = "Purchase Document Status"::Released;
+                    trigger OnAction();
+                    begin
+                        GetDataContractUSAsPDF(0);
+                    end;
+                }
+                action(ACCContractUSAsPDF_Givaudan)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Contract As PDF (Givaudan, Symrise)';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    Visible = Rec."VAT Bus. Posting Group" = 'OVERSEA';
+                    Enabled = Rec.Status = "Purchase Document Status"::Released;
+                    trigger OnAction();
+                    begin
+                        GetDataContractUSAsPDF(1);
+                    end;
+                }
+                action(ACCContractUSAsPDF_FIRMENICH)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Contract As PDF (FIRMENICH)';
+                    Promoted = true;
+                    PromotedCategory = Process;
+                    Visible = Rec."VAT Bus. Posting Group" = 'OVERSEA';
+                    Enabled = Rec.Status = "Purchase Document Status"::Released;
+                    trigger OnAction();
+                    begin
+                        GetDataContractUSAsPDF(2);
+                    end;
+                }
                 action(ACCContractUS)
                 {
                     ApplicationArea = All;
@@ -92,6 +131,43 @@ pageextension 51008 "ACC Purchase Order Card" extends "Purchase Order"
             }
         }
     }
+
+    local procedure GetDataContractUSAsPDF(Layout: Option Normal,Givaudan,FIRMENICH)
+    var
+        TempBlob: Codeunit "Temp Blob";
+        FileManagement: Codeunit "File Management";
+        OStream: OutStream;
+
+        Field: Record "Purchase Header";
+        FieldRec: Record "Purchase Header";
+        SelectionFilterManagement: Codeunit SelectionFilterManagement;
+        RecRef: RecordRef;
+        FieldReport: Report "ACC Purch Contract US Report";
+        ACSFieldReport: Report "ACS Purch Contract US Report";
+        CompanyId: Text;
+    begin
+        CompanyId := CompanyName;
+
+        CurrPage.SetSelectionFilter(Field);
+        RecRef.GetTable(Field);
+        TempBlob.CreateOutStream(OStream);
+
+        if CompanyId = 'ACS' then begin
+            Report.SaveAs(Report::"ACS Purch Contract US Report", '', ReportFormat::Pdf, OStream, RecRef);
+            FileManagement.BLOBExport(TempBlob, 'Purchase Order_' + Rec."No." + '_' + Format(CurrentDateTime, 0, '<Year4><Day,2><Month,2><Hours24><Minutes,2><Seconds,2>') + '.pdf', true);
+        end else begin
+            case Layout of
+                Layout::Normal:
+                    Report.SaveAs(Report::"ACC Purch Contract US Report 1", '', ReportFormat::Pdf, OStream, RecRef);
+                Layout::Givaudan:
+                    Report.SaveAs(Report::"ACC Purch Contract US Report", '', ReportFormat::Pdf, OStream, RecRef);
+                Layout::FIRMENICH:
+                    Report.SaveAs(Report::"ACC Purch Contract US Report 3", '', ReportFormat::Pdf, OStream, RecRef);
+            end;
+            FileManagement.BLOBExport(TempBlob, 'Purchase Order_' + Rec."No." + '_' + Format(CurrentDateTime, 0, '<Year4><Day,2><Month,2><Hours24><Minutes,2><Seconds,2>') + '.pdf', true);
+        end;
+    end;
+
     local procedure GetDataContractUS()
     var
         Field: Record "Purchase Header";

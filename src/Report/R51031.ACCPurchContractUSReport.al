@@ -1,11 +1,11 @@
-report 51010 "ACC Purch Contract US Report"
+report 51031 "ACC Purch Contract US Report 1"
 {
     ApplicationArea = All;
-    Caption = 'APIS Purchase Contract US Report - R51010 (Givaudan, Symrise)';
+    Caption = 'APIS Purchase Contract US Report - R51031 (Normal)';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;
-    RDLCLayout = 'src/Layout/R51010.ACCPurchContractUSReport.rdl';
+    RDLCLayout = 'src/Layout/R51031.ACCPurchContractUSReport.rdl';
     dataset
     {
         dataitem(PurchaseHeader; "Purchase Header")

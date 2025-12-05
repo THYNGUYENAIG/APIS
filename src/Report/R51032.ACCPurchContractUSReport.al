@@ -1,11 +1,11 @@
-report 51010 "ACC Purch Contract US Report"
+report 51032 "ACC Purch Contract US Report 3"
 {
     ApplicationArea = All;
-    Caption = 'APIS Purchase Contract US Report - R51010 (Givaudan, Symrise)';
+    Caption = 'APIS Purchase Contract US Report - R51032 (FIRMENICH)';
     UsageCategory = ReportsAndAnalysis;
     DataAccessIntent = ReadOnly;
     DefaultLayout = RDLC;
-    RDLCLayout = 'src/Layout/R51010.ACCPurchContractUSReport.rdl';
+    RDLCLayout = 'src/Layout/R51032.ACCPurchContractUSReport.rdl';
     dataset
     {
         dataitem(PurchaseHeader; "Purchase Header")
@@ -188,7 +188,7 @@ report 51010 "ACC Purch Contract US Report"
             end;
             ItemVoucher.Close();
         end;
-        DocumentsAndProductAgeRequired := ItemDocument + '<br>- Goods must not exceed following months old at time of dispatch from product date:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 1 month if Shelf-life less than 12 months<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 2 months if Shelf-life of 12 months<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 3 months if Shelf-life longer than 12 months';
+        // DocumentsAndProductAgeRequired := ItemDocument + '<br>- Goods must not exceed following months old at time of dispatch from product date:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 1 month if Shelf-life less than 12 months<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 2 months if Shelf-life of 12 months<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 3 months if Shelf-life longer than 12 months';
 
         if VendTable.Get(PurchaseHeader."Buy-from Vendor No.") then begin
         end;

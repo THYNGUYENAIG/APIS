@@ -887,4 +887,13 @@ codeunit 51004 "ACC Event Subscriber"
 
         Rec.Modify();
     end;
+
+
+    [EventSubscriber(ObjectType::Table, Database::"Requisition Line", 'OnAfterCopyFromItem', '', true, true)]
+    local procedure RequisitionLine_OnAfterCopyFromItem(var RequisitionLine: Record "Requisition Line"; Item: Record Item; CurrentFieldNo: Integer)
+    begin
+        RequisitionLine."ACC Chemical Categorization" := Item."BLACC Chemical Categorization";
+        RequisitionLine."ACC Origin of Country Code" := Item."Country/Region of Origin Code";
+    end;
+
 }
