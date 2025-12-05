@@ -241,8 +241,9 @@ tableextension 52005 "ACC Item Ledger Entry Ext" extends "Item Ledger Entry"
                     case Rec."Document Type" of
                         "Item Ledger Document Type"::"Transfer Shipment":
                             begin
-                                recTSH.Get(ivrecILE."Document No.");
-                                tOrder := recTSH."BLTI eInvoice No.";
+                                tOrder := '';
+                                if recTSH.Get(ivrecILE."Document No.") then
+                                    tOrder := recTSH."BLTI eInvoice No.";
                             end;
                     end;
                 end;
