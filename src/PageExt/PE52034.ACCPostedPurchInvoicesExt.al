@@ -4,7 +4,7 @@ pageextension 52034 "ACC Posted Purch. Invoices Ext" extends "Posted Purchase In
     {
         addlast(processing)
         {
-            action(ACCChangeDocument)
+            action(AIGACCChangeDocument)
             {
                 ApplicationArea = All;
                 Caption = 'Change Document';

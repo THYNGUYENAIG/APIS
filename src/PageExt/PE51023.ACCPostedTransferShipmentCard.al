@@ -38,4 +38,10 @@ pageextension 51023 "ACC Transfer Shipment Card" extends "Posted Transfer Shipme
         FieldReport.SetTableView(FieldRec);
         FieldReport.Run();
     end;
+
+    trigger OnDeleteRecord(): Boolean
+    begin
+        Message('You cannot delete Posted Transfer Shipment.');
+        exit(false);
+    end;
 }

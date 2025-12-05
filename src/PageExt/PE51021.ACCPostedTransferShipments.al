@@ -32,6 +32,7 @@ pageextension 51021 "ACC Posted Transfer Shipments" extends "Posted Transfer Shi
                 }
             }
         }
+
     }
     local procedure GetDataTransferShipment()
     var
@@ -48,5 +49,11 @@ pageextension 51021 "ACC Posted Transfer Shipments" extends "Posted Transfer Shi
         FieldRec.SetFilter("No.", SelectionFilterManagement.GetSelectionFilter(RecRef, Field.FieldNo("No.")));
         FieldReport.SetTableView(FieldRec);
         FieldReport.Run();
+    end;
+
+    trigger OnDeleteRecord(): Boolean
+    begin
+        Message('You cannot delete Posted Transfer Shipment.');
+        exit(false);
     end;
 }
