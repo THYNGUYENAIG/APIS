@@ -51,7 +51,7 @@ pageextension 51002 "ACC Purchase Orders" extends "Purchase Order List"
                     Enabled = Rec.Status = "Purchase Document Status"::Released;
                     trigger OnAction();
                     begin
-                        GetDataContractUSAsPDF(0);
+                        GetDataContractUSAsPDFs(0);
                     end;
                 }
                 action(ACCContractUSAsPDF_Givaudan)
@@ -64,7 +64,7 @@ pageextension 51002 "ACC Purchase Orders" extends "Purchase Order List"
                     Enabled = Rec.Status = "Purchase Document Status"::Released;
                     trigger OnAction();
                     begin
-                        GetDataContractUSAsPDF(1);
+                        GetDataContractUSAsPDFs(1);
                     end;
                 }
                 action(ACCContractUSAsPDF_FIRMENICH)
@@ -77,7 +77,7 @@ pageextension 51002 "ACC Purchase Orders" extends "Purchase Order List"
                     Enabled = Rec.Status = "Purchase Document Status"::Released;
                     trigger OnAction();
                     begin
-                        GetDataContractUSAsPDF(2);
+                        GetDataContractUSAsPDFs(2);
                     end;
                 }
                 action(ACCContractUS)
@@ -138,6 +138,63 @@ pageextension 51002 "ACC Purchase Orders" extends "Purchase Order List"
             }
         }
     }
+    local procedure GetDataContractUSAsPDFs(Layout: Option Normal,Givaudan,FIRMENICH)
+    var
+        lRec_PurchHeader: Record "Purchase Header";
+        TempBlob: Codeunit "Temp Blob";
+        OutS: OutStream;
+        InS: InStream;
+        RecRef: RecordRef;
+        FldRef: FieldRef;
+        SalesHeader: Record "Sales Header";
+        DataCompression: Codeunit "Data Compression";
+        ZipFileName: Text[50];
+        PdfFileName: Text[50];
+        Count: Integer;
+        CompanyId: Text;
+    begin
+        CompanyId := CompanyName;
+        ZipFileName := 'PurchaseOrder_' + Format(CurrentDateTime) + '.zip';
+        DataCompression.CreateZipArchive();
+        lRec_PurchHeader.Reset();
+        CurrPage.SetSelectionFilter(lRec_PurchHeader);
+        Count := lRec_PurchHeader.Count();
+        if Count = 1 then begin
+            GetDataContractUSAsPDF(Layout);
+        end else begin
+            if lRec_PurchHeader.FindSet() then
+                repeat
+                    Clear(TempBlob);
+                    TempBlob.CreateOutStream(OutS);
+                    Clear(RecRef);
+                    RecRef.GetTable(lRec_PurchHeader);
+                    FldRef := RecRef.Field(lRec_PurchHeader.FieldNo("No."));
+                    FldRef.SetRange(lRec_PurchHeader."No.");
+                    if RecRef.FindFirst() then begin
+                        if CompanyId = 'ACS' then
+                            Report.SaveAs(Report::"ACS Purch Contract US Report", '', ReportFormat::Pdf, OutS, RecRef)
+                        else begin
+                            case Layout of
+                                Layout::Normal:
+                                    Report.SaveAs(Report::"ACC Purch Contract US Report 1", '', ReportFormat::Pdf, OutS, RecRef);
+                                Layout::Givaudan:
+                                    Report.SaveAs(Report::"ACC Purch Contract US Report", '', ReportFormat::Pdf, OutS, RecRef);
+                                Layout::FIRMENICH:
+                                    Report.SaveAs(Report::"ACC Purch Contract US Report 3", '', ReportFormat::Pdf, OutS, RecRef);
+                            end;
+                        end;
+                        TempBlob.CreateInStream(InS);
+                        PdfFileName := StrSubstNo('Purchase Order_%1_%2.pdf', lRec_PurchHeader."No.", Format(CurrentDateTime, 0, '<Year4><Day,2><Month,2><Hours24><Minutes,2><Seconds,2>'));
+                        DataCompression.AddEntry(InS, PdfFileName);
+                    end
+                until lRec_PurchHeader.Next() = 0;
+            TempBlob.CreateOutStream(OutS);
+            DataCompression.SaveZipArchive(OutS);
+            TempBlob.CreateInStream(InS);
+            DownloadFromStream(InS, '', '', '', ZipFileName);
+        end;
+    end;
+
     local procedure GetDataContractUSAsPDF(Layout: Option Normal,Givaudan,FIRMENICH)
     var
         TempBlob: Codeunit "Temp Blob";
