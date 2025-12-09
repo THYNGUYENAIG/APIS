@@ -17,7 +17,7 @@ report 51031 "ACC Purch Contract US Report 1"
             column(BuyFromAddress; "Buy-from Address") { }
             column(BuyFromAddress02; "Buy-from Address 2") { }
             column(BuyFromCity; "Buy-from City") { }
-            column(VNAddress; VendTable."BLACC VN Address") { }
+            column(VNAddress; VNAddress) { }
             column(BuyToVATRegistration; VendTable."VAT Registration No.") { }
             column(BuyToPhone; VendTable."Phone No.") { }
             column(BuyToFax; VendTable."Fax No.") { }
@@ -191,6 +191,12 @@ report 51031 "ACC Purch Contract US Report 1"
         DocumentsAndProductAgeRequired := ItemDocument + '<br>- Goods must not exceed following months old at time of dispatch from product date:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 1 month if Shelf-life less than 12 months<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 2 months if Shelf-life of 12 months<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ 3 months if Shelf-life longer than 12 months';
 
         if VendTable.Get(PurchaseHeader."Buy-from Vendor No.") then begin
+            VNAddress := VendTable."BLACC VN Address";
+            if PurchaseHeader."Order Address Code" <> '' then begin
+                if OrderAddress.Get(PurchaseHeader."Buy-from Vendor No.", PurchaseHeader."Order Address Code") then begin
+                    VNAddress := OrderAddress."ACC Vendor Address";
+                end;
+            end;
         end;
         if VendContact.Get(PurchaseHeader."Buy-from Contact No.") then begin
         end;
@@ -257,6 +263,7 @@ report 51031 "ACC Purch Contract US Report 1"
         VendContact: Record Contact;
         PaymentTerm: Record "Payment Terms";
         ItemTable: Record Item;
+        OrderAddress: Record "Order Address";
         OtherTermsAndConditions: Text;
         DocumentsAndProductAgeRequired: Text;
         OtherInformation: Text;
@@ -271,4 +278,5 @@ report 51031 "ACC Purch Contract US Report 1"
         CompanyBusinessAddressUSD: Text;
         ShelfLifeDescription: Text;
         UnitofMeasureCode: Text;
+        VNAddress: Text;
 }

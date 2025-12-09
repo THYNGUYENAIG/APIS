@@ -18,7 +18,7 @@ report 51009 "ACC PO Contract GIV VN Report"
             column(BuyFromAddress02; "Buy-from Address 2") { }
             column(BuyFromCity; "Buy-from City") { }
             column(BuyToVATRegistration; VendTable."VAT Registration No.") { }
-            column(BuyFromVNAddress; VendTable."BLACC VN Address") { }
+            column(BuyFromVNAddress; VNAddress) { }
             column(BuyToPhone; VendTable."Phone No.") { }
             column(BuyToFax; VendTable."Fax No.") { }
             column(BuyToBankName; VendBankAccount.Name) { }
@@ -99,6 +99,12 @@ report 51009 "ACC PO Contract GIV VN Report"
             CompanyInfo.CalcFields(Picture);
         end;
         if VendTable.Get(PurchaseHeader."Buy-from Vendor No.") then begin
+			VNAddress := VendTable."BLACC VN Address";
+            if PurchaseHeader."Order Address Code" <> '' then begin
+                if OrderAddress.Get(PurchaseHeader."Buy-from Vendor No.", PurchaseHeader."Order Address Code") then begin
+                    VNAddress := OrderAddress."ACC Vendor Address";
+                end;
+            end;
         end;
         if Purchaser.Get(PurchaseHeader."Purchaser Code") then begin
         end;
@@ -125,7 +131,9 @@ report 51009 "ACC PO Contract GIV VN Report"
         Purchaser: Record "Salesperson/Purchaser";
         VendContact: Record Contact;
         ItemTable: Record Item;
+        OrderAddress: Record "Order Address";
         CountryTable: Record "Country/Region";
         DeliveryAddress: Text;
         PurchaserName: Text;
+        VNAddress: Text;
 }
