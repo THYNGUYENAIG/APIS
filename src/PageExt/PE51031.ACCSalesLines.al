@@ -4,26 +4,15 @@ pageextension 51031 "ACC Sales Lines" extends "Sales Lines"
     {
         addafter("Sell-to Customer Name")
         {
-            field("Delivery Address"; Rec."ACC Delivery Address")
-            {
-                ApplicationArea = All;
-            }
-            field("Delivery Note"; Rec."ACC Delivery Note")
-            {
-                ApplicationArea = All;
-            }
-            field("Salesperson Name"; SalespersonName)
-            {
-                ApplicationArea = All;
-            }
-            field("Approved By"; ApprovedBy)
-            {
-                ApplicationArea = All;
-            }
-            field("Workflow State"; WorkflowState)
-            {
-                ApplicationArea = All;
-            }
+            field("Delivery Address"; Rec."ACC Delivery Address") { ApplicationArea = All; }
+            field("Delivery Note"; Rec."ACC Delivery Note") { ApplicationArea = All; }
+            field("Salesperson Name"; SalespersonName) { ApplicationArea = All; }
+            field("Approved By"; ApprovedBy) { ApplicationArea = All; }
+            field("Workflow State"; WorkflowState) { ApplicationArea = All; }
+            field("ACC External Document No."; Rec."ACC External Document No.") { ApplicationArea = All; }
+            field("ACC Agreement StartDate"; Rec."ACC Agreement StartDate") { ApplicationArea = All; }
+            field("ACC Agreement EndDate"; Rec."ACC Agreement EndDate") { ApplicationArea = All; }
+            field("ACC Contract Return Date"; Rec."ACC Contract Return Date") { ApplicationArea = All; }
         }
     }
     trigger OnAfterGetRecord()

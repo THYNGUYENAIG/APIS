@@ -10,7 +10,7 @@ tableextension 51008 "ACC Sales Line" extends "Sales Line"
                 Number01: Decimal;
                 Number02: Decimal;
             begin
-                if SalesHeader."Document Type" <> "Sales Document Type"::Order then
+                if Rec."Document Type" <> "Sales Document Type"::Order then
                     exit;
                 if SalesHeader.Get(Rec."Document Type", Rec."Document No.") then begin
                     if SalesHeader."Sales Type" <> "ACC Sales Type"::Sample then begin
@@ -58,10 +58,40 @@ tableextension 51008 "ACC Sales Line" extends "Sales Line"
             FieldClass = FlowField;
             CalcFormula = lookup(Item."Net Weight" where("No." = field("No.")));
         }
+
+        field(50005; "ACC External Document No."; Code[35])
+        {
+            Caption = 'External Document No.';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."External Document No." where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
+
+        field(50006; "ACC Agreement StartDate"; Date)
+        {
+            Caption = 'Agreement StartDate';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."BLACC Agreement StartDate" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
+        field(50007; "ACC Agreement EndDate"; Date)
+        {
+            Caption = 'Agreement EndDate';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."BLACC Agreement EndDate" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
+        field(50008; "ACC Contract Return Date"; Date)
+        {
+            Caption = 'Contract Return Date';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = lookup("Sales Header"."BLACC Contract Return Date" where("No." = field("Document No."), "Document Type" = field("Document Type")));
+        }
     }
     keys
     {
-        key(Key25; "Document Type", "Document No.", Type)
+        key(Key23; "Document Type", "Document No.", Type)
         {
             SumIndexFields = "Outstanding Quantity", Quantity, "Quantity Shipped", "Quantity Invoiced";
         }
