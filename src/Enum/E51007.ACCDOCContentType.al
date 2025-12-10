@@ -38,4 +38,5 @@ enum 51007 "ACC DOC Content Type"
     value(30; "ORGANIC CERT") { Caption = 'ORGANIC CERT'; }
     value(31; "IFS") { Caption = 'IFS'; }
     value(32; "RSPO") { Caption = 'RSPO'; }
+    value(33; "FDA") { Caption = 'FDA'; }
 }
