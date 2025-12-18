@@ -43,6 +43,10 @@ page 51014 "ACC Quality Control Card"
                 {
                     Editable = false;
                 }
+                field("Has Line"; Rec."Has Line")
+                {
+                    Visible = HasVisible;
+                }
             }
             part(QualityControlLine; "ACC Quality Control Line")
             {
@@ -55,4 +59,15 @@ page 51014 "ACC Quality Control Card"
             }
         }
     }
+
+    trigger OnOpenPage()
+    begin
+        if UserId = 'APPLICATION 1' then
+            HasVisible := true
+        else
+            HasVisible := false;
+    end;
+
+    var
+        HasVisible: Boolean;
 }

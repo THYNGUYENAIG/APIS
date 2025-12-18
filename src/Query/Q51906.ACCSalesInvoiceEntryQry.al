@@ -25,7 +25,7 @@ query 51906 "ACC Sales Invoice Entry Qry"
                 column(LocationCode; "Location Code") { }
                 dataitem(ValueEntry; "Value Entry")
                 {
-                    DataItemTableFilter = "Document Type" = filter('Sales Invoice');
+                    DataItemTableFilter = "Document Type" = const("Sales Invoice");
                     DataItemLink = "Item Ledger Entry No." = ItemLedgerEntry."Entry No.";
                     SqlJoinType = InnerJoin;
                     dataitem(SalesInvoiceHeader; "Sales Invoice Header")
